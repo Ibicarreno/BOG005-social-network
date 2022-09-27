@@ -35,5 +35,17 @@
   },
   "engines": {
     "node": ">=14"
-  }
+  },
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ibicarreno/BOG005-social-network.git"
+  },
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/Ibicarreno/BOG005-social-network/issues"
+  },
+  "homepage": "https://github.com/Ibicarreno/BOG005-social-network#readme"
 }
