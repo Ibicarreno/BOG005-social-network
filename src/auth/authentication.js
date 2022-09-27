@@ -6,7 +6,11 @@ import {
   import { app } from "../config/configFireBase.js";
   import { onNavigate } from "../main.js";
   import { Login } from "../pages/login.js";
+  
   const auth = getAuth(app);
+//   console.log(auth.languageCode = "es");
+//   console.log(auth);
+
   const root = document.getElementById('root');
   
   const createEmail = (email, password) => {
@@ -24,6 +28,7 @@ import {
         onNavigate("/register");
       });
   };
+  
   
   export { createEmail };
   
