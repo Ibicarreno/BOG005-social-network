@@ -9,6 +9,9 @@ import {
   import { Login } from "../pages/login.js";
   import { feed } from "../pages/feed.js"; //ibeht
   const auth = getAuth(app);
+//   console.log(auth.languageCode = "es");
+//   console.log(auth);
+
   const root = document.getElementById('root');
   
   const createEmail = (email, password) => {
@@ -44,5 +47,4 @@ import {
   }
 
   
-  export { createEmail, validateUserAndPass };
-  
+export { createEmail, validateUserAndPass };

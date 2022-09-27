@@ -39,8 +39,8 @@ if (activeRegister) {
   });
 }
 
-const inputEmail = document.getElementById("emailUser");
-const inputPass = document.getElementById("passWordUser");
+const inputEmail = document.getElementById("registerEmailUser");
+const inputPass = document.getElementById("registerPassWordUser");
 let bottonRegister = document.getElementById("bottonRegister");
 
 /*Botón para validar el registro*/
