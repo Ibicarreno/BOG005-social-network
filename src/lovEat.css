@@ -55,15 +55,21 @@ main video {
     display: none;
 }
 
-.sectionLogIn input{
+.sectionLogIn input {
     background-color:#F0F0F0 ;
-    color: rgba(0, 0, 0, 0.207);
+    color: black;
+    /* color: rgba(0, 0, 0, 0.207); */
     border: none;
     margin: 10px;
     border-radius: 10px;
     width: 200px;
     height: 40px;
 }
+
+/* .sectionLogIn input  */
+/* .sectionLogIn input #emailUser #passWordUser{
+    color: black;
+} */
 
 .sectionLogIn input::placeholder{
     color: rgba(0, 0, 0, 0.265);
@@ -89,11 +95,9 @@ main video {
 .sectionLogIn button:hover {
     background-color:black ;
     cursor: pointer;
+    transition: 0.5ms;
 }
 
-/* .sigInMobile p, a{
-    display: none;
-} */
 #sigInMobile {
     margin: 10px;
     display:flex;
@@ -127,23 +131,47 @@ main video {
 .registerView h2{
     color: #7989EC;
     margin-block-end: 1.5em;
-    margin-bottom: inherit;
+    /* margin-bottom: inherit; */
     /* font-weight: normal; */
 }
 
 .registerView input {
     background-color:#F0F0F0 ;
-    color: rgba(0, 0, 0, 0.207);
+    color: black;
     border: none;
-    margin: 8px;
+    margin: 6px;
     border-radius: 10px;
     width: 200px;
-    height: 40px;
+    height: 25px;
+    text-align: center;
+    padding: 0.5em;
+}
+
+.registerView #bottonRegister{
+    background-color:#A6D48A ;
+    color: white;
+    border: none;
+    margin: 10px;
+    border-radius: 30px;
+    width: 166px;
+    height: 35px;
+    font-weight: bold;
+}
+
+.registerView #bottonRegister:hover{
+    background-color:black ;
+    cursor: pointer;
+    transition: 0.5ms;
 }
 
 #imgGoogle{
-    width: 3em;
-    height: 3em;
+    width: 2.5em;
+    height: 2.5em;
+    opacity: 0.8;
+}
+
+#imgGoogle:hover{
+   cursor: pointer;
 }
 
 footer {
@@ -151,16 +179,37 @@ footer {
 }
 
 @media screen and (min-width: 768px) and (max-width:1023px){
-
-    .sigInMobile p, a{
-        display: none;
+    .sectionLogIn {
+        margin-top: 25vh;
+        justify-content: start;
+        width: 246px;
+        height: 280px;
     }
 
+    .sectionLogIn p {
+        display: block;
+        color: #7989EC;
+        padding: 0.5em;
+        font-weight: bold;
+    }
+
+    .sectionLogIn input {
+        margin: 8px;
+    }
+
+    #sigInMobile{
+        margin: 0;
+    bottom: 80px;
+    position: absolute;
+    }
+    #sigInMobile p {
+        color: black;
+    }
     footer {
         background-color:#D9D9D9;
         display: flex;
         width: 824px;
-        height: 122px;
+        height: 50px;
         text-align: center;
         align-items: center;
         justify-content: center;
@@ -201,7 +250,7 @@ footer {
     }
     .sectionLogIn input{
         background-color:#F0F0F0 ;
-        color: rgba(0, 0, 0, 0.207);
+        /* color: rgba(0, 0, 0, 0.207); */
         border: none;
         margin: 15px;
         border-radius: 27px;

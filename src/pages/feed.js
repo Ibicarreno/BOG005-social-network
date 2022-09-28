@@ -10,7 +10,7 @@
 export const feed = 
 `
 <div class= "feedView">
-<h2>Pagina en construccion</h2>
+<h2>Página en construcción</h2>
 <button id="bottonProfile">Ir al perfil</button>
 </div>
 `
