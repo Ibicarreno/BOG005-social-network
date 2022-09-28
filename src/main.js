@@ -39,31 +39,28 @@ if (activeRegister) {
   });
 }
 
-const inputEmail = document.getElementById("emailUser");
-const inputPass = document.getElementById("passWordUser");
+const inputEmail = document.getElementById("registerEmailUser");
+const inputPass = document.getElementById("registerPassWordUser");
 let bottonRegister = document.getElementById("bottonRegister");
 
-/*Botón para validar el registro*/
+//BOTÓN PARA VALIDAR EL REGISTRO //
+
 if (bottonRegister) {
   bottonRegister.addEventListener("click", () => {
     createEmail(inputEmail.value, inputPass.value); /* Comando de Firebase para Autenticación */
   });
 }
 
-//Pruebas codigo
-if (bottonRegister) {
-  bottonRegister.addEventListener("click", () => {
-    createEmail(inputEmail.value, inputPass.value); /* Comando de Firebase para Autenticación */
-    })
-  }
-
 // INICIAR SESION E INGRESAR EN EL FEED
 
+const inputEmailLogIn = document.getElementById("emailUser");
+const inputPassLogIn = document.getElementById("passWordUser");
+
 let activeLogin = document.getElementById("logginButton");
-activeLogin.addEventListener("click", () => {
 if(activeLogin){
-  validateUserAndPass(inputEmail.value, inputPass.value);
-}})
+activeLogin.addEventListener("click", () => {
+  validateUserAndPass(inputEmailLogIn.value, inputPassLogIn.value);
+})}
 
 // IR DEL FEED AL PERFIL
 
@@ -72,6 +69,4 @@ if(profile){
   profile.addEventListener("click", () => {
       history.pushState(null, "profile", "/profile");
       root.innerHTML = Profile;
-    })
-}
-
+    })}
