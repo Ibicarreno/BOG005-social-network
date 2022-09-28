@@ -7,10 +7,13 @@ export const Register =
 <h2>Registro</h2>
 <input type="text" id="registerNameUser" placeholder="Nombre">
 <input type="text" id="registerEmailUser" placeholder="Correo electrónico">
-<input type="text" id="registerPassWordUser" placeholder="Contraseña">
+<input type="password" id="registerPassWordUser" placeholder="Contraseña">
 <button id="bottonRegister">REGÍSTRARSE</button>
+<div id="sectionGoogle">
 <button id="bottonGoogle">
-<img id="imgGoogle" src="./resources/google-mas.png" alt="Google">
+<img id="imgGoogle" src="./resources/google.png" alt="Google">
+<p>Entrar con Google</p>
 </button>
+</div>
 </div>
 `
