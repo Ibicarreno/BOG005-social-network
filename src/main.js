@@ -2,7 +2,7 @@ import { Profile } from "../pages/profile.js"; //ibeht
 import { feed } from "../pages/feed.js";
 import { Login } from "../pages/login.js";
 import { Register } from "../pages/register.js";
-import { createEmail, validateUserAndPass } from "./auth/authentication.js"; //ibeht
+import { createEmail, validateUserAndPass, loginWithGoogle } from "./auth/authentication.js"; //ibeht
 
 const routes = {
   '/': Login,
@@ -12,6 +12,7 @@ const routes = {
 };
 
 /* PERMITE QUE LAS RUTAS MANIPULEN EN DOM CON LOS LITERAL TEMPLATES GUARDADOS EN PAGES */
+
 const root = document.getElementById('root');
 root.innerHTML = routes[window.location.pathname];
 
@@ -23,10 +24,8 @@ export const onNavigate = (pathname) => {
     {},
     '',
     window.location.origin + pathname,
-  );
-};
+  );};
 
-//let activeLogin = document.getElementById("logginButton");
 
 /*ACCEDER A LA PÁGINA REGISTRATE*/
 
@@ -41,7 +40,9 @@ if (activeRegister) {
 
 const inputEmail = document.getElementById("registerEmailUser");
 const inputPass = document.getElementById("registerPassWordUser");
+const inputName = document.getElementById("registerNameUser");
 let bottonRegister = document.getElementById("bottonRegister");
+
 
 //BOTÓN PARA VALIDAR EL REGISTRO //
 
@@ -50,6 +51,16 @@ if (bottonRegister) {
     createEmail(inputEmail.value, inputPass.value); /* Comando de Firebase para Autenticación */
   });
 }
+
+// REGISTRARSE CON GOOGLE //
+
+let googleButton = document.getElementById("bottonGoogle");
+if (googleButton) {
+  googleButton.addEventListener("click", () => {
+    loginWithGoogle();
+  })
+}
+
 
 // INICIAR SESION E INGRESAR EN EL FEED
 
@@ -61,6 +72,7 @@ if(activeLogin){
 activeLogin.addEventListener("click", () => {
   validateUserAndPass(inputEmailLogIn.value, inputPassLogIn.value);
 })}
+
 
 // IR DEL FEED AL PERFIL
 
