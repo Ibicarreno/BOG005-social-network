@@ -1,6 +1,6 @@
 *{
     margin: 0px;
-    font-family:Arial, Helvetica, sans-serif;
+    font-family: 'Montserrat', sans-serif;
 }
 
 header {
@@ -72,18 +72,22 @@ main video {
 } */
 
 .sectionLogIn input::placeholder{
-    color: rgba(0, 0, 0, 0.265);
+    color: rgba(38, 38, 38, 0.89);
     padding: 15px;
+    font-weight: bold;
+    text-align: center;
 }
 
 .sectionLogIn a{
-    color: black;
+    color: rgb(20, 20, 20);
     font-size: 14px;
+    font-weight: bold;
     text-decoration: none;
 }
 
 .sectionLogIn button{
     background-color:#A6D48A ;
+    font-weight: bold;
     color: white;
     border: none;
     margin: 10px;
@@ -108,6 +112,7 @@ main video {
 
 #sigInMobile p{
     color: white;
+    font-weight: bold;
 }
 
 #sigInMobile a{
@@ -138,6 +143,7 @@ main video {
 .registerView input {
     background-color:#F0F0F0 ;
     color: black;
+    /* color: rgba(0, 0, 0, 0.207); */
     border: none;
     margin: 6px;
     border-radius: 10px;
@@ -163,15 +169,23 @@ main video {
     cursor: pointer;
     transition: 0.5ms;
 }
-
-#imgGoogle{
-    width: 2.5em;
-    height: 2.5em;
-    opacity: 0.8;
+#sectionGoogle p{
+font-family: 'Roboto', sans-serif;
+color: #FFFFFF ;
 }
 
-#imgGoogle:hover{
-   cursor: pointer;
+#bottonGoogle{
+    background: #4285F4
+
+}
+
+#imgGoogle{
+    width: 3em;
+    height: 3em;
+    /* size: 14px; */
+    /* width: dp(18);
+    height: dp(18); */
+    background: #FFFFFF;
 }
 
 footer {
@@ -179,11 +193,27 @@ footer {
 }
 
 @media screen and (min-width: 768px) and (max-width:1023px){
-    .sectionLogIn {
-        margin-top: 25vh;
-        justify-content: start;
-        width: 246px;
-        height: 280px;
+
+    #sigInMobile {
+        margin: 10px;
+        display:flex;
+        align-items: center;
+        text-align: center;
+        justify-content: center;
+    }
+    
+    #sigInMobile p{
+        color: white;
+        font-weight: bold;
+        padding: 5px 10px 5px 10px;
+        font-size: 15px;
+    }
+    
+    #sigInMobile a{
+        display: flex;
+        color: black;
+        font-weight: bold;
+        font-size: 15px;
     }
 
     .sectionLogIn p {
@@ -214,6 +244,14 @@ footer {
         align-items: center;
         justify-content: center;
     }
+    .sectionLogIn input::placeholder{
+        color: rgba(38, 38, 38, 0.89);
+        padding: 15px;
+        font-weight: bold;
+        text-align: center;
+        font-size: 18px;
+    }
+
 }
 
 @media screen and (min-width:1024px) {
@@ -247,6 +285,7 @@ footer {
         color: #7989EC;
         font-size: 28px;
         margin: 25px;
+        font-weight: bold;
     }
     .sectionLogIn input{
         background-color:#F0F0F0 ;
@@ -268,12 +307,12 @@ footer {
         font-weight: bold;
     }
 
-    /* #sigInMobile p{
-        display: none;
+    .sectionLogIn input::placeholder{
+        color: rgba(38, 38, 38, 0.295);
+        padding: 15px;
+        text-align: center;
+        font-size: 25px;
     }
-    #sigInMobile a{
-        display: none;
-    } */
 
     .sectionLogIn #sigInMobile{
         display:flex;
@@ -291,6 +330,39 @@ footer {
         display: flex;
         font-size: 18px;
         color: rgb(228, 87, 0);
+    }
+    .sectionLogIn input {
+        background-color:#F0F0F0 ;
+        font-size: 25px;
+        color: black;
+        border: none;
+        margin: 8px;
+        border-radius: 10px;
+        width: 300px;
+        height: 70px;
+        text-align: center;
+    }
+
+    #sigInMobile {
+        margin: 10px;
+        display:flex;
+        align-items: center;
+        text-align: center;
+        justify-content: center;
+    }
+    
+    #sigInMobile p{
+        color: white;
+        font-weight: bold;
+        padding: 5px 10px 5px 10px;
+        font-size: 18px;
+    }
+    
+    #sigInMobile a{
+        display: flex;
+        color: black;
+        font-weight: bold;
+        font-size: 18px;
     }
 
     header {
