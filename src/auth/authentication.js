@@ -24,7 +24,7 @@ import {
       .then((result) => {
         const user = result.user;
         console.log(user);
-        root.innerHTML = feed
+        // root.innerHTML = feed
         onNavigate('/feed');
       })
       .catch((error) => {

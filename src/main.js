@@ -22,19 +22,19 @@ root.innerHTML = routes[window.location.pathname];
 export const onNavigate = (pathname) => {
   window.history.pushState(
     {},
-    '',
+    pathname,
     window.location.origin + pathname,
-  );};
+  )
+root.innerHTML = routes[pathname];
+};
 
 
 /*ACCEDER A LA PÁGINA REGISTRATE*/
-
 /*Botón regístrate*/
 let activeRegister = document.getElementById("linkRegister");
 if (activeRegister) {
   activeRegister.addEventListener("click", () => {
-    history.pushState(null, "register", "/register");
-    root.innerHTML = Register;
+    onNavigate('/register')
   });
 }
 

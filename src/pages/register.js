@@ -1,13 +1,13 @@
-export const Register = 
+const Register = 
 `
 <div id="backgroundVideo">    
 <video src="./resources/pexels-vanessa-loring-5858145.mp4" autoplay loop muted></video>
 </div>
 <div class= "registerView">
-<h2>Registro</h2>
-<input type="text" id="registerNameUser" placeholder="Nombre">
-<input type="text" id="registerEmailUser" placeholder="Correo electrónico">
-<input type="password" id="registerPassWordUser" placeholder="Contraseña">
+<h2>REGISTRO</h2>
+<input type="text" class="input registerNameUser" id="registerNameUser" placeholder="Nombre">
+<input type="text" class="input registerEmailUser" id="registerEmailUser" placeholder="Correo electrónico">
+<input type="password" class="input registerrPassWordUser" id="registerPassWordUser" placeholder="Contraseña">
 <button id="bottonRegister">REGÍSTRARSE</button>
 <div id="sectionGoogle">
 <button id="bottonGoogle">
@@ -17,3 +17,4 @@ export const Register =
 </div>
 </div>
 `
+export {Register}
