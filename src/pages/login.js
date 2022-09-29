@@ -4,10 +4,12 @@ const Login = `
     </div>
       <section id="sectionLogIn" class="sectionLogIn">
         <p id="LogInP">INICIAR SESIÓN</p>
-        <input  type="text" id="emailUser" placeholder="Correo electronico">
+        <input  type="text" id="emailUser" placeholder="Correo electrónico">
         <input type="password" id="passWordUser" placeholder="Contraseña">
-        <a href="">¿Olvidaste tu contraseña?</a>
         <button id="logginButton">ENTRAR</button>
+        <hr class="lineRight">
+        <p id="letter">o</p>
+       <hr class="lineLeft">
     </section>
     <div id="sigInMobile">
       <p>¿No tienes una cuenta?</p>
@@ -15,5 +17,3 @@ const Login = `
     </div>
   `
 export {Login};
-
-// style="color:black"

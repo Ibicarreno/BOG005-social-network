@@ -1,4 +1,4 @@
-export const Register = 
+const Register = 
 `
 <div id="backgroundVideo">    
 <video src="./resources/pexels-vanessa-loring-5858145.mp4" autoplay loop muted></video>
@@ -17,3 +17,4 @@ export const Register =
 </div>
 </div>
 `
+export {Register}
