@@ -111,7 +111,7 @@ main video {
 
 #sigInMobile a{
     display: flex;
-    color: #F37724;
+    color: black;
     font-weight: bold;
 }
 
@@ -129,7 +129,10 @@ main video {
 }
 .registerView h2{
     color: #7989EC;
-    margin-block-end: 1.5em;
+    display: flex;
+    position: absolute;
+    top: 8em;
+    /* margin-block-end: 1.5em; */
 }
 
 .registerView input {
@@ -163,20 +166,37 @@ main video {
 #letter{
     display: none;
 }
+
+#sectionGoogle{
+    display: block;
+    position: absolute;
+    bottom: 14em;
+}
+
 #sectionGoogle p{
 font-family: 'Roboto', sans-serif;
 color: #FFFFFF ;
+font-size: 14px;
+padding: 0 8px;
+position: relative;
+text-align: end;
 }
 
 #bottonGoogle{
-    background: #4285F4
-
+    background: #4285F4;
+    width: 15em;
+    height: 40px;
+    border-style: none;
 }
 
 #imgGoogle{
-    width: 3em;
-    height: 3em;
+    display: flex;
+    position: absolute;
+    width: 18px;
+    height: 18px;
     background: #FFFFFF;
+    margin: 0 24px 0 16px;
+    /* margin: 0 16px 0 8px; */
 }
 
 footer {
@@ -184,7 +204,7 @@ footer {
 }
 
 
-@media screen and (min-width: 768px) and (max-width:1023px){
+@media screen and (min-width: 767px) and (max-width:1023px){
     header {
         height: 130px;
     }
@@ -202,6 +222,10 @@ footer {
         align-items: center;
         width: 300px;
         height: 300px;
+    }
+    #sigInMobile a{
+        font-size: 18px;
+        margin-left: 15px ;
     }
     .sectionLogIn p {
         display: block;
@@ -231,7 +255,9 @@ footer {
         position: absolute;
         bottom: 14.5em;
     }
-    
+    #sigInMobile a{
+        color: #F37724;
+    }
     #sigInMobile p{
         display: none;
     }
@@ -243,13 +269,15 @@ footer {
         bottom: 17em;
         margin: 0 8em 0 0;
     }
-    #letter{
+    #sectionLogIn #letter{
+        display: block;
+    }
+  
+    #sectionLogIn #letter{
         display: flex;
         position: absolute;
         color: black;
-        font-weight: bold;
-        /* font-size: 50px; */
-        top: 40.2em;
+        top: 31.8em;
         margin: 0;
     }
     .lineLeft {
@@ -260,16 +288,92 @@ footer {
         right: 1em;
         margin: 0 16em 0 0;
     };
-    footer {
-        background-color:#D9D9D9;
+    #registerView input {
+        display: block;
+        
+    }
+    #registerView input {
+        width: 260px;
+        
+    }
+    #registerView h2{
+        display: block;
+    }
+    #registerView h2{
         display: flex;
+        position: absolute;
+        top: 12.5em;
+    }
+
+    .registerView {
+        width: 300px;
+        height: 340px;
+    }
+
+    .lineRightRegister {
+        background-color: black;
+        width: 8em;
+        position: absolute;
+        bottom: 23.5em;
+        margin: 0 10em 0 0;
+    }
+    #letter{
+        display: block;
+        font-size: 20px;
+    }
+
+    .lineLeftRegister {
+        background-color: black;
+        width: 8em;
+        position: absolute;
+        bottom: 23.5em;
+        right: 1em;
+        margin: 0 13.5em 0 0;
+    };
+    #sectionGoogle{
+        display: block;
+    }
+    #sectionGoogle{
+        display: block;
+        position: absolute;
+        /* bottom: 40em; */
+        bottom: 20em;
+    }
+
+    footer{
+        display: flex;
+    }
+    footer {
+        display: flex;
+        background-color:#D9D9D9;
         width: 824px;
-        height: 60px;
+        height: 70px;
         text-align: center;
         align-items: center;
         justify-content: center;
         position: absolute;
         bottom: 0;
+    }
+    footer .creators{
+    display: flex;
+    position: absolute;
+    bottom: 15px;
+    font-size: 12px ;
+    }
+    .fa-js {
+        font-size: 12px;
+    }
+
+    .copyRightsContainer{
+        display: flex;
+        justify-content: space-between;
+        padding: 5px;
+        font-family: 'Montserrat', sans-serif;
+    }
+
+    .copyRightsContainer i{
+        font-style: normal;
+        font-family: 'Montserrat', sans-serif;
     }
 
 }
@@ -293,7 +397,8 @@ footer {
     
     header img {
         height: 140px;
-        padding-bottom: 30px; 
+    margin-top: -5px;
+        /* padding-bottom: 30px;  */
     }
 
     .sectionLogIn {
@@ -347,6 +452,11 @@ footer {
     #sigInMobile p{
         display: none;
     }
+    #sigInMobile a{
+        font-size: 20px;
+        margin-left: 15px ;
+        color: #F37724;
+    }
     .sectionLogIn input {
         background-color:#F0F0F0 ;
         font-size: 25px;
@@ -366,13 +476,15 @@ footer {
         bottom: 14em;
         margin: 0 11em 0 0;
     }
-    #letter{
+    #sectionLogIn #letter{
+        display: block;
+    }
+   #sectionLogIn #letter{
         display: flex;
         position: absolute;
         color: black;
-        top: 18em;
+        top: 28.2em;
         margin: 0;
-        font-weight: bold;
     }
     .lineLeft {
         background-color: black;
@@ -384,6 +496,51 @@ footer {
     };
     #sigInMobile p{
         display: none;
+    }
+    .registerView {
+        width: 300px;
+        height: 330px;
+    }
+    #registerView h2{
+        display: block;
+    }
+    #registerView h2{
+        display: flex;
+        position: absolute;
+        top: 10em;
+    }
+
+    .lineRightRegister {
+        background-color: black;
+        width: 8em;
+        position: absolute;
+        bottom: 15em;
+        margin: 0 10em 0 0;
+    }
+    #letter{
+        display: block;
+        
+    }
+     #letter{
+        font-size: 18px;
+    }
+   
+    .lineLeftRegister {
+        background-color: black;
+        width: 8em;
+        position: absolute;
+        bottom: 15em;
+        right: 1em;
+        margin: 0 3em 0 0;
+    };
+    #sectionGoogle{
+        display: block;
+    }
+    #sectionGoogle{
+        display: block;
+        position: absolute;
+        right: 6.5em;
+        bottom: 11.5em;
     }
 
     footer {
@@ -397,8 +554,14 @@ footer {
         position: absolute;
         bottom: 0;
     }
+    footer .creators{
+        display: flex;
+        position: absolute;
+        bottom: 25px;
+        font-size: 12px ;
+        }
     .fa-js {
-        font-size: 10px;
+        font-size: 12px;
     }
 
     .copyRightsContainer{
