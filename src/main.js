@@ -28,6 +28,10 @@ export const onNavigate = (pathname) => {
 root.innerHTML = routes[pathname];
 };
 
+/* PERMITE CAMBIAR LA RUTA DESDE LAS FLECHAS DE NAVEGACIÓN */
+window.onpopstate = () => {
+  root.innerHTML = routes[window.location.pathname];
+};
 
 /*ACCEDER A LA PÁGINA REGISTRATE*/
 /*Botón regístrate*/

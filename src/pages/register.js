@@ -10,7 +10,7 @@ const Register =
 <input type="password" class="input registerrPassWordUser" id="registerPassWordUser" placeholder="Contraseña">
 <button id="bottonRegister">REGÍSTRARSE</button>
 <hr class="lineRightRegister">
-<p id="letter">o</p>
+<p id="letterRegister">o</p>
 <hr class="lineLeftRegister">
 </div>
 <div id="sectionGoogle">
