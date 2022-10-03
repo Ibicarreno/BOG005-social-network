@@ -1,4 +1,4 @@
-export const Profile = 
+const Profile = 
 `
 <div class= "feedView">
 <h2>Pagina en construccion</h2>

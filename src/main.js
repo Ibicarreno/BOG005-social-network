@@ -1,7 +1,7 @@
-import { Profile } from "../pages/profile.js"; //ibeht
-import { feed } from "../pages/feed.js";
-import { Login } from "../pages/login.js";
-import { Register } from "../pages/register.js";
+import { Profile } from "../src/pages/profile"; //ibeht
+import { feed } from "../src/pages/feed.js";
+import { Login } from "../src/pages/login.js";
+import { Register } from "../src/pages/register.js";
 import { createEmail, validateUserAndPass, loginWithGoogle } from "./auth/authentication.js"; //ibeht
 
 const routes = {
@@ -13,21 +13,21 @@ const routes = {
 
 /* PERMITE QUE LAS RUTAS MANIPULEN EN DOM CON LOS LITERAL TEMPLATES GUARDADOS EN PAGES */
 
-const root = document.getElementById('root');
-root.innerHTML = routes[window.location.pathname];
+// const root = document.getElementById('root');
+// root.innerHTML = routes[window.location.pathname];
 
 
 /* GENERAR RUTAS EN URLS*/
 
-export const onNavigate = (pathname) => {
-  window.history.pushState(
-    {},
-    pathname,
-    window.location.origin + pathname,
-  )
-root.innerHTML = routes[pathname];
+export const onNavigate = (pathname, paramRoutes = routes) => {
+  window.history.pushState({}, pathname, window.location.origin + pathname)
+  const root = document.getElementById('root');
+  root.innerHTML = paramRoutes[pathname];
 };
 
+window.addEventListener('load', () => {
+  onNavigate(window.location.pathname);
+});
 
 /*ACCEDER A LA PÁGINA REGISTRATE*/
 /*Botón regístrate*/
