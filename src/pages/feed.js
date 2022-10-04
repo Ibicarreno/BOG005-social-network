@@ -1,5 +1,4 @@
-export const feed = 
-`
+export const feed = `
 <div style="background: #F0F0F0" id="feed">
 <section id="feedMainProfile">
 <button id="bottonMyProfile">Mi perfil</button>
@@ -21,11 +20,9 @@ export const feed =
 <p id="nameFriend">Nombre amig@</p>
 </section>
 </div>
-`
+`;
 
-const profileView = document.getElementById("profileName")
-if (profileView) {
-    profileView.innerHTML(user.displayName);
-}
-
-
+// const profileView = document.getElementById('profileName');
+// if (profileView) {
+//   profileView.innerHTML(user.displayName);
+// }

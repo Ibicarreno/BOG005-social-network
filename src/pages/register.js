@@ -1,5 +1,4 @@
-const Register = 
-`
+const Register = `
 <div id="backgroundVideo">    
 <video src="./resources/pexels-vanessa-loring-5858145.mp4" autoplay loop muted></video>
 </div>
@@ -19,5 +18,5 @@ const Register =
 <p>Entrar con Google</p>
 </button>
 </div>
-`
-export {Register}
+`;
+export { Register };

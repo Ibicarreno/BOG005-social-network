@@ -88,7 +88,6 @@ main video {
     border-radius: 30px;
     width: 166px;
     height: 35px;
-    font-weight: bold;
 }
 .sectionLogIn button:hover {
     background-color:black ;
@@ -311,6 +310,7 @@ footer {
     #sigInMobile a{
         font-size: 18px;
         margin-left: 15px ;
+        color: #F37724;
     }
     .sectionLogIn p {
         display: block;
@@ -340,9 +340,6 @@ footer {
         position: absolute;
         bottom: 14.5em;
     }
-    #sigInMobile a{
-        color: #F37724;
-    }
     #sigInMobile p{
         display: none;
     }
@@ -354,12 +351,16 @@ footer {
         bottom: 17em;
         margin: 0 8em 0 0;
     }
-    #sectionLogIn #letter{
+    /* #sectionLogIn #letter{
         display: block;
     }
-  
+   */
+   #letter{
+    display: block;
+    font-size: 20px;
+}
     #sectionLogIn #letter{
-        display: flex;
+        /* display: block; */
         position: absolute;
         color: black;
         top: 31.8em;
@@ -372,24 +373,16 @@ footer {
         bottom: 17em;
         right: 1em;
         margin: 0 16em 0 0;
-    };
-    #registerView input {
-        display: block;
-        
     }
     #registerView input {
+        display: block;
         width: 260px;
-        
     }
     #registerView h2{
         display: block;
-    }
-    #registerView h2{
-        display: flex;
         position: absolute;
         top: 12.5em;
     }
-
     .registerView {
         width: 300px;
         height: 340px;
@@ -402,10 +395,10 @@ footer {
         bottom: 23.5em;
         margin: 0 10em 0 0;
     }
-    #letter{
+    /* #letter{
         display: block;
         font-size: 20px;
-    }
+    } */
 
     .lineLeftRegister {
         background-color: black;
@@ -414,10 +407,10 @@ footer {
         bottom: 23.5em;
         right: 1em;
         margin: 0 13.5em 0 0;
-    };
-    #sectionGoogle{
-        display: block;
     }
+    /* #sectionGoogle{
+        display: block;
+    } */
     #sectionGoogle{
         display: block;
         position: absolute;
@@ -450,7 +443,6 @@ footer {
         border-radius: 20px;
         background-color: black;
         color: white;
-        border-radius: 20px;
         grid-column: 0;
         grid-row: 0;
        font-size: 20px;
@@ -535,9 +527,9 @@ footer {
     bottom: 36em;
     left: 19em;
     }
-    footer{
+    /* footer{
         display: flex;
-    }
+    } */
     footer {
         display: flex;
         background-color:#D9D9D9;
@@ -644,9 +636,6 @@ footer {
         position: absolute;
         bottom: 11.5em;
     }
-    #sigInMobile p{
-        display: none;
-    }
     #sigInMobile a{
         font-size: 20px;
         margin-left: 15px ;
@@ -671,11 +660,12 @@ footer {
         bottom: 14em;
         margin: 0 11em 0 0;
     }
-    #sectionLogIn #letter{
+    #letter{
         display: block;
+        font-size: 18px;
     }
    #sectionLogIn #letter{
-        display: flex;
+        display: block;
         position: absolute;
         color: black;
         top: 28.2em;
@@ -688,7 +678,7 @@ footer {
         bottom: 14em;
         right: 1em;
         margin: 0 5.6em 0 0;
-    };
+    }
     #sigInMobile p{
         display: none;
     }
@@ -698,9 +688,6 @@ footer {
     }
     #registerView h2{
         display: block;
-    }
-    #registerView h2{
-        display: flex;
         position: absolute;
         top: 10em;
     }
@@ -712,14 +699,11 @@ footer {
         bottom: 15em;
         margin: 0 10em 0 0;
     }
-    #letter{
+    /* #letter{
         display: block;
-        
-    }
-     #letter{
         font-size: 18px;
-    }
-   
+    } */
+
     .lineLeftRegister {
         background-color: black;
         width: 8em;
@@ -727,10 +711,10 @@ footer {
         bottom: 15em;
         right: 1em;
         margin: 0 3em 0 0;
-    };
-    #sectionGoogle{
-        display: block;
     }
+    /* #sectionGoogle{
+        display: block;
+    } */
     #sectionGoogle{
         display: block;
         position: absolute;
@@ -763,7 +747,6 @@ footer {
         border-radius: 20px;
         background-color: black;
         color: white;
-        border-radius: 20px;
         grid-column: 0;
         grid-row: 0;
        font-size: 20px;
@@ -816,10 +799,9 @@ footer {
         height: 70%;
         bottom: 7em;
         width: 100%;
-        margin-left: 1em;
         background: white;
-        border-radius: 20px;
         margin: 3em 0.8em 1em 0;
+        margin-left: 1em;
         border-radius: 1em;
     }
     #myFriends #titleMyFriends, #myFriends #nameFriend {

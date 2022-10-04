@@ -21,7 +21,7 @@
     "linebreak-style": 0,
     "prefer-destructuring": 0,
     "import/extensions": 0,
-    "commonjs": true, 
+    //"commonjs": true, 
     // "amd": true, 
     "import/prefer-default-export": 0,
     "jest/no-disabled-tests": "warn",
