@@ -14,24 +14,29 @@ import { createEmail, validateUserAndPass, loginWithGoogle } from './auth/authen
 
 /* PERMITE QUE LAS RUTAS MANIPULEN EN DOM CON LOS LITERAL TEMPLATES GUARDADOS EN PAGES */
 
-const root = document.getElementById('root');
-root.innerHTML = routes[window.location.pathname];
+// const root = document.getElementById('root');
+// root.innerHTML = routes[window.location.pathname];
 
 /* GENERAR RUTAS EN URLS */
 
-export const onNavigate = (pathname) => {
+export const onNavigate = (pathname, paramRoutes = routes) => {
   window.history.pushState(
     {},
     pathname,
     window.location.origin + pathname,
   );
-  root.innerHTML = routes[pathname];
+  const root = document.getElementById('root');
+  root.innerHTML = paramRoutes[pathname];
 };
 
 /* PERMITE CAMBIAR LA RUTA DESDE LAS FLECHAS DE NAVEGACIÓN */
 window.onpopstate = () => {
-  root.innerHTML = routes[window.location.pathname];
+  document.getElementById('root').innerHTML = routes[window.location.pathname];
+  // root.innerHTML = routes[window.location.pathname];
 };
+// window.addEventListener('load', () => {
+//   onNavigate(window.location.pathname);
+// });
 
 /* ACCEDER A LA PÁGINA REGISTRATE */
 /* Botón regístrate */
@@ -86,3 +91,7 @@ if (profile) {
     // root.innerHTML = Profile;
   });
 }
+
+window.addEventListener('load', () => {
+  onNavigate(window.location.pathname);
+});
