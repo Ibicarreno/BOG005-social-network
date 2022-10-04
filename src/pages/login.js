@@ -15,5 +15,5 @@ const Login = `
       <p>¿No tienes una cuenta?</p>
       <a href="" id="linkRegister"> ¡Regístrate!</a>
     </div>
-  `
-export {Login};
+  `;
+export { Login };
