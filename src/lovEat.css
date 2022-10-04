@@ -57,19 +57,17 @@ main video {
 
 .sectionLogIn input {
     background-color:#F0F0F0 ;
+    color: black;
     border: none;
     margin: 10px;
     border-radius: 10px;
     width: 200px;
     height: 40px;
-    font-size: 18px;
-    color: black;
-    text-align: center;
 }
 
 .sectionLogIn input::placeholder{
-    color: rgba(38, 38, 38, 0.295);
-    padding: 18px;
+    color: rgba(38, 38, 38, 0.89);
+    padding: 15px;
     font-weight: bold;
     text-align: center;
 }
@@ -90,7 +88,6 @@ main video {
     border-radius: 30px;
     width: 166px;
     height: 35px;
-    font-weight: bold;
 }
 .sectionLogIn button:hover {
     background-color:black ;
@@ -109,15 +106,12 @@ main video {
 #sigInMobile p{
     color: white;
     font-weight: bold;
-    padding: 5px 10px 5px 10px;
-    font-size: 15px;
 }
 
 #sigInMobile a{
     display: flex;
     color: black;
     font-weight: bold;
-    font-size: 15px;
 }
 
 .registerView {
@@ -134,7 +128,10 @@ main video {
 }
 .registerView h2{
     color: #7989EC;
-    margin-block-end: 1.5em;
+    display: flex;
+    position: absolute;
+    top: 8em;
+    /* margin-block-end: 1.5em; */
 }
 
 .registerView input {
@@ -168,28 +165,130 @@ main video {
 #letter{
     display: none;
 }
+
+#sectionGoogle{
+    display: block;
+    position: absolute;
+    bottom: 14em;
+}
+
 #sectionGoogle p{
 font-family: 'Roboto', sans-serif;
 color: #FFFFFF ;
+font-size: 14px;
+padding: 0 8px;
+position: relative;
+text-align: end;
 }
 
 #bottonGoogle{
-    background: #4285F4
-
+    background: #4285F4;
+    width: 15em;
+    height: 40px;
+    border-style: none;
 }
 
 #imgGoogle{
-    width: 3em;
-    height: 3em;
+    display: flex;
+    position: absolute;
+    width: 18px;
+    height: 18px;
     background: #FFFFFF;
+    margin: 0 24px 0 16px;
+    /* margin: 0 16px 0 8px; */
+}
+#feed{
+    width: 100%;
+    height: 100%;
+}
+#feedMainProfile{
+justify-content: center;
+display: grid;
+grid-template-columns: 40% 40%;
+grid-gap: 5px;
+grid-template-rows: auto;
+}
+#bottonMyProfile{
+border-radius: 20px;
+background-color: #7989EC; 
+color: black;
+grid-column: 2;
+grid-row: 1;
+margin-top: 45px;
+height: 2.5em;
+width: 10em;
+font-weight: bold;
+font-size: 16px;
+border-style: none;
+margin-left: -1em;
+}
+#bottonPostRecipe{
+border-style: none;
+border-radius: 20px;
+background-color: #7989EC; 
+opacity: 0.8;
+color: black;
+grid-column: 2;
+grid-row: 2;
+height: 2.5em;
+width: 10em;
+font-weight: bold;
+font-size: 16px;
+margin-left: -1em;
+}
+#feedMainProfile p {
+color: gray;
+text-align: center;
 }
 
+#icon{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-top: 15px;
+    justify-self: center;
+}
+
+#feedMainPost{
+display: grid;
+height: 62vh;
+grid-template-columns: 95%;
+text-align: center;
+width: 90%;
+margin: 3em 0.8em 0 0.8em;
+background: white;
+border-radius: 15px;
+justify-content: center;
+}
+
+#titlePostMain{
+color: #7989EC;
+font-weight: bold;
+margin-top: 10px;
+}
+#seePost{
+margin-top: 3em;
+text-align: center;
+background: #F0F0F0;
+border-radius: 15px;
+}
+#postPublic{
+    width: 60px;
+    height: 60px;
+    border-radius: 50px;
+    display: flex;
+    position: absolute;
+    bottom: 17em;
+    left: 5em;
+}
+#myFriends, #myFriends p{
+display: none;
+}
 footer {
     display: none;
 }
 
-
-@media screen and (min-width: 768px) and (max-width:1023px){
+@media screen and (min-width: 767px) and (max-width:1023px){
     header {
         height: 130px;
     }
@@ -207,6 +306,11 @@ footer {
         align-items: center;
         width: 300px;
         height: 300px;
+    }
+    #sigInMobile a{
+        font-size: 18px;
+        margin-left: 15px ;
+        color: #F37724;
     }
     .sectionLogIn p {
         display: block;
@@ -236,7 +340,6 @@ footer {
         position: absolute;
         bottom: 14.5em;
     }
-    
     #sigInMobile p{
         display: none;
     }
@@ -248,13 +351,19 @@ footer {
         bottom: 17em;
         margin: 0 8em 0 0;
     }
-    #letter{
-        display: flex;
+    /* #sectionLogIn #letter{
+        display: block;
+    }
+   */
+   #letter{
+    display: block;
+    font-size: 20px;
+}
+    #sectionLogIn #letter{
+        /* display: block; */
         position: absolute;
         color: black;
-        font-weight: bold;
-        /* font-size: 50px; */
-        top: 40.2em;
+        top: 31.8em;
         margin: 0;
     }
     .lineLeft {
@@ -264,17 +373,194 @@ footer {
         bottom: 17em;
         right: 1em;
         margin: 0 16em 0 0;
-    };
-    footer {
-        background-color:#D9D9D9;
+    }
+    #registerView input {
+        display: block;
+        width: 260px;
+    }
+    #registerView h2{
+        display: block;
+        position: absolute;
+        top: 12.5em;
+    }
+    .registerView {
+        width: 300px;
+        height: 340px;
+    }
+
+    .lineRightRegister {
+        background-color: black;
+        width: 8em;
+        position: absolute;
+        bottom: 23.5em;
+        margin: 0 10em 0 0;
+    }
+    /* #letter{
+        display: block;
+        font-size: 20px;
+    } */
+
+    .lineLeftRegister {
+        background-color: black;
+        width: 8em;
+        position: absolute;
+        bottom: 23.5em;
+        right: 1em;
+        margin: 0 13.5em 0 0;
+    }
+    /* #sectionGoogle{
+        display: block;
+    } */
+    #sectionGoogle{
+        display: block;
+        position: absolute;
+        /* bottom: 40em; */
+        bottom: 20em;
+    }
+    #feed{
+        display: grid;
+        height: 100vh;
+        width: 100%;
+        grid-template-columns: 30% 70%;
+    }
+    #feedMainProfile{
+    justify-content: center;
+    grid-template-columns: 0;
+    grid-gap: 0;    
+    grid-template-rows: 0;
+    display: flex;
+    position: relative;
+    width: 100%;
+    height: 35%;
+    margin: 3em 0.8em 1em 0.8em;
+    background-color: white;
+    border-radius: 1em;
+
+    }
+    #bottonMyProfile{
+        position: absolute;
+        top: 8em;
+        border-radius: 20px;
+        background-color: black;
+        color: white;
+        grid-column: 0;
+        grid-row: 0;
+       font-size: 20px;
+       margin-left: 0;
+        }
+        #bottonPostRecipe{
+        position: absolute;
+        top: 13em;
+        font-size: 20px;
+        border-style: none;
+        border-radius: 20px;
+        background-color: black; 
+        color: white;
+        grid-column: 0;
+        grid-row: 0;
+        margin-left: 0;
+        }
+        #feedMainProfile p {
+            position: absolute;
+            top: 8em;
+            font-size: 20px;
+        }
+        
+        #icon{
+            width: 120px;
+            height: 120px;
+        }
+        #feedMainPost{
+            display: grid;
+            height: 100vh;
+            grid-template-columns: 90%;
+            text-align: center;
+            width: 90%;
+            margin: 3em 0.5em 0 1.5em;
+            background: white;
+            border-radius: 15px;
+            justify-content: center;
+            }
+
+            #feedMainPost textarea{
+                width: 30em;
+                height: 10em;
+            }
+            #titlePostMain{
+                font-size: 30px;
+            }
+    #myFriends{
+        display: grid;
+        position: absolute;
+        height: 30%;
+        bottom: 7em;
+        width: 28%;
+        margin-left: 1em;
+        background: white;
+        border-radius: 20px;
+    }
+    #myFriends #titleMyFriends, #myFriends #nameFriend {
+        display: block;
+        color: #7989EC;
+        font-size: 30px;
+        text-align: center;
+        margin-top: 10px;
+        font-weight: bold;
+        padding-top: 5px;
+    }
+    #iconMyFriend{
+        border: 1px solid black;
+        border-radius: 50%;
+        width: 80px;
+        height: 80px;
+        position: absolute;
+        top: 5em;
+        justify-self: center;
+    }
+    #myFriends #nameFriend{
+        font-size: 15px;
+        color: black;
+    }
+    #postPublic{
+    width: 80px;
+    height: 80px;
+    bottom: 36em;
+    left: 19em;
+    }
+    /* footer{
         display: flex;
+    } */
+    footer {
+        display: flex;
+        background-color:#D9D9D9;
         width: 824px;
-        height: 60px;
+        height: 70px;
         text-align: center;
         align-items: center;
         justify-content: center;
-        position: absolute;
+        position: fixed;
         bottom: 0;
+    }
+    footer .creators{
+    display: flex;
+    position: absolute;
+    bottom: 15px;
+    font-size: 12px ;
+    }
+    .fa-js {
+        font-size: 12px;
+    }
+
+    .copyRightsContainer{
+        display: flex;
+        justify-content: space-between;
+        padding: 5px;
+        font-family: 'Montserrat', sans-serif;
+    }
+
+    .copyRightsContainer i{
+        font-style: normal;
+        font-family: 'Montserrat', sans-serif;
     }
 
 }
@@ -298,7 +584,8 @@ footer {
     
     header img {
         height: 140px;
-        padding-bottom: 30px; 
+    margin-top: -5px;
+        /* padding-bottom: 30px;  */
     }
 
     .sectionLogIn {
@@ -349,8 +636,10 @@ footer {
         position: absolute;
         bottom: 11.5em;
     }
-    #sigInMobile p{
-        display: none;
+    #sigInMobile a{
+        font-size: 20px;
+        margin-left: 15px ;
+        color: #F37724;
     }
     .sectionLogIn input {
         background-color:#F0F0F0 ;
@@ -372,12 +661,15 @@ footer {
         margin: 0 11em 0 0;
     }
     #letter{
-        display: flex;
+        display: block;
+        font-size: 18px;
+    }
+   #sectionLogIn #letter{
+        display: block;
         position: absolute;
         color: black;
-        top: 18em;
+        top: 28.2em;
         margin: 0;
-        font-weight: bold;
     }
     .lineLeft {
         background-color: black;
@@ -386,25 +678,183 @@ footer {
         bottom: 14em;
         right: 1em;
         margin: 0 5.6em 0 0;
-    };
+    }
     #sigInMobile p{
         display: none;
     }
+    .registerView {
+        width: 300px;
+        height: 330px;
+    }
+    #registerView h2{
+        display: block;
+        position: absolute;
+        top: 10em;
+    }
 
+    .lineRightRegister {
+        background-color: black;
+        width: 8em;
+        position: absolute;
+        bottom: 15em;
+        margin: 0 10em 0 0;
+    }
+    /* #letter{
+        display: block;
+        font-size: 18px;
+    } */
+
+    .lineLeftRegister {
+        background-color: black;
+        width: 8em;
+        position: absolute;
+        bottom: 15em;
+        right: 1em;
+        margin: 0 3em 0 0;
+    }
+    /* #sectionGoogle{
+        display: block;
+    } */
+    #sectionGoogle{
+        display: block;
+        position: absolute;
+        right: 6.5em;
+        bottom: 11.5em;
+    }
+    #feed{
+        display: grid;
+        height: 100vh;
+        width: 100%;
+        grid-template-columns: 30% 50% 18%;
+    }
+    #feedMainProfile{
+    justify-content: center;
+    grid-template-columns: 0;
+    grid-gap: 0;    
+    grid-template-rows: 0;
+    display: flex;
+    position: relative;
+    width: 100%;
+    height: 70%;
+    margin: 3em 0.8em 1em 0.8em;
+    background-color: white;
+    border-radius: 1em;
+
+    }
+    #bottonMyProfile{
+        position: absolute;
+        top: 8em;
+        border-radius: 20px;
+        background-color: black;
+        color: white;
+        grid-column: 0;
+        grid-row: 0;
+       font-size: 20px;
+       margin-left: 0;
+        }
+        #bottonPostRecipe{
+        position: absolute;
+        top: 13em;
+        font-size: 20px;
+        border-style: none;
+        border-radius: 20px;
+        background-color: black; 
+        color: white;
+        grid-column: 0;
+        grid-row: 0;
+        margin-left: 0;
+        }
+        #feedMainProfile p {
+            position: absolute;
+            top: 8em;
+            font-size: 20px;
+        }
+        
+        #icon{
+            width: 120px;
+            height: 120px;
+        }
+        #feedMainPost{
+            display: grid;
+            height: 70%;
+            grid-template-columns: 90%;
+            text-align: center;
+            width: 90%;
+            margin: 3em 0.5em 0 1.5em;
+            background: white;
+            border-radius: 15px;
+            justify-content: center;
+            }
+
+            #feedMainPost textarea{
+                width: 30em;
+                height: 10em;
+            }
+            #titlePostMain{
+                font-size: 30px;
+            }
+    #myFriends{
+        display: grid;
+        grid-column: 3/3;
+        height: 70%;
+        bottom: 7em;
+        width: 100%;
+        background: white;
+        margin: 3em 0.8em 1em 0;
+        margin-left: 1em;
+        border-radius: 1em;
+    }
+    #myFriends #titleMyFriends, #myFriends #nameFriend {
+        display: block;
+        color: #7989EC;
+        font-size: 30px;
+        text-align: center;
+        margin-top: 10px;
+        font-weight: bold;
+        padding-top: 5px;
+    }
+    #iconMyFriend{
+        border: 1px solid black;
+        border-radius: 50%;
+        width: 80px;
+        height: 80px;
+        position: absolute;
+        top: 35%;
+        justify-self: center;
+    }
+    #myFriends #nameFriend{
+        display: flex;
+        position: absolute;
+        font-size: 20px;
+        color: black;
+        top: 45%;
+        left: 79%;
+    }
+    #postPublic{
+    width: 80px;
+    height: 80px;
+    bottom: 24em;
+    left: 31em;
+    }
     footer {
         background-color:#D9D9D9;
         display: flex;
-        width: 100%;
-        height: 80px;
+        width: 1440px;
+        height: 102px;
         text-align: center;
         align-items: center;
         justify-content: center;
-        position: absolute;
+        position: fixed;
         bottom: 0;
     }
-
+    footer .creators{
+        display: flex;
+        position: absolute;
+        bottom: 25px;
+        font-size: 12px ;
+        }
     .fa-js {
-        font-size: 10px;
+        font-size: 12px;
     }
 
     .copyRightsContainer{
@@ -418,5 +868,4 @@ footer {
         font-style: normal;
         font-family: 'Montserrat', sans-serif;
     }
-
 }
