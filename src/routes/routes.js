@@ -3,13 +3,13 @@ import { Profile } from "../pages/profile.js";
 // eslint-disable-next-line quotes
 import { feed } from "../pages/feed.js";
 // eslint-disable-next-line quotes
-import { Login } from "../pages/login.js";
-// eslint-disable-next-line quotes
-import { Register } from "../pages/register.js";
+import { login } from "../pages/login.js";
+// eslint-disable-next-line quotes, import/no-cycle
+import { register } from "../pages/register.js";
 
 export const routes = {
-  '/': Login,
-  '/register': Register,
+  '/': login(),
+  '/register': register(),
   '/feed': feed,
-  '/profile': Profile,
+  '/profile': Profile(),
 };
