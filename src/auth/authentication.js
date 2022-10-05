@@ -6,7 +6,7 @@ import {
   signInWithPopup, // nata
 // eslint-disable-next-line import/no-unresolved
 } from 'https://www.gstatic.com/firebasejs/9.9.4/firebase-auth.js';
-import { collection } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-firestore.js"
+//import { collection } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-firestore.js"
 import { app } from '../config/configFireBase.js';
 // eslint-disable-next-line import/no-cycle
 import { onNavigate } from '../main.js';
@@ -15,15 +15,14 @@ import { feed } from '../pages/feed.js';
 // ibeht
 const auth = getAuth(app);
 
+// OBSERVADOR - PERMITE IDENTIFICAR SI EXISTE UNA CUENTA ABIERTA
 
- // OBSERVADOR - PERMITE IDENTIFICAR SI EXISTE UNA CUENTA ABIERTA
-
- auth.onAuthStateChanged((user) => {
-  if(user){
+auth.onAuthStateChanged((user) => {
+  if (user){
     const uid = user.uid;
-    console.log(user)
+    console.log(user);
   } else {
-    console.log("no existe usuario")
+    console.log('no existe usuario');
   }
 });
 
