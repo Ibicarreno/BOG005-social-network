@@ -1,10 +1,17 @@
 export const feed = `
+<nav> 
+<a href id="backToFeed">Inicio</a> 
+<a href id="profile">Perfil</a> 
+<a href id"signOut">Cerrar sesión</a> 
+</nav>
 <div style="background: #F0F0F0" id="feed">
 <section id="feedMainProfile">
 <button id="bottonMyProfile">Mi perfil</button>
 <button id="bottonPostRecipe">Publicar receta</button>
 <img src='../resources/robot.png' alt="icon" id="icon">
-<p id="nameUser">Nombre de usuari@</p>
+<p id="nameUser">
+</p>
+
 </section>
 <section id="feedMainPost">
 <div class= "feedView">
@@ -22,7 +29,4 @@ export const feed = `
 </div>
 `;
 
-// const profileView = document.getElementById('profileName');
-// if (profileView) {
-//   profileView.innerHTML(user.displayName);
-// }
+

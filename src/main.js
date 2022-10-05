@@ -33,6 +33,7 @@ window.onpopstate = () => {
   root.innerHTML = routes[window.location.pathname];
 };
 
+
 /* ACCEDER A LA PÁGINA REGISTRATE */
 /* Botón regístrate */
 const activeRegister = document.getElementById('linkRegister');
@@ -44,14 +45,14 @@ if (activeRegister) {
 
 const inputEmail = document.getElementById('registerEmailUser');
 const inputPass = document.getElementById('registerPassWordUser');
-// const inputName = document.getElementById('registerNameUser');
 const bottonRegister = document.getElementById('bottonRegister');
 
 // BOTÓN PARA VALIDAR EL REGISTRO //
 
 if (bottonRegister) {
   bottonRegister.addEventListener('click', () => {
-    createEmail(inputEmail.value, inputPass.value); /* Comando de Firebase para Autenticación */
+    createEmail(inputEmail.value, inputPass.value, inputName.value); /* Comando de Firebase para Autenticación */
+    console.log(inputName.value);
   });
 }
 
@@ -61,8 +62,12 @@ const googleButton = document.getElementById('bottonGoogle');
 if (googleButton) {
   googleButton.addEventListener('click', () => {
     loginWithGoogle();
+    //const nameUserGoogle = document.getElementById("#nameUser")
+    //if(nameUserGoogle){nameUserGoogle.innerHTML = user.displayName;}
   });
 }
+
+const inputName = document.getElementById('registerNameUser');
 
 // INICIAR SESION E INGRESAR EN EL FEED
 
@@ -76,6 +81,17 @@ if (activeLogin) {
   });
 }
 
+// PINTAR NOMBRE EN FEED
+const viewName = document.getElementById("nameUser");
+if (viewName){
+  viewName.innerHTML = inputName.value;
+}
+
+
+
+
+
+
 // IR DEL FEED AL PERFIL
 
 const profile = document.getElementById('profileButton');
@@ -85,4 +101,11 @@ if (profile) {
     // history.pushState(null, "profile", "/profile");
     // root.innerHTML = Profile;
   });
+}
+
+const logout = document.getElementById("#signOut");
+if(logout){
+    logout.addEventListener("click", () => {
+        console.log("lo lograste Nata")
+    })
 }

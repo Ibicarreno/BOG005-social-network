@@ -6,6 +6,7 @@ import {
   signInWithPopup, // nata
 // eslint-disable-next-line import/no-unresolved
 } from 'https://www.gstatic.com/firebasejs/9.9.4/firebase-auth.js';
+import { collection } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-firestore.js"
 import { app } from '../config/configFireBase.js';
 // eslint-disable-next-line import/no-cycle
 import { onNavigate } from '../main.js';
@@ -14,26 +15,32 @@ import { feed } from '../pages/feed.js';
 // ibeht
 const auth = getAuth(app);
 
-// OBSERVADOR - PERMITE IDENTIFICAR SI EXISTE UNA CUENTA ABIERTA
-auth.onAuthStateChanged((user) => {
-  console.log(user);
+
+ // OBSERVADOR - PERMITE IDENTIFICAR SI EXISTE UNA CUENTA ABIERTA
+
+ auth.onAuthStateChanged((user) => {
+  if(user){
+    const uid = user.uid;
+    console.log(user)
+  } else {
+    console.log("no existe usuario")
+  }
 });
 
 const root = document.getElementById('root');
 
-const createEmail = (email, password, nameUser) => {
-  createUserWithEmailAndPassword(auth, email, password, nameUser)
+const createEmail = (email, password, displayName) => {
+  createUserWithEmailAndPassword(auth, email, password, displayName)
     .then((result) => {
       const user = result.user;
-      console.log(user);
       // root.innerHTML = feed
-      onNavigate('/feed');
+      onNavigate('/feed');      
     })
     .catch((error) => {
       // const errorCode = error.code;
       const errorMessage = error.message;
       alert(errorMessage);
-      onNavigate('/register');
+      onNavigate('/');
     });
 };
 
@@ -41,7 +48,7 @@ const validateUserAndPass = (email, password) => {
   signInWithEmailAndPassword(auth, email, password)
     .then((result) => {
       const user = result.user;
-      console.log(user);
+      console.log(email, password);
       root.innerHTML = feed;
       onNavigate('/feed');
     })
@@ -49,7 +56,7 @@ const validateUserAndPass = (email, password) => {
       const errorMessage = error.message;
       alert(errorMessage);
       console.log('error en el registro');
-      onNavigate('/login');
+      onNavigate('/');
     });
 };
 
@@ -70,6 +77,8 @@ const loginWithGoogle = () => {
       console.log(user.displayName);
       root.innerHTML = feed;
       onNavigate('/feed');
+      //const nameUserGoogle = document.getElementById("#nameUser")
+      //nameUserGoogle.innerHTML = user.displayName;
     }).catch((error) => {
     // Handle Errors here.
       // const errorCode = error.code;
@@ -81,7 +90,12 @@ const loginWithGoogle = () => {
       alert(errorMessage);
       console.log(email, credential);
     // ...
-    });
+    });   
 };
+
+const saveName = (inputName) => {
+  
+}
+
 
 export { createEmail, validateUserAndPass, loginWithGoogle };
