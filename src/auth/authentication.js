@@ -10,7 +10,7 @@ import { app } from '../config/configFireBase.js';
 // eslint-disable-next-line import/no-cycle
 import { onNavigate } from '../main.js';
 // import { Login } from '../pages/login.js';
-import { feed } from '../pages/feed.js';
+// import { feed } from '../pages/feed.js';
 // ibeht
 const auth = getAuth(app);
 
@@ -19,15 +19,16 @@ auth.onAuthStateChanged((user) => {
   console.log(user);
 });
 
-const root = document.getElementById('root');
+// const root = document.getElementById('root');
 
 const createEmail = (email, password, nameUser) => {
   createUserWithEmailAndPassword(auth, email, password, nameUser)
     .then((result) => {
       const user = result.user;
       console.log(user);
-      // root.innerHTML = feed
-      onNavigate('/feed');
+      window.location.pathname = '/feed';
+      // root.innerHTML = feed;
+      // onNavigate('/feed');
     })
     .catch((error) => {
       // const errorCode = error.code;
@@ -42,14 +43,16 @@ const validateUserAndPass = (email, password) => {
     .then((result) => {
       const user = result.user;
       console.log(user);
-      root.innerHTML = feed;
-      onNavigate('/feed');
+      // root.innerHTML = feed;
+      window.location.pathname = '/feed';
+      // onNavigate('/feed');
     })
     .catch((error) => {
       const errorMessage = error.message;
       alert(errorMessage);
       console.log('error en el registro');
-      onNavigate('/login');
+      // window.location.pathname = '/';
+      onNavigate('/');
     });
 };
 
@@ -68,8 +71,9 @@ const loginWithGoogle = () => {
       // The signed-in user info.
       const user = result.user;
       console.log(user.displayName);
-      root.innerHTML = feed;
-      onNavigate('/feed');
+      window.location.pathname = '/feed';
+      // root.innerHTML = feed;
+      // onNavigate('/feed');
     }).catch((error) => {
     // Handle Errors here.
       // const errorCode = error.code;
@@ -79,8 +83,8 @@ const loginWithGoogle = () => {
       // The AuthCredential type that was used.
       const credential = GoogleAuthProvider.credentialFromError(error);
       alert(errorMessage);
+      onNavigate('/register');
       console.log(email, credential);
-    // ...
     });
 };
 

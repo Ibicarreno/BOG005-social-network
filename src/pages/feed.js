@@ -1,28 +1,46 @@
-export const feed = `
-<div style="background: #F0F0F0" id="feed">
-<section id="feedMainProfile">
-<button id="bottonMyProfile">Mi perfil</button>
-<button id="bottonPostRecipe">Publicar receta</button>
-<img src='../resources/robot.png' alt="icon" id="icon">
-<p id="nameUser">Nombre de usuari@</p>
-</section>
-<section id="feedMainPost">
-<div class= "feedView">
-<h1 id="titlePostMain">Publicaciones de tus amigos</h1>
-<textarea name=""  cols="40" rows="7" id="seePost">
-</textarea>
-<img src='../resources/ensalada-mediterranea.jpg' alt="postPublic" id="postPublic">
-</div>
-</section>
-<section id="myFriends" style:"display:none">
-<p id="titleMyFriends">Amigos</p>
-<img src='' alt="iconMyFriend" id="iconMyFriend">
-<p id="nameFriend">Nombre amig@</p>
-</section>
-</div>
-`;
+export const feed = () => {
+  const feedContainer = document.createElement('div');
+  const feedTemplate = `
+    <div class='feed' id="feed">
+        <section id="feedMainProfile">
+            <section id="infoUser">
+                <img src='../resources/user-feed.png' alt="icon" id="icon">
+                <p id="nameUser">Nombre de usuari@</p>
+            </section>
+                <section id="publishPost">
+                    <h1 for="publish">Publica tu receta</h1>
+                        <form id="publishRecipe">
+                        <input type="text" placeholder="Nombre de la receta" id="recipeName">
+                        <textarea name="recipe-description" rows="3" placeholder="Descripcion de la receta"></textarea>
+                        <button id="btnPublishRecipe">Publicar</button>
+                        </form>
+                </section>
+        </section>
+        <section id="feedMainPost">
+            <div class= "feedView">
+                <h1 id="titlePostMain">Publicaciones de tus amigos</h1>
+                    <section id="postUsers">
+                    </section>
+            </div>
+        </section>
+    </div>
+    `;
+  feedContainer.innerHTML = feedTemplate;
 
-// const profileView = document.getElementById('profileName');
-// if (profileView) {
-//   profileView.innerHTML(user.displayName);
-// }
+  //   window.addEventListener('DOMContentLoaded', () => {
+  //   });
+
+  const publishRecipe = feedContainer.querySelector('#publishRecipe');
+  // const recipeName = feedContainer.querySelector('#recipeName');
+
+  publishRecipe.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    // eslint-disable-next-line dot-notation
+    const nameRecipe = publishRecipe['recipeName'].value;
+    const descriptionRecipe = publishRecipe['recipe-description'].value;
+    console.log('submitted', nameRecipe, descriptionRecipe);
+  });
+
+  return feedContainer;
+};

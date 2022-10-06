@@ -10,6 +10,6 @@ import { register } from "../pages/register.js";
 export const routes = {
   '/': login(),
   '/register': register(),
-  '/feed': feed,
+  '/feed': feed(),
   '/profile': Profile(),
 };

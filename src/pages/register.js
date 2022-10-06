@@ -26,31 +26,24 @@ const register = () => {
     `;
   registerContainer.innerHTML = registerTemplate;
 
-  //   const inputEmail = document.getElementById('registerEmailUser');
-  //   const inputPass = document.getElementById('registerPassWordUser');
-  //   const inputName = document.getElementById('registerNameUser');
-  //   const bottonRegister = document.getElementById('bottonRegister');
-
   // BOTON PARA VALIDAR EL REGISTRO //
-  registerContainer.querySelector('#bottonRegister').addEventListener('click', () => {
-    // console.log(inputEmail);
-    // createEmail(inputEmail.value, inputPass.value); /* Comando de Firebase para Autenticación */
-    createEmail(document.getElementById('registerEmailUser').value, document.getElementById('registerPassWordUser').value); /* Comando de Firebase para Autenticación */
-    window.location.pathname = '/feed';
-  });
+  registerContainer
+    .querySelector('#bottonRegister')
+    .addEventListener('click', () => {
+      createEmail(
+        document.getElementById('registerEmailUser').value,
+        document.getElementById('registerPassWordUser').value,
+      ); /* Comando de Firebase para Autenticación */
+      // window.location.pathname = '/feed';
+    });
 
   // REGISTRARSE CON GOOGLE //
-  registerContainer.querySelector('#bottonGoogle').addEventListener('click', () => {
-    loginWithGoogle();
-    window.location.pathname = '/feed';
-  });
-  //   const googleButton = document.getElementById('bottonGoogle');
-  //   if (googleButton) {
-  //     googleButton.addEventListener('click', () => {
-  //       loginWithGoogle();
-  //     });
-  //   }
-
+  registerContainer
+    .querySelector('#bottonGoogle')
+    .addEventListener('click', () => {
+      loginWithGoogle();
+      // window.location.pathname = '/feed';
+    });
   return registerContainer;
 };
 
