@@ -14,11 +14,11 @@ header img {
     height: 70px;
     text-align: center;
 }
-
+/* 
 header i {
     height: 30px;
     text-align:right;
-}
+} */
 
 main{
     display: flex;
