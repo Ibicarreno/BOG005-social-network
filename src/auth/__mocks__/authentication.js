@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-const createEmail = (email, password, nameUser) => Promise.resolve();
+const createEmail = (email, password, name) => Promise.resolve();
 
 const validateUserAndPass = (email, password) => Promise.resolve();
 

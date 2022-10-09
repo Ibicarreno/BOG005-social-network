@@ -1,9 +1,9 @@
 // eslint-disable-next-line import/no-cycle, import/no-unresolved
 import { createEmail, loginWithGoogle } from '../auth/authentication.js';
 
-const register = () => {
-  const registerContainer = document.createElement('div');
-  const registerTemplate = `
+let register = () => {
+  let registerContainer = document.createElement('div');
+  let registerTemplate = `
     <div id="backgroundVideo">    
     <video src="./resources/pexels-vanessa-loring-5858145.mp4" autoplay loop muted></video>
     </div>
@@ -26,31 +26,20 @@ const register = () => {
     `;
   registerContainer.innerHTML = registerTemplate;
 
-  //   const inputEmail = document.getElementById('registerEmailUser');
-  //   const inputPass = document.getElementById('registerPassWordUser');
-  //   const inputName = document.getElementById('registerNameUser');
-  //   const bottonRegister = document.getElementById('bottonRegister');
 
   // BOTON PARA VALIDAR EL REGISTRO //
   registerContainer.querySelector('#bottonRegister').addEventListener('click', () => {
-    // console.log(inputEmail);
-    // createEmail(inputEmail.value, inputPass.value); /* Comando de Firebase para Autenticación */
-    createEmail(document.getElementById('registerEmailUser').value, document.getElementById('registerPassWordUser').value); /* Comando de Firebase para Autenticación */
-    window.location.pathname = '/feed';
+    createEmail(registerContainer.querySelector('#registerEmailUser').value,
+    registerContainer.querySelector('#registerPassWordUser').value,
+    registerContainer.querySelector('#registerNameUser').value,
+    ); /* Comando de Firebase para Autenticación */
   });
 
   // REGISTRARSE CON GOOGLE //
   registerContainer.querySelector('#bottonGoogle').addEventListener('click', () => {
     loginWithGoogle();
-    window.location.pathname = '/feed';
   });
-  //   const googleButton = document.getElementById('bottonGoogle');
-  //   if (googleButton) {
-  //     googleButton.addEventListener('click', () => {
-  //       loginWithGoogle();
-  //     });
-  //   }
-
+ 
   return registerContainer;
 };
 

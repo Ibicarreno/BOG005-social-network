@@ -1,54 +1,55 @@
 import {
   getAuth,
   createUserWithEmailAndPassword,
-  signInWithEmailAndPassword, // ibeht
+  signInWithEmailAndPassword, 
   GoogleAuthProvider,
-  signInWithPopup, // nata
+  signInWithPopup, 
 // eslint-disable-next-line import/no-unresolved
 } from 'https://www.gstatic.com/firebasejs/9.9.4/firebase-auth.js';
 //import { collection } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-firestore.js"
 import { app } from '../config/configFireBase.js';
 // eslint-disable-next-line import/no-cycle
 import { onNavigate } from '../main.js';
-// import { Login } from '../pages/login.js';
 import { feed } from '../pages/feed.js';
-// ibeht
 const auth = getAuth(app);
 
 // OBSERVADOR - PERMITE IDENTIFICAR SI EXISTE UNA CUENTA ABIERTA
 
 auth.onAuthStateChanged((user) => {
   if (user){
-    const uid = user.uid;
-    console.log(user);
+
+
   } else {
     console.log('no existe usuario');
   }
 });
 
+
 const root = document.getElementById('root');
 
-const createEmail = (email, password, displayName) => {
-  createUserWithEmailAndPassword(auth, email, password, displayName)
+const createEmail = (email, password, name) => {
+  createUserWithEmailAndPassword(auth, email, password, name)
     .then((result) => {
-      const user = result.user;
-      // root.innerHTML = feed
-      onNavigate('/feed');      
+      let user = result.user.displayName;
+      user = name;
+      console.log(`Tienes un usuario registrado, su nombre es ${user}`);
+      onNavigate('/feed');
+      window.location.pathname = '/feed';
     })
     .catch((error) => {
-      // const errorCode = error.code;
-      const errorMessage = error.message;
+      let errorMessage = error.message;
       alert(errorMessage);
-      onNavigate('/');
+      console.log(errorMessage);
+      onNavigate('/register');
+      //window.location.pathname = '/register';
     });
 };
 
 const validateUserAndPass = (email, password) => {
   signInWithEmailAndPassword(auth, email, password)
     .then((result) => {
-      const user = result.user;
+      let user = result.user;
       console.log(email, password);
-      root.innerHTML = feed;
       onNavigate('/feed');
     })
     .catch((error) => {
@@ -72,12 +73,11 @@ const loginWithGoogle = () => {
       const token = credential.accessToken;
       console.log(token);
       // The signed-in user info.
-      const user = result.user;
+      let user = result.user;
       console.log(user.displayName);
       root.innerHTML = feed;
       onNavigate('/feed');
-      //const nameUserGoogle = document.getElementById("#nameUser")
-      //nameUserGoogle.innerHTML = user.displayName;
+      console.log(user);
     }).catch((error) => {
     // Handle Errors here.
       // const errorCode = error.code;
@@ -88,13 +88,21 @@ const loginWithGoogle = () => {
       const credential = GoogleAuthProvider.credentialFromError(error);
       alert(errorMessage);
       console.log(email, credential);
-    // ...
-    });   
-};
 
-const saveName = (inputName) => {
-  
+    });
+    
+    let user = auth.currentUser;
+    if (user !== null) {
+      // The user object has basic properties such as display name, email, etc.
+      const displayName = user.displayName;
+      const email = user.email;
+      const photoURL = user.photoURL;
+      const emailVerified = user.emailVerified;
+      const uid = user.uid;
+      console.log(uid);
 }
 
+
+};
 
 export { createEmail, validateUserAndPass, loginWithGoogle };

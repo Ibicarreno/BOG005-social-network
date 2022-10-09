@@ -1,3 +1,5 @@
+import { validateUserAndPass } from '../auth/authentication.js';
+
 export const login = () => {
   const loginContainer = document.createElement('div');
   const loginTemplate = `
@@ -21,7 +23,7 @@ export const login = () => {
   loginContainer.innerHTML = loginTemplate;
 
   loginContainer.querySelector('#logginButton').addEventListener('click', () => {
-    window.location.pathname = '/feed';
+    validateUserAndPass(document.querySelector('#emailUser').value, document.querySelector('#passWordUser').value);
   });
   loginContainer.querySelector('#linkRegister').addEventListener('click', () => {
     window.location.pathname = '/register';
