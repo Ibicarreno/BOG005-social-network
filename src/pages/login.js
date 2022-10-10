@@ -3,6 +3,7 @@ import { validateUserAndPass } from '../auth/authentication.js';
 export const login = () => {
   const loginContainer = document.createElement('div');
   const loginTemplate = `
+  <div id="mainLogin">
   <div id="backgroundVideo">    
     <video src="./resources/pexels-vanessa-loring-5858145.mp4" autoplay loop muted></video>
   </div>
@@ -14,10 +15,13 @@ export const login = () => {
       <hr class="lineRight">
       <p id="letter">o</p>
      <hr class="lineLeft">
+
+     <div id="sigInMobile">
+     <p>¿No tienes una cuenta?</p>
+     <button id="linkRegister">¡Regístrate!</button>
+     </div>
   </section>
-  <div id="sigInMobile">
-    <p>¿No tienes una cuenta?</p>
-    <button id="linkRegister">¡Regístrate!</button>
+ 
   </div>
 `;
   loginContainer.innerHTML = loginTemplate;

@@ -4,6 +4,7 @@ import { createEmail, loginWithGoogle } from '../auth/authentication.js';
 const register = () => {
   const registerContainer = document.createElement('div');
   const registerTemplate = `
+  <div id="mainRegister">
     <div id="backgroundVideo">    
     <video src="./resources/pexels-vanessa-loring-5858145.mp4" autoplay loop muted></video>
     </div>
@@ -23,7 +24,8 @@ const register = () => {
     <p>Entrar con Google</p>
     </button>
     </div>
-    `;
+  </div> 
+  `;
   registerContainer.innerHTML = registerTemplate;
 
   // BOTON PARA VALIDAR EL REGISTRO //

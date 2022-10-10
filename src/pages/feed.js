@@ -3,6 +3,7 @@ import { saveRecipe, getRecipe, onGetRecipes } from '../firestore/methodsFiresto
 export const feed = () => {
   const feedContainer = document.createElement('div');
   const feedTemplate = `
+  <div id="mainFeed">
     <div class='feed' id="feed">
         <section id="feedMainProfile">
             <section id="infoUser">
@@ -10,7 +11,7 @@ export const feed = () => {
                 <p id="nameUser">Nombre de usuari@</p>
             </section>
                 <section id="publishPost">
-                    <h1 for="publish">Publica tu receta</h1>
+                    <h1 for="publish" id="publishTitle">Publica tu receta</h1>
                         <form id="publishRecipe">
                         <input type="text" placeholder="Nombre de la receta" id="recipeName">
                         <textarea name="recipe-description" rows="3" placeholder="Descripcion de la receta"></textarea>
@@ -26,7 +27,8 @@ export const feed = () => {
             </div>
         </section>
     </div>
-    `;
+  </div>
+  `;
   feedContainer.innerHTML = feedTemplate;
   const feedMainPost = feedContainer.querySelector('#postUsers');
   const querySnapshot = getRecipe();
@@ -37,9 +39,25 @@ export const feed = () => {
       resul.forEach((doc) => {
         const post = doc.data();
         html += `
-          <div class= "feedView">
-              <h3>${post.title}</h3>
-              <h3>${post.description}</h3>
+          <div class= "postView">
+          <div id="imageRecipe">
+          <img src='../resources/saladDish.jpg' alt="icon" id="icon">
+          </div>
+          <div id="dataForRecipe">
+              <h3 id="postTitle">${post.title}</h3>
+              <h3 id="descriptionPost">${post.description}</h3>
+              <div id="iconsPosts">
+               <div id="likeCounter">
+                <img src='../resources/corazon.png' alt="icon" class="postIcon">
+                <p id="counter">5</p>
+               </div>
+               <div id="iconsInteractive">
+                <img src='../resources/me-gusta.png' alt="icon" class="postIcon">
+                <img src='../resources/editar.png' alt="icon" class="postIcon">
+                <img src='../resources/basura.png' alt="icon" class="postIcon">
+               </div>
+              </div>
+          </div>
           </div>
           `;
       });
