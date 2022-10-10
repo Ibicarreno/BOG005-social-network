@@ -1,9 +1,11 @@
-import { saveRecipe, getRecipe, onGetRecipes } from '../firestore/methodsFirestore.js';
+import { auth, logOutUser } from '../auth/authentication.js';
+import { saveRecipe, onGetRecipes, deletePost } from '../firestore/methodsFirestore.js';
 
 export const feed = () => {
   const feedContainer = document.createElement('div');
   const feedTemplate = `
   <div id="mainFeed">
+  <button id="btnLogOut">Cerrar sesión</button>
     <div class='feed' id="feed">
         <section id="feedMainProfile">
             <section id="infoUser">
@@ -31,13 +33,15 @@ export const feed = () => {
   `;
   feedContainer.innerHTML = feedTemplate;
   const feedMainPost = feedContainer.querySelector('#postUsers');
-  const querySnapshot = getRecipe();
-  // onGetRecipes()
+  const logOutPage = feedContainer.querySelector('#btnLogOut');
+
   window.addEventListener('DOMContentLoaded', () => {
-    let html = '';
-    onGetRecipes(querySnapshot.then((resul) => {
-      resul.forEach((doc) => {
+    onGetRecipes((querySnapshot) => {
+      feedContainer.querySelector('#nameUser').textContent = auth.currentUser.displayName;
+      let html = '';
+      querySnapshot.forEach((doc) => {
         const post = doc.data();
+        // console.log('id ', doc.id);
         html += `
           <div class= "postView">
           <div id="imageRecipe">
@@ -52,21 +56,31 @@ export const feed = () => {
                 <p id="counter">5</p>
                </div>
                <div id="iconsInteractive">
-                <img src='../resources/me-gusta.png' alt="icon" class="postIcon">
+               <button id="iconLike">
+                <img src='../resources/me-gusta.png' alt="icon" class="postIcon" id="iconLike">
+                </button>
+                <button id="iconEdit">
                 <img src='../resources/editar.png' alt="icon" class="postIcon">
-                <img src='../resources/basura.png' alt="icon" class="postIcon">
+                </button> 
+                <button id="iconDelete"  class="btnsDelete" data-id='${doc.id}'>
+                Delete
+                </button>
                </div>
               </div>
           </div>
           </div>
           `;
       });
+      // <img src='../resources/basura.png' alt="icon" class="postIcon"></img>
       feedMainPost.innerHTML = html;
-    }));
+      const btnsDelete = feedMainPost.querySelectorAll('.btnsDelete');
+      btnsDelete.forEach((btn) => {
+        btn.addEventListener('click', (event) => { deletePost(event.target.dataset.id); });
+      });
+    });
   });
 
   const publishRecipe = feedContainer.querySelector('#publishRecipe');
-  // const recipeName = feedContainer.querySelector('#recipeName');
 
   publishRecipe.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -74,10 +88,12 @@ export const feed = () => {
     // eslint-disable-next-line dot-notation
     const nameRecipe = publishRecipe['recipeName'];
     const descriptionRecipe = publishRecipe['recipe-description'];
-    // console.log('submitted', nameRecipe, descriptionRecipe);
     saveRecipe(nameRecipe.value, descriptionRecipe.value);
     publishRecipe.reset();
   });
 
+  logOutPage.addEventListener('click', () => {
+    logOutUser();
+  });
   return feedContainer;
 };

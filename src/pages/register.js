@@ -1,4 +1,3 @@
-// eslint-disable-next-line import/no-cycle, import/no-unresolved
 import { createEmail, loginWithGoogle } from '../auth/authentication.js';
 
 const register = () => {
@@ -35,8 +34,8 @@ const register = () => {
       createEmail(
         document.getElementById('registerEmailUser').value,
         document.getElementById('registerPassWordUser').value,
+        document.getElementById('registerNameUser').value,
       ); /* Comando de Firebase para Autenticación */
-      // window.location.pathname = '/feed';
     });
 
   // REGISTRARSE CON GOOGLE //
@@ -44,7 +43,6 @@ const register = () => {
     .querySelector('#bottonGoogle')
     .addEventListener('click', () => {
       loginWithGoogle();
-      // window.location.pathname = '/feed';
     });
   return registerContainer;
 };

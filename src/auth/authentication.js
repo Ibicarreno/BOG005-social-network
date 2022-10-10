@@ -1,39 +1,59 @@
 import {
   getAuth,
   createUserWithEmailAndPassword,
-  signInWithEmailAndPassword, // ibeht
+  signInWithEmailAndPassword,
   GoogleAuthProvider,
-  signInWithPopup, // nata
+  signInWithPopup,
+  signOut,
+  onAuthStateChanged,
+  updateProfile,
 // eslint-disable-next-line import/no-unresolved
 } from 'https://www.gstatic.com/firebasejs/9.9.4/firebase-auth.js';
 import { app } from '../config/configFireBase.js';
 // eslint-disable-next-line import/no-cycle
 import { onNavigate } from '../main.js';
-// import { Login } from '../pages/login.js';
-// import { feed } from '../pages/feed.js';
-// ibeht
+
 const auth = getAuth(app);
 
 // OBSERVADOR - PERMITE IDENTIFICAR SI EXISTE UNA CUENTA ABIERTA
-auth.onAuthStateChanged((user) => {
-  console.log(user);
+onAuthStateChanged(auth, (user) => {
+  if (!user) {
+    onNavigate('/');
+    console.log('está desconectado');
+  } else {
+    onNavigate('/feed');
+    console.log('está conectado ');
+  }
 });
 
-// const root = document.getElementById('root');
+const logOutUser = () => {
+  // eslint-disable-next-line no-restricted-globals
+  if (confirm('¿Estás seguro de cerrar sesión?')) {
+    signOut(auth)
+      .then(() => {
+        console.log('cerro sesion');
+        window.location.pathname = '/';
+      })
+      .catch(() => {});
+  } else {
+    onNavigate('/feed');
+    console.log('cerrar sesión onNavigate ');
+  }
+};
 
 const createEmail = (email, password, nameUser) => {
   createUserWithEmailAndPassword(auth, email, password, nameUser)
     .then((result) => {
-      const user = result.user;
-      console.log(user);
+      updateProfile(auth.currentUser, {
+        displayName: nameUser,
+      });
+      let user = result.user.displayName;
+      user = nameUser;
       window.location.pathname = '/feed';
-      // root.innerHTML = feed;
-      // onNavigate('/feed');
+      console.log(user);
     })
     .catch((error) => {
-      // const errorCode = error.code;
-      const errorMessage = error.message;
-      alert(errorMessage);
+      alert(error.message);
       onNavigate('/register');
     });
 };
@@ -43,15 +63,12 @@ const validateUserAndPass = (email, password) => {
     .then((result) => {
       const user = result.user;
       console.log(user);
-      // root.innerHTML = feed;
       window.location.pathname = '/feed';
-      // onNavigate('/feed');
     })
     .catch((error) => {
       const errorMessage = error.message;
       alert(errorMessage);
       console.log('error en el registro');
-      // window.location.pathname = '/';
       onNavigate('/');
     });
 };
@@ -72,11 +89,8 @@ const loginWithGoogle = () => {
       const user = result.user;
       console.log(user.displayName);
       window.location.pathname = '/feed';
-      // root.innerHTML = feed;
-      // onNavigate('/feed');
     }).catch((error) => {
     // Handle Errors here.
-      // const errorCode = error.code;
       const errorMessage = error.message;
       // The email of the user's account used.
       const email = error.customData.email;
@@ -88,4 +102,6 @@ const loginWithGoogle = () => {
     });
 };
 
-export { createEmail, validateUserAndPass, loginWithGoogle };
+export {
+  createEmail, validateUserAndPass, loginWithGoogle, logOutUser, auth,
+};

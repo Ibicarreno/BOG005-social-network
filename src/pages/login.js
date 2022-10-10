@@ -1,4 +1,5 @@
 import { validateUserAndPass } from '../auth/authentication.js';
+import { onNavigate } from '../main.js';
 
 export const login = () => {
   const loginContainer = document.createElement('div');
@@ -31,7 +32,8 @@ export const login = () => {
     // window.location.pathname = '/feed';
   });
   loginContainer.querySelector('#linkRegister').addEventListener('click', () => {
-    window.location.pathname = '/register';
+    // window.location.pathname = '/register';
+    onNavigate('/register');
   });
 
   return loginContainer;
