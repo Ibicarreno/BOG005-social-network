@@ -1,4 +1,3 @@
-// eslint-disable-next-line import/no-cycle, import/no-unresolved
 import { createEmail, loginWithGoogle } from '../auth/authentication.js';
 
 const register = () => {
@@ -26,15 +25,15 @@ const register = () => {
     `;
   registerContainer.innerHTML = registerTemplate;
 
-  // BOTON PARA VALIDAR EL REGISTRO //
+  // BOTÓN PARA VALIDAR EL REGISTRO //
   registerContainer
     .querySelector('#bottonRegister')
     .addEventListener('click', () => {
       createEmail(
         document.getElementById('registerEmailUser').value,
         document.getElementById('registerPassWordUser').value,
-      ); /* Comando de Firebase para Autenticación */
-      // window.location.pathname = '/feed';
+        document.getElementById('registerNameUser').value,
+      );
     });
 
   // REGISTRARSE CON GOOGLE //
@@ -42,7 +41,6 @@ const register = () => {
     .querySelector('#bottonGoogle')
     .addEventListener('click', () => {
       loginWithGoogle();
-      // window.location.pathname = '/feed';
     });
   return registerContainer;
 };

@@ -1,8 +1,10 @@
-import { saveRecipe, getRecipe, onGetRecipes } from '../firestore/methodsFirestore.js';
+import { auth, signOff } from '../auth/authentication.js';
+import { saveRecipe, onGetRecipes } from '../firestore/methodsFirestore.js';
 
 export const feed = () => {
   const feedContainer = document.createElement('div');
   const feedTemplate = `
+  <button id="btnLogOut">Cerrar sesión</button>
     <div class='feed' id="feed">
         <section id="feedMainProfile">
             <section id="infoUser">
@@ -13,7 +15,7 @@ export const feed = () => {
                     <h1 for="publish">Publica tu receta</h1>
                         <form id="publishRecipe">
                         <input type="text" placeholder="Nombre de la receta" id="recipeName">
-                        <textarea name="recipe-description" rows="3" placeholder="Descripcion de la receta"></textarea>
+                        <textarea name="recipe-description" rows="3" placeholder="Descripción de la receta"></textarea>
                         <button id="btnPublishRecipe">Publicar</button>
                         </form>
                 </section>
@@ -25,39 +27,37 @@ export const feed = () => {
                     </div>
             </div>
         </section>
-    </div>
-    `;
+        </div>
+        `;
   feedContainer.innerHTML = feedTemplate;
   const feedMainPost = feedContainer.querySelector('#postUsers');
-  const querySnapshot = getRecipe();
-  // onGetRecipes()
+  feedContainer.querySelector('#btnLogOut').addEventListener('click', signOff);
   window.addEventListener('DOMContentLoaded', () => {
-    let html = '';
-    onGetRecipes(querySnapshot.then((resul) => {
-      resul.forEach((doc) => {
+    onGetRecipes((querySnapshot) => {
+      feedContainer.querySelector('#nameUser').textContent = auth.currentUser.displayName;
+      console.log(auth.currentUser.displayName);
+      let html = '';
+      querySnapshot.forEach((doc) => {
         const post = doc.data();
         html += `
           <div class= "feedView">
               <h3>${post.title}</h3>
               <h3>${post.description}</h3>
-          </div>
+              </div>
           `;
       });
       feedMainPost.innerHTML = html;
-    }));
+    });
   });
 
   const publishRecipe = feedContainer.querySelector('#publishRecipe');
-  // const recipeName = feedContainer.querySelector('#recipeName');
 
   publishRecipe.addEventListener('submit', (e) => {
     e.preventDefault();
-
     // eslint-disable-next-line dot-notation
-    const nameRecipe = publishRecipe['recipeName'];
-    const descriptionRecipe = publishRecipe['recipe-description'];
-    // console.log('submitted', nameRecipe, descriptionRecipe);
-    saveRecipe(nameRecipe.value, descriptionRecipe.value);
+    const nameRecipe = publishRecipe['recipeName'].value;
+    const descriptionRecipe = publishRecipe['recipe-description'].value;
+    saveRecipe(nameRecipe, descriptionRecipe);
     publishRecipe.reset();
   });
 

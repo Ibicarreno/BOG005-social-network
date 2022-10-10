@@ -1,4 +1,5 @@
 import { validateUserAndPass } from '../auth/authentication.js';
+import { onNavigate } from '../main.js';
 
 export const login = () => {
   const loginContainer = document.createElement('div');
@@ -21,14 +22,14 @@ export const login = () => {
   </div>
 `;
   loginContainer.innerHTML = loginTemplate;
+  loginContainer.querySelector('#linkRegister').addEventListener('click', () => {
+    // e.preventDefault();
+    // window.location.pathname = '/register';
+    onNavigate('/register');
+  });
 
   loginContainer.querySelector('#logginButton').addEventListener('click', () => {
     validateUserAndPass(document.querySelector('#emailUser').value, document.querySelector('#passWordUser').value);
-    // window.location.pathname = '/feed';
   });
-  loginContainer.querySelector('#linkRegister').addEventListener('click', () => {
-    window.location.pathname = '/register';
-  });
-
   return loginContainer;
 };

@@ -1,11 +1,7 @@
-// eslint-disable-next-line quotes
-import { Profile } from "../pages/profile.js";
-// eslint-disable-next-line quotes
-import { feed } from "../pages/feed.js";
-// eslint-disable-next-line quotes
-import { login } from "../pages/login.js";
-// eslint-disable-next-line quotes, import/no-cycle
-import { register } from "../pages/register.js";
+import { Profile } from '../pages/profile.js';
+import { feed } from '../pages/feed.js';
+import { login } from '../pages/login.js';
+import { register } from '../pages/register.js';
 
 export const routes = {
   '/': login(),
