@@ -25,6 +25,7 @@ onAuthStateChanged(auth, (user) => {
     console.log('está conectado ');
   }
 });
+// console.log(uid);
 
 const logOutUser = () => {
   // eslint-disable-next-line no-restricted-globals

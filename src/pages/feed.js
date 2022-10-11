@@ -1,5 +1,7 @@
 import { auth, logOutUser } from '../auth/authentication.js';
-import { saveRecipe, onGetRecipes, deletePost } from '../firestore/methodsFirestore.js';
+import {
+  saveRecipe, onGetRecipes, deletePost, getPost, updatePost,
+} from '../firestore/methodsFirestore.js';
 
 export const feed = () => {
   const feedContainer = document.createElement('div');
@@ -34,6 +36,9 @@ export const feed = () => {
   feedContainer.innerHTML = feedTemplate;
   const feedMainPost = feedContainer.querySelector('#postUsers');
   const logOutPage = feedContainer.querySelector('#btnLogOut');
+  const publishRecipe = feedContainer.querySelector('#publishRecipe');
+  let editStatus = false;
+  let id = '';
 
   window.addEventListener('DOMContentLoaded', () => {
     onGetRecipes((querySnapshot) => {
@@ -41,7 +46,7 @@ export const feed = () => {
       let html = '';
       querySnapshot.forEach((doc) => {
         const post = doc.data();
-        // console.log('id ', doc.id);
+        console.log('id ', post);
         html += `
           <div class= "postView">
           <div id="imageRecipe">
@@ -59,11 +64,11 @@ export const feed = () => {
                <button id="iconLike">
                 <img src='../resources/me-gusta.png' alt="icon" class="postIcon" id="iconLike">
                 </button>
-                <button id="iconEdit">
-                <img src='../resources/editar.png' alt="icon" class="postIcon">
+                <button id="iconEdit" class="btnsEdit" data-id='${doc.id}'>
+                Editar
                 </button> 
                 <button id="iconDelete"  class="btnsDelete" data-id='${doc.id}'>
-                Delete
+                Borrar
                 </button>
                </div>
               </div>
@@ -77,10 +82,25 @@ export const feed = () => {
       btnsDelete.forEach((btn) => {
         btn.addEventListener('click', (event) => { deletePost(event.target.dataset.id); });
       });
+
+      const btnsEdit = feedMainPost.querySelectorAll('.btnsEdit');
+      btnsEdit.forEach((btn) => {
+        btn.addEventListener('click', async (event) => {
+          const post = await getPost(event.target.dataset.id);
+          const postData = post.data();
+          // eslint-disable-next-line dot-notation
+          publishRecipe['recipeName'].value = postData.title;
+          publishRecipe['recipe-description'].value = postData.description;
+
+          editStatus = true;
+          id = post.id;
+
+          const btnPublish = feedContainer.querySelector('#btnPublishRecipe');
+          btnPublish.innerText = 'Actualizar';
+        });
+      });
     });
   });
-
-  const publishRecipe = feedContainer.querySelector('#publishRecipe');
 
   publishRecipe.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -88,7 +108,15 @@ export const feed = () => {
     // eslint-disable-next-line dot-notation
     const nameRecipe = publishRecipe['recipeName'];
     const descriptionRecipe = publishRecipe['recipe-description'];
-    saveRecipe(nameRecipe.value, descriptionRecipe.value);
+    if (!editStatus) {
+      saveRecipe(nameRecipe.value, descriptionRecipe.value);
+    } else {
+      updatePost(id, { title: nameRecipe.value, description: descriptionRecipe.value });
+      editStatus = false;
+      const btnPublish = feedContainer.querySelector('#btnPublishRecipe');
+      btnPublish.innerText = 'Publicar';
+    }
+
     publishRecipe.reset();
   });
 
