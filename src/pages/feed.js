@@ -1,6 +1,6 @@
 import { auth, logOutUser } from '../auth/authentication.js';
 import {
-  saveRecipe, onGetRecipes, deletePost, getPost, updatePost,
+  saveRecipe, onGetRecipes, deletePost, getPost, updatePost, getRecipe,
 } from '../firestore/methodsFirestore.js';
 
 export const feed = () => {
@@ -38,6 +38,7 @@ export const feed = () => {
   const logOutPage = feedContainer.querySelector('#btnLogOut');
   const publishRecipe = feedContainer.querySelector('#publishRecipe');
   let editStatus = false;
+  const btnPublish = feedContainer.querySelector('#btnPublishRecipe');
   let id = '';
 
   window.addEventListener('DOMContentLoaded', () => {
@@ -46,7 +47,7 @@ export const feed = () => {
       let html = '';
       querySnapshot.forEach((doc) => {
         const post = doc.data();
-        console.log('id ', post);
+        // console.log('id ', post);
         html += `
           <div class= "postView">
           <div id="imageRecipe">
@@ -61,8 +62,8 @@ export const feed = () => {
                 <p id="counter">5</p>
                </div>
                <div id="iconsInteractive">
-               <button id="iconLike">
-                <img src='../resources/me-gusta.png' alt="icon" class="postIcon" id="iconLike">
+               <button id="iconLike" class="btnsLike" data-id='${doc.id}'>
+                Like
                 </button>
                 <button id="iconEdit" class="btnsEdit" data-id='${doc.id}'>
                 Editar
@@ -80,7 +81,12 @@ export const feed = () => {
       feedMainPost.innerHTML = html;
       const btnsDelete = feedMainPost.querySelectorAll('.btnsDelete');
       btnsDelete.forEach((btn) => {
-        btn.addEventListener('click', (event) => { deletePost(event.target.dataset.id); });
+        btn.addEventListener('click', (event) => {
+          // eslint-disable-next-line no-restricted-globals
+          if (confirm('¿Estás seguro de eliminar la publicación?')) {
+            deletePost(event.target.dataset.id);
+          }
+        });
       });
 
       const btnsEdit = feedMainPost.querySelectorAll('.btnsEdit');
@@ -95,8 +101,16 @@ export const feed = () => {
           editStatus = true;
           id = post.id;
 
-          const btnPublish = feedContainer.querySelector('#btnPublishRecipe');
           btnPublish.innerText = 'Actualizar';
+        });
+      });
+
+      const btnsLike = feedMainPost.querySelectorAll('.btnsLike');
+      btnsLike.forEach((btn) => {
+        const changeLike = () => btn.classList.toggle('background-red');
+        btn.addEventListener('click', changeLike);
+        btn.addEventListener('click', () => {
+          getRecipe().then((result) => result.docs.forEach((idPost) => console.log('idPost ', idPost.id)));
         });
       });
     });
@@ -104,16 +118,20 @@ export const feed = () => {
 
   publishRecipe.addEventListener('submit', (e) => {
     e.preventDefault();
-
     // eslint-disable-next-line dot-notation
     const nameRecipe = publishRecipe['recipeName'];
     const descriptionRecipe = publishRecipe['recipe-description'];
+    const date = new Date();
+    // console.log(date);
     if (!editStatus) {
-      saveRecipe(nameRecipe.value, descriptionRecipe.value);
+      saveRecipe(date, nameRecipe.value, descriptionRecipe.value);
+      console.log(date);
     } else {
-      updatePost(id, { title: nameRecipe.value, description: descriptionRecipe.value });
+      updatePost(id, {
+        title: nameRecipe.value,
+        description: descriptionRecipe.value,
+      });
       editStatus = false;
-      const btnPublish = feedContainer.querySelector('#btnPublishRecipe');
       btnPublish.innerText = 'Publicar';
     }
 
