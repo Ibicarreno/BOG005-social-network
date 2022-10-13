@@ -15,6 +15,8 @@ import { onNavigate } from '../main.js';
 
 const auth = getAuth(app);
 
+const getCurrentUser = () => getAuth().currentUser;
+
 // OBSERVADOR - PERMITE IDENTIFICAR SI EXISTE UNA CUENTA ABIERTA
 onAuthStateChanged(auth, (user) => {
   if (!user) {
@@ -104,5 +106,5 @@ const loginWithGoogle = () => {
 };
 
 export {
-  createEmail, validateUserAndPass, loginWithGoogle, logOutUser, auth,
+  createEmail, validateUserAndPass, loginWithGoogle, logOutUser, auth, getCurrentUser,
 };

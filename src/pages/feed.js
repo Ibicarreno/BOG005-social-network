@@ -61,8 +61,8 @@ export const feed = () => {
                 <p id="counter">5</p>
                </div>
                <div id="iconsInteractive">
-               <button id="iconLike">
-                <img src='../resources/me-gusta.png' alt="icon" class="postIcon" id="iconLike">
+               <button id="iconLike" class="btnsLike" data-id='${doc.id}'>
+                Like
                 </button>
                 <button id="iconEdit" class="btnsEdit" data-id='${doc.id}'>
                 Editar
@@ -98,6 +98,12 @@ export const feed = () => {
           const btnPublish = feedContainer.querySelector('#btnPublishRecipe');
           btnPublish.innerText = 'Actualizar';
         });
+      });
+
+      const btnsLike = feedMainPost.querySelectorAll('.btnsLike');
+      btnsLike.forEach((btn) => {
+        const changeLike = () => btn.classList.toggle('background-red');
+        btn.addEventListener('click', changeLike);
       });
     });
   });
