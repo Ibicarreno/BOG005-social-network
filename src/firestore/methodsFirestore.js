@@ -6,9 +6,9 @@ import { app } from '../config/configFireBase.js';
 
 const db = getFirestore(app);
 
-export const saveRecipe = (date, title, description) => {
+export const saveRecipe = (date, title, description, name) => {
   addDoc(collection(db, 'recipes'), {
-    date, title, description, like: [],
+    date, title, description, like: [], name,
   });
 };
 
@@ -27,9 +27,10 @@ export const getPost = (id) => getDoc(doc(db, 'recipes', id));
 
 export const updatePost = (id, newFields) => updateDoc(doc(db, 'recipes', id), newFields);
 
-export const likeMe = (idPost, idUser, like) => {
-  if (!like) {
-    return updateDoc(doc(db, 'recipes', idPost), { likeMe: arrayUnion(idUser) });
-  }
-  return updateDoc(doc(db, 'recipes', idPost), { likeMe: arrayRemove(idUser) });
+export const likeMe = (idPost, idUser) => {
+  updateDoc(doc(db, 'recipes', idPost), { like: arrayUnion(idUser) });
+};
+
+export const dislikeMe = (idPost, idUser) => {
+  updateDoc(doc(db, 'recipes', idPost), { like: arrayRemove(idUser) });
 };

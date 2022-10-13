@@ -51,9 +51,12 @@ const createEmail = (email, password, nameUser) => {
   console.log('valor recibido ', nameUser);
   createUserWithEmailAndPassword(auth, email, password, nameUser)
     .then((result) => {
+      // setTimeout(updateProfile(auth.currentUser, {
+      //   displayName: nameUser,
+      // }), 1000);
       updateProfile(auth.currentUser, {
         displayName: nameUser,
-      });
+      }).then();
       let user = result.user.displayName;
       user = nameUser;
       window.location.pathname = '/feed';

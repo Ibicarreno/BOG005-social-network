@@ -1,6 +1,6 @@
 import { auth, logOutUser } from '../auth/authentication.js';
 import {
-  saveRecipe, onGetRecipes, deletePost, getPost, updatePost, getRecipe,
+  saveRecipe, onGetRecipes, deletePost, getPost, updatePost, getRecipe, likeMe, dislikeMe,
 } from '../firestore/methodsFirestore.js';
 
 export const feed = () => {
@@ -47,7 +47,7 @@ export const feed = () => {
       let html = '';
       querySnapshot.forEach((doc) => {
         const post = doc.data();
-        // console.log('id ', post);
+        console.log('id ', post);
         html += `
           <div class= "postView">
           <div id="imageRecipe">
@@ -55,6 +55,7 @@ export const feed = () => {
           </div>
           <div id="dataForRecipe">
               <h3 id="postTitle">${post.title}</h3>
+              <p id="authorPost">${post.name}</p>
               <h3 id="descriptionPost">${post.description}</h3>
               <div id="iconsPosts">
                <div id="likeCounter">
@@ -110,7 +111,19 @@ export const feed = () => {
         const changeLike = () => btn.classList.toggle('background-red');
         btn.addEventListener('click', changeLike);
         btn.addEventListener('click', () => {
-          getRecipe().then((result) => result.docs.forEach((idPost) => console.log('idPost ', idPost.id)));
+          getRecipe().then((result) => result.docs.forEach(
+            (idPost) => {
+              if (!idPost.data().like.includes(auth.currentUser.uid)) {
+                likeMe(idPost.id, auth.currentUser.uid);
+                console.log('se dio like ', idPost.data().like);
+              } else {
+                dislikeMe(idPost.id, auth.currentUser.uid);
+                console.log('se quitó el like ', idPost.data().like);
+              }
+              // console.log('idPost ', idPost.id, 'idUser ', auth.currentUser.uid, 'doc.id ',
+              //  event.target.dataset.id);
+            },
+          ));
         });
       });
     });
@@ -122,9 +135,10 @@ export const feed = () => {
     const nameRecipe = publishRecipe['recipeName'];
     const descriptionRecipe = publishRecipe['recipe-description'];
     const date = new Date();
-    // console.log(date);
+    const author = auth.currentUser.displayName;
+    console.log(author);
     if (!editStatus) {
-      saveRecipe(date, nameRecipe.value, descriptionRecipe.value);
+      saveRecipe(date, nameRecipe.value, descriptionRecipe.value, author);
       console.log(date);
     } else {
       updatePost(id, {
