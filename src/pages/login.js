@@ -5,6 +5,9 @@ export const login = () => {
   const loginContainer = document.createElement('div');
   const loginTemplate = `
   <div id="mainLogin">
+  <header>
+  <img src="./resources/logoLoveat.png" alt="Logo LovEat">
+  </header>
   <div id="backgroundVideo">    
     <video src="./resources/pexels-vanessa-loring-5858145.mp4" autoplay loop muted></video>
   </div>
@@ -13,10 +16,11 @@ export const login = () => {
       <input  type="text" id="emailUser" placeholder="Correo electrónico">
       <input type="password" id="passWordUser" placeholder="Contraseña">
       <button id="logginButton">ENTRAR</button>
-      <hr class="lineRight">
-      <p id="letter">o</p>
-     <hr class="lineLeft">
-
+      <section id="separator">
+       <hr class="lineRight">
+       <p id="letter">o</p>
+       <hr class="lineLeft">
+      </section>
      <div id="sigInMobile">
      <p>¿No tienes una cuenta?</p>
      <button id="linkRegister">¡Regístrate!</button>

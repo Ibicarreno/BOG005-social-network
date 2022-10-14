@@ -10,7 +10,6 @@ import {
 // eslint-disable-next-line import/no-unresolved
 } from 'https://www.gstatic.com/firebasejs/9.9.4/firebase-auth.js';
 import { app } from '../config/configFireBase.js';
-// eslint-disable-next-line import/no-cycle
 import { onNavigate } from '../main.js';
 
 const auth = getAuth(app);
@@ -20,7 +19,6 @@ onAuthStateChanged(auth, (user) => {
   if (!user) {
     onNavigate('/');
     window.location.hash = '';
-    console.log('hash ', window.location.hash);
     if (window.location.hash === '') {
       // eslint-disable-next-line no-restricted-globals
       history.replaceState({}, '', '/');
@@ -48,19 +46,25 @@ const logOutUser = () => {
 };
 
 const createEmail = (email, password, nameUser) => {
-  console.log('valor recibido ', nameUser);
   createUserWithEmailAndPassword(auth, email, password, nameUser)
-    .then((result) => {
-      // setTimeout(updateProfile(auth.currentUser, {
-      //   displayName: nameUser,
-      // }), 1000);
+    .then(() => {
       updateProfile(auth.currentUser, {
         displayName: nameUser,
-      }).then();
-      let user = result.user.displayName;
-      user = nameUser;
-      window.location.pathname = '/feed';
-      console.log(user);
+      }).then(() => {
+        let user = auth.currentUser.displayName;
+        user = nameUser;
+        window.location.pathname = '/feed';
+        console.log(user);
+      }).catch((error) => console.log('error updateProfile ', error.message));
+      // console.log('createEmail ', result);
+      // updateProfile(auth.currentUser, {
+      //   displayName: nameUser,
+      // }).then(result => console.log('valor recibido ', nameUser));
+      // let user = result.user.displayName;
+      // user = nameUser;
+      // window.location.pathname = '/feed';
+      // // onNavigate('/feed');
+      // console.log(user, 'displayaname ', auth.currentUser.displayName);
     })
     .catch((error) => {
       alert(error.message);

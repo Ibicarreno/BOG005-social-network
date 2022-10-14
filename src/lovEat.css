@@ -8,6 +8,7 @@ header {
     height: 58px;
     margin: auto;
     text-align: center;
+    width: 100%;
 }
 
 header img {
@@ -18,6 +19,11 @@ header img {
 main{
     flex-direction: column;
     justify-content: center;
+
+}
+
+#LogInP {
+    display: none;
 
 }
 
@@ -44,25 +50,29 @@ main video {
     border-radius: 20px;
     margin-top: 40vh;
     padding: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    flex-direction: column ;
+    justify-content: space-around;
     align-items: center;
     width: 246px;
     height: 206px;
+    position: relative;
+    display: flex;
 }
 
-.sectionLogIn p{
-    display: none;
-}
 
 .sectionLogIn input {
     background-color:#F0F0F0 ;
     color: black;
     border: none;
     border-radius: 10px;
-    height: 50px;
+    height: 300px;
     width: 200px;
+    top:10px;
+    margin-top: 15px;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
 .sectionLogIn input::placeholder{
     color: rgba(38, 38, 38, 0.295);
@@ -101,6 +111,7 @@ main video {
     align-items: center;
     text-align: center;
     justify-content: center;
+    top:4em;
 }
 
 #sigInMobile p{
@@ -395,12 +406,6 @@ footer {
     display: none;
 }
 
-.background-red {
-    background: red;
-}
-
-
-
 @media screen and (min-width: 767px) and (max-width:1023px){
     header {
         height: 130px;
@@ -413,7 +418,6 @@ footer {
         flex-direction: column;
         justify-content:center;
         align-items:center;
-        margin-right: 50px;
         height: auto;
     }
     .sectionLogIn {
@@ -431,7 +435,7 @@ footer {
         margin-left: 15px ;
         color: #F37724;
     }
-    .sectionLogIn p {
+    #LogInP {
         display: flex;
         color: #7989EC;
         font-size: 28px;
@@ -470,6 +474,7 @@ footer {
     #sigInMobile{
         display:flex;
         position: relative;
+        top:0;
     }
     #linkRegister{
         color: #F37724;
@@ -485,28 +490,29 @@ footer {
     .lineRight {
         background-color: black;
         width: 7em;
-        left: 5.5em;
-        position: relative;
-        top: 1em;
+        margin-right: 15px;
+        display: inline-block;
     }
     
    #letter{
-    display: block;
-    font-size: 20px;
+    display: inline-block;
 }
     #sectionLogIn #letter{
-        position: absolute;
+        position:relative;
         color: black;
-        top: 33.5em;
-        margin-top: 20px;
+        display: inline-block;
     }
     .lineLeft {
         background-color: black;
         width: 7em;
         position: relative;
-        right: 5.5em;
+        margin-left: 15px;
+        display: inline-block;
+    }
+    #separator{
+        position: static;
+        height: 5px;
         display: block;
-        top: 1em;
     }
     #registerView input {
         display: block;
@@ -703,7 +709,6 @@ footer {
         flex-direction: column;
         justify-content:right;
         align-items:flex-end;
-        margin-right: 50px;
         height: auto;
     }
     #mainRegister{
@@ -728,6 +733,7 @@ footer {
         height: 120px;
         margin: auto;
         text-align: center;
+        position: static; 
     }
     
     header img {
@@ -747,8 +753,9 @@ footer {
         align-items: center;
         width: 400px;
         height: 440px;
+        margin-right: 8em;
     }
-    .sectionLogIn p{
+    #LogInP {
         display: flex;
         color: #7989EC;
         font-size: 28px;
@@ -771,12 +778,13 @@ footer {
         width: 306px;
         height: 64px;
         font-weight: bold;
+        top:0;
     }
 
     #sigInMobile{
         justify-content: center;
         position: relative;
-        top: 3em;
+        top: 2em;
     }
     #linkRegister{
         color:#F37724;
@@ -801,32 +809,33 @@ footer {
         height: 50px;
         text-align: center;
         position: relative;
+        margin: 12px;
+    }
+
+    #separator{
+        position: static;
+        height: 5px;
+        display: block;
     }
 
     .lineRight {
         background-color: black;
         width: 8em;
-        left: 6em;
-        position: relative;
-        top: 2em;
+        margin-right: 10px;
+        display: inline-block;
     }
     #letter{
-        display: block;
+        display: inline-block;
         font-size: 18px;
     }
    #sectionLogIn #letter{
-        display: block;
-        position: absolute;
         color: black;
-        top: 30em;
-        margin: 0;
     }
     .lineLeft {
         background-color: black;
         width: 8em;
-        position: relative;
-        right: 6em;
-        top: 2em;
+        margin-left: 10px;
+        display: inline-block;
     }
     #sigInMobile p{
         display: none;
@@ -901,14 +910,13 @@ footer {
         grid-template-columns: 30% 70%;
     }
     #feedMainProfile{
-    /* position: relative; */
+    position: relative;
     width: 80%;
     height: 70vh;
     margin: 3em 3em 3em 3em;
     background-color: white;
     border-radius: 1em;
-    position: sticky;
-    top: 11em;
+
     }
     #bottonMyProfile{
         position: absolute;
@@ -967,6 +975,7 @@ footer {
             #titlePostMain{
                 font-size: 30px;
                 margin: 25px;
+                text-align: center;
             }
             .postView{
                 background-color: white;
@@ -1007,7 +1016,20 @@ footer {
             #iconsInteractive {
                 display: inline-block;
                 position: relative;
-                left: 75%;
+
+            }
+            #btnLogOut{
+                position: relative;
+                z-index: 1 ;
+                display: flex;
+                color: red;
+                background: aqua;
+                border: none;
+                font-weight: bold;
+                width: 200px;
+                top: 0;
+                margin: 0;
+
 
             }
 
