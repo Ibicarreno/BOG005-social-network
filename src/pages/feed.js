@@ -47,7 +47,7 @@ export const feed = () => {
       let html = '';
       querySnapshot.forEach((doc) => {
         const post = doc.data();
-        console.log('id ', post);
+        // console.log('id ', post);
         html += `
           <div class= "postView">
           <div id="imageRecipe">
@@ -60,7 +60,7 @@ export const feed = () => {
               <div id="iconsPosts">
                <div id="likeCounter">
                 <img src='../resources/corazon.png' alt="icon" class="postIcon">
-                <p id="counter">5</p>
+                <p id="counter">${post.like.length}</p>
                </div>
                <div id="iconsInteractive">
                <button id="iconLike" class="btnsLike" data-id='${doc.id}'>
@@ -110,18 +110,20 @@ export const feed = () => {
       btnsLike.forEach((btn) => {
         const changeLike = () => btn.classList.toggle('background-red');
         btn.addEventListener('click', changeLike);
-        btn.addEventListener('click', () => {
+        btn.addEventListener('click', (e) => {
           getRecipe().then((result) => result.docs.forEach(
             (idPost) => {
-              if (!idPost.data().like.includes(auth.currentUser.uid)) {
-                likeMe(idPost.id, auth.currentUser.uid);
-                console.log('se dio like ', idPost.data().like);
-              } else {
-                dislikeMe(idPost.id, auth.currentUser.uid);
-                console.log('se quitó el like ', idPost.data().like);
+              if (e.target.dataset.id === idPost.id) {
+                if (!idPost.data().like.includes(auth.currentUser.uid)) {
+                  console.log('idPost.id ', idPost.id);
+                  likeMe(idPost.id, auth.currentUser.uid);
+                  // console.log(likeMe());
+                  // console.log('se dio like ', idPost.data().like);
+                } else {
+                  dislikeMe(idPost.id, auth.currentUser.uid);
+                  console.log('se quitó el like ', idPost.data().like);
+                }
               }
-              // console.log('idPost ', idPost.id, 'idUser ', auth.currentUser.uid, 'doc.id ',
-              //  event.target.dataset.id);
             },
           ));
         });
