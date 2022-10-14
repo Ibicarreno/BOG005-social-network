@@ -6,19 +6,17 @@ import { app } from '../config/configFireBase.js';
 
 const db = getFirestore(app);
 
-export const saveRecipe = (date, title, description, name) => {
+export const saveRecipe = (date, title, description, name, idUser) => {
   addDoc(collection(db, 'recipes'), {
-    date, title, description, like: [], name,
+    date, title, description, like: [], name, idUser,
   });
 };
 
 const dates = collection(db, 'recipes');
-// export const q = query('recipes', orderBy('date', 'desc'));
 export const q = query(dates, orderBy('date', 'desc'));
 
 export const getRecipe = () => getDocs(collection(db, 'recipes'));
 
-// export const onGetRecipes = (callback) => onSnapshot(collection(db, 'recipes'), callback);
 export const onGetRecipes = (callback) => onSnapshot(q, callback);
 
 export const deletePost = (id) => deleteDoc(doc(db, 'recipes', id));

@@ -78,14 +78,19 @@ export const feed = () => {
           </div>
           `;
       });
-      // <img src='../resources/basura.png' alt="icon" class="postIcon"></img>
       feedMainPost.innerHTML = html;
       const btnsDelete = feedMainPost.querySelectorAll('.btnsDelete');
       btnsDelete.forEach((btn) => {
-        btn.addEventListener('click', (event) => {
-          // eslint-disable-next-line no-restricted-globals
-          if (confirm('¿Estás seguro de eliminar la publicación?')) {
-            deletePost(event.target.dataset.id);
+        btn.addEventListener('click', async (event) => {
+          const post = await getPost(event.target.dataset.id);
+          const postData = post.data();
+          if (postData.idUser === auth.currentUser.uid) {
+            // eslint-disable-next-line no-restricted-globals
+            if (confirm('¿Estás seguro de eliminar la publicación?')) {
+              deletePost(event.target.dataset.id);
+            }
+          } else {
+            alert('No puedes borrar este post');
           }
         });
       });
@@ -95,14 +100,18 @@ export const feed = () => {
         btn.addEventListener('click', async (event) => {
           const post = await getPost(event.target.dataset.id);
           const postData = post.data();
-          // eslint-disable-next-line dot-notation
-          publishRecipe['recipeName'].value = postData.title;
-          publishRecipe['recipe-description'].value = postData.description;
+          if (postData.idUser === auth.currentUser.uid) {
+            // eslint-disable-next-line dot-notation
+            publishRecipe['recipeName'].value = postData.title;
+            publishRecipe['recipe-description'].value = postData.description;
 
-          editStatus = true;
-          id = post.id;
+            editStatus = true;
+            id = post.id;
 
-          btnPublish.innerText = 'Actualizar';
+            btnPublish.innerText = 'Actualizar';
+          } else {
+            alert('Usted no es el propietario del post');
+          }
         });
       });
 
@@ -138,20 +147,24 @@ export const feed = () => {
     const descriptionRecipe = publishRecipe['recipe-description'];
     const date = new Date();
     const author = auth.currentUser.displayName;
-    console.log(author);
-    if (!editStatus) {
-      saveRecipe(date, nameRecipe.value, descriptionRecipe.value, author);
-      console.log(date);
+    const idUser = auth.currentUser.uid;
+    console.log(author, idUser);
+    if (nameRecipe.value === '' || descriptionRecipe.value === '') {
+      alert('Todos los campos son obligatorios');
     } else {
-      updatePost(id, {
-        title: nameRecipe.value,
-        description: descriptionRecipe.value,
-      });
-      editStatus = false;
-      btnPublish.innerText = 'Publicar';
+      // eslint-disable-next-line no-lonely-if
+      if (!editStatus) {
+        saveRecipe(date, nameRecipe.value, descriptionRecipe.value, author, idUser);
+      } else {
+        updatePost(id, {
+          title: nameRecipe.value,
+          description: descriptionRecipe.value,
+        });
+        editStatus = false;
+        btnPublish.innerText = 'Publicar';
+      }
+      publishRecipe.reset();
     }
-
-    publishRecipe.reset();
   });
 
   logOutPage.addEventListener('click', () => {
