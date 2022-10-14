@@ -6,6 +6,6 @@ export const onNavigate = (pathname, paramRoutes = routes) => {
   root.replaceChildren(paramRoutes[pathname]);
 };
 
-window.addEventListener('load', () => {
+window.addEventListener('hashchange', () => {
   onNavigate(window.location.pathname);
 });

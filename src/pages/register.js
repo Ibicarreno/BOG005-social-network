@@ -31,6 +31,7 @@ const register = () => {
   registerContainer
     .querySelector('#bottonRegister')
     .addEventListener('click', () => {
+      console.log('nameUser enviado ', document.getElementById('registerNameUser').value);
       createEmail(
         document.getElementById('registerEmailUser').value,
         document.getElementById('registerPassWordUser').value,

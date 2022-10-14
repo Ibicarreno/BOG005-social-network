@@ -21,13 +21,18 @@ const getCurrentUser = () => getAuth().currentUser;
 onAuthStateChanged(auth, (user) => {
   if (!user) {
     onNavigate('/');
+    window.location.hash = '';
+    console.log('hash ', window.location.hash);
+    if (window.location.hash === '') {
+      // eslint-disable-next-line no-restricted-globals
+      history.replaceState({}, '', '/');
+    }
     console.log('está desconectado');
   } else {
     onNavigate('/feed');
     console.log('está conectado ');
   }
 });
-// console.log(uid);
 
 const logOutUser = () => {
   // eslint-disable-next-line no-restricted-globals
@@ -45,11 +50,15 @@ const logOutUser = () => {
 };
 
 const createEmail = (email, password, nameUser) => {
+  console.log('valor recibido ', nameUser);
   createUserWithEmailAndPassword(auth, email, password, nameUser)
     .then((result) => {
+      // setTimeout(updateProfile(auth.currentUser, {
+      //   displayName: nameUser,
+      // }), 1000);
       updateProfile(auth.currentUser, {
         displayName: nameUser,
-      });
+      }).then();
       let user = result.user.displayName;
       user = nameUser;
       window.location.pathname = '/feed';

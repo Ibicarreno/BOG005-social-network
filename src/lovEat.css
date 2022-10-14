@@ -399,6 +399,11 @@ footer {
     background: red;
 }
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 7da6decfb175b4739792a93bc881acb299c82a19
 @media screen and (min-width: 767px) and (max-width:1023px){
     header {
         height: 130px;
@@ -899,13 +904,14 @@ footer {
         grid-template-columns: 30% 70%;
     }
     #feedMainProfile{
-    position: relative;
+    /* position: relative; */
     width: 80%;
     height: 70vh;
     margin: 3em 3em 3em 3em;
     background-color: white;
     border-radius: 1em;
-
+    position: sticky;
+    top: 11em;
     }
     #bottonMyProfile{
         position: absolute;

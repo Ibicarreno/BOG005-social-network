@@ -1,6 +1,6 @@
 import { auth, logOutUser } from '../auth/authentication.js';
 import {
-  saveRecipe, onGetRecipes, deletePost, getPost, updatePost,
+  saveRecipe, onGetRecipes, deletePost, getPost, updatePost, getRecipe, likeMe, dislikeMe,
 } from '../firestore/methodsFirestore.js';
 
 export const feed = () => {
@@ -38,6 +38,7 @@ export const feed = () => {
   const logOutPage = feedContainer.querySelector('#btnLogOut');
   const publishRecipe = feedContainer.querySelector('#publishRecipe');
   let editStatus = false;
+  const btnPublish = feedContainer.querySelector('#btnPublishRecipe');
   let id = '';
 
   window.addEventListener('DOMContentLoaded', () => {
@@ -46,7 +47,7 @@ export const feed = () => {
       let html = '';
       querySnapshot.forEach((doc) => {
         const post = doc.data();
-        console.log('id ', post);
+        // console.log('id ', post);
         html += `
           <div class= "postView">
           <div id="imageRecipe">
@@ -54,11 +55,12 @@ export const feed = () => {
           </div>
           <div id="dataForRecipe">
               <h3 id="postTitle">${post.title}</h3>
+              <p id="authorPost">${post.name}</p>
               <h3 id="descriptionPost">${post.description}</h3>
               <div id="iconsPosts">
                <div id="likeCounter">
                 <img src='../resources/corazon.png' alt="icon" class="postIcon">
-                <p id="counter">5</p>
+                <p id="counter">${post.like.length}</p>
                </div>
                <div id="iconsInteractive">
                <button id="iconLike" class="btnsLike" data-id='${doc.id}'>
@@ -76,11 +78,21 @@ export const feed = () => {
           </div>
           `;
       });
-      // <img src='../resources/basura.png' alt="icon" class="postIcon"></img>
       feedMainPost.innerHTML = html;
       const btnsDelete = feedMainPost.querySelectorAll('.btnsDelete');
       btnsDelete.forEach((btn) => {
-        btn.addEventListener('click', (event) => { deletePost(event.target.dataset.id); });
+        btn.addEventListener('click', async (event) => {
+          const post = await getPost(event.target.dataset.id);
+          const postData = post.data();
+          if (postData.idUser === auth.currentUser.uid) {
+            // eslint-disable-next-line no-restricted-globals
+            if (confirm('¿Estás seguro de eliminar la publicación?')) {
+              deletePost(event.target.dataset.id);
+            }
+          } else {
+            alert('No puedes borrar este post');
+          }
+        });
       });
 
       const btnsEdit = feedMainPost.querySelectorAll('.btnsEdit');
@@ -88,6 +100,7 @@ export const feed = () => {
         btn.addEventListener('click', async (event) => {
           const post = await getPost(event.target.dataset.id);
           const postData = post.data();
+          if (postData.idUser === auth.currentUser.uid) {
           // eslint-disable-next-line dot-notation
           publishRecipe['recipeName'].value = postData.title;
           publishRecipe['recipe-description'].value = postData.description;
@@ -95,8 +108,33 @@ export const feed = () => {
           editStatus = true;
           id = post.id;
 
-          const btnPublish = feedContainer.querySelector('#btnPublishRecipe');
           btnPublish.innerText = 'Actualizar';
+          } else {
+            alert('Usted no es el propietario del post');
+          }
+        });
+      });
+
+      const btnsLike = feedMainPost.querySelectorAll('.btnsLike');
+      btnsLike.forEach((btn) => {
+        const changeLike = () => btn.classList.toggle('background-red');
+        btn.addEventListener('click', changeLike);
+        btn.addEventListener('click', (e) => {
+          getRecipe().then((result) => result.docs.forEach(
+            (idPost) => {
+              if (e.target.dataset.id === idPost.id) {
+                if (!idPost.data().like.includes(auth.currentUser.uid)) {
+                  console.log('idPost.id ', idPost.id);
+                  likeMe(idPost.id, auth.currentUser.uid);
+                  // console.log(likeMe());
+                  // console.log('se dio like ', idPost.data().like);
+                } else {
+                  dislikeMe(idPost.id, auth.currentUser.uid);
+                  console.log('se quitó el like ', idPost.data().like);
+                }
+              }
+            },
+          ));
         });
       });
 
@@ -110,20 +148,29 @@ export const feed = () => {
 
   publishRecipe.addEventListener('submit', (e) => {
     e.preventDefault();
-
     // eslint-disable-next-line dot-notation
     const nameRecipe = publishRecipe['recipeName'];
     const descriptionRecipe = publishRecipe['recipe-description'];
-    if (!editStatus) {
-      saveRecipe(nameRecipe.value, descriptionRecipe.value);
+    const date = new Date();
+    const author = auth.currentUser.displayName;
+    const idUser = auth.currentUser.uid;
+    console.log(author, idUser);
+    if (nameRecipe.value === '' || descriptionRecipe.value === '') {
+      alert('Todos los campos son obligatorios');
     } else {
-      updatePost(id, { title: nameRecipe.value, description: descriptionRecipe.value });
+      // eslint-disable-next-line no-lonely-if
+    if (!editStatus) {
+        saveRecipe(date, nameRecipe.value, descriptionRecipe.value, author, idUser);
+    } else {
+        updatePost(id, {
+          title: nameRecipe.value,
+          description: descriptionRecipe.value,
+        });
       editStatus = false;
-      const btnPublish = feedContainer.querySelector('#btnPublishRecipe');
       btnPublish.innerText = 'Publicar';
     }
-
     publishRecipe.reset();
+    }
   });
 
   logOutPage.addEventListener('click', () => {

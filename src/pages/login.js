@@ -34,6 +34,12 @@ export const login = () => {
   loginContainer.querySelector('#linkRegister').addEventListener('click', () => {
     // window.location.pathname = '/register';
     onNavigate('/register');
+    window.location.hash = '';
+    console.log('hash ', window.location.hash);
+    if (window.location.hash === '') {
+      // eslint-disable-next-line no-restricted-globals
+      history.replaceState({}, '', '/register');
+    }
   });
 
   return loginContainer;
