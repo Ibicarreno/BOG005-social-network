@@ -3,11 +3,62 @@
     font-family: 'Montserrat', sans-serif;
 }
 
+#btnLogOut {
+    z-index: +2;
+    width: 130px;
+    height: 40px;
+    margin-left: 1100px;
+    margin-top: 40px;
+    position: fixed;
+    background-color: transparent;
+    border: none;
+}
+
+#dataForRecipe {
+    display: block;
+    padding: 5px;
+}
+
+#iconsPosts{
+    display: inline-block;
+    margin-bottom: 2px;
+}
+
+.btnsEdit {
+    background-image: url(./resources/pen-to-square-solid.svg);
+    background-repeat: no-repeat;
+    background-color: transparent;
+    width: 30px;
+    height: 30px;
+    border: none;
+}
+
+.btnsLike {
+    background-image: url(./resources/thumbs-up-solid.svg);
+    background-repeat: no-repeat;
+    background-color: transparent;
+    width: 30px;
+    height: 30px;
+    border: none;
+}
+
+.btnsDelete {
+    background-image: url(./resources/trash-solid.svg);
+    background-repeat: no-repeat;
+    background-color: transparent;
+    width: 30px;
+    height: 30px;
+    border: none;
+}
+
 header {
     background-color: #F37724;
     height: 58px;
     margin: auto;
     text-align: center;
+    position:fixed;
+    width: 100%;
+    z-index: +1; /*ibeht*/
 }
 
 header img {
@@ -216,7 +267,7 @@ text-align: end;
     /*background: url('./resources/brunchWallpaper.jpg') 50% 50% no-repeat;*/
     background: url('./resources/saladWallpaper.jpg') 50% 50% no-repeat;
     /*background: url('./resources/background-feed.jpg') 50% 50% no-repeat;*/
-    background-size: 100%;
+    background-size: cover;
     background-attachment:fixed;
 }
 
@@ -245,7 +296,7 @@ section#infoUser {
 
 section#infoUser img {
     justify-content: center;
-    width: 200px;
+    width: 150px;
     height: 150px;
 }
 
@@ -260,15 +311,16 @@ section#infoUser p {
     width: 92%;
     margin-right: 2em;
     height: 100%;
+    margin-top: 170px;/*ibeht*/
 }
 
 #feed #feedMainPost h1{
     color: black;
 }
 
-form#publishRecipe {
+/*form#publishRecipe {
     margin: 5px;
-}
+}*/ /*ibeht*/
 
 section#publishPost {
     padding-top: 50px;
@@ -276,13 +328,14 @@ section#publishPost {
     text-align: center;
 }
 input#recipeName {
-    width: 60%;
+    width: 80%;
     height: 60px;
     margin: 10px 0 10px 0;
     border-radius: 10px;
     border: 0;
     box-shadow: 0 13px 27px -5px rgba(50,50,93,0.25), 0 8px 16px -8px rgba(74, 167, 182, 0.3);
-    font-size: 20px;
+    font-size: 15px; /*ibeht*/
+    text-align: center; /*ibeht*/
 }
 
 textarea {
@@ -292,7 +345,8 @@ textarea {
     border: 0;
     border-radius: 10px;
     box-shadow: 0 13px 27px -5px rgba(50,50,93,0.25), 0 8px 16px -8px rgba(74, 167, 182, 0.3);
-    font-size: 20px;
+    font-size: 15px;/*ibeht*/
+    text-align: center;/*ibeht*/
 }
 
 #btnPublishRecipe {
@@ -399,11 +453,8 @@ footer {
     background: red;
 }
 
-<<<<<<< HEAD
-=======
 
 
->>>>>>> 7da6decfb175b4739792a93bc881acb299c82a19
 @media screen and (min-width: 767px) and (max-width:1023px){
     header {
         height: 130px;
@@ -411,6 +462,19 @@ footer {
     header img {
         height: 140px;
     }
+
+    #btnLogOut {
+        z-index: +2;
+        width: 150px;
+        height: 40px;
+        margin-left: 600px;
+        margin-top: 40px;
+        position: fixed;
+        background-color: transparent;
+        border: none;
+        font-size: 20px;
+    }
+
     #mainLogin{
         display: flex;
         flex-direction: column;
@@ -554,26 +618,38 @@ footer {
         /* bottom: 40em; */
         bottom: 20em;
     }
+
     #feed{
+        margin: 0;
+        padding: 0;
+        background: url('./resources/saladWallpaper.jpg') 50% 50% no-repeat;
+        background-size: cover;
+        background-attachment:fixed;
         display: grid;
-        height: 100vh;
         width: 100%;
-        grid-template-columns: 30% 70%;
+        grid-template-columns: 35% 65%;
+        justify-items: center;
+        min-height: 700px;
     }
     #feedMainProfile{
-    justify-content: center;
-    grid-template-columns: 0;
-    grid-gap: 0;    
-    grid-template-rows: 0;
-    display: flex;
-    position: relative;
-    width: 100%;
-    height: 35%;
-    margin: 3em 0.8em 1em 0.8em;
-    background-color: white;
-    border-radius: 1em;
+        width: 200px;
+        height: 60vh;
+        background-color: white;
+        border-radius: 15px;
+        position: sticky;
+        top: 11em;
+        }
 
-    }
+        section#publishPost {
+            align-items: center;
+            justify-content: center;
+            margin: 3px;
+        }
+
+        section#infoUser {
+            height: 80px;
+        }
+
     #bottonMyProfile{
         position: absolute;
         top: 8em;
@@ -597,26 +673,33 @@ footer {
         grid-row: 0;
         margin-left: 0;
         }
+
         #feedMainProfile p {
-            position: absolute;
             top: 8em;
             font-size: 20px;
+            font-weight: bold;
         }
-        
+        #postUsers{
+            display: grid;
+            grid-gap: 25px;
+        }
         #icon{
             width: 120px;
             height: 120px;
         }
         #feedMainPost{
             display: grid;
-            height: 100vh;
-            grid-template-columns: 90%;
-            text-align: center;
+            height: 70%;
+            grid-template-columns: 85%;
+            text-align:left;
             width: 90%;
-            margin: 3em 0.5em 0 1.5em;
+            margin: 3em 0.5em 1em 1.5em;
             background: white;
             border-radius: 15px;
             justify-content: center;
+            }
+            #imageRecipe{
+                text-align: center;
             }
 
             #feedMainPost textarea{
@@ -624,8 +707,66 @@ footer {
                 height: 10em;
             }
             #titlePostMain{
-                font-size: 30px;
+                font-size: 25px;
+                text-align: center;
+                margin: 3px;
             }
+
+            .postView{
+                background-color: white;
+                margin-bottom: 6px;
+                height: 150px;
+                border-radius: 10px;
+                display: grid;
+                grid-template-columns: 30% 70%;
+            }
+
+            #postTitle{
+                font-style: italic;
+                font-size: 15px;
+                margin-top: 15px;
+            }
+            #iconsPosts{
+                display: grid;
+                grid-template-columns: 50% 50%;
+                width: 200px;
+                top: 10px;/*ibeht */
+                bottom: 5px;/*ibeht */
+                position: relative;
+                align-items: center;/*ibeht */
+                justify-content: space-between;
+            }
+            .postIcon{
+                width: 20px;/*ibeht */
+                height: 20px;/*ibeht */
+                margin: 3px;/*ibeht */
+
+            }
+
+            #likeCounter {
+                display: inline-flex; /*ibeht */
+                width: 60px;
+                position: relative;
+                background-color: black;
+                border-radius: 10px;
+                text-align: center;
+                justify-content: space-around;/*ibeht */
+                height: 30px;/*ibeht */
+            }
+            #counter{
+                color: white;
+                margin: 3px; /*ibeht */
+                font-size: 18px;/*ibeht */
+            }
+            #iconsInteractive {
+                display: inline-flex;/*ibeht */
+                position: relative;
+                justify-content: center;/*ibeht */
+                width: 150px;/*ibeht */
+                justify-content: space-around;/*ibeht */
+                left: 20%;/*ibeht */
+            }
+
     #myFriends{
         display: grid;
         position: absolute;
@@ -988,30 +1129,38 @@ footer {
                 display: grid;
                 grid-template-columns: 20% 80%;
                 width: 100%;
-                top: 30px;
-                bottom: 0;
+                top: 10px;/*ibeht */
+                bottom: 5px;/*ibeht */
                 position: relative;
+                align-items: center;/*ibeht */
             }
             .postIcon{
-                width: 20px;
-                margin-left: 15px;
+                width: 25px;/*ibeht */
+                height: 25px;/*ibeht */
+                margin: 3px;/*ibeht */
 
             }
             #likeCounter {
-                display: inline-block;
+                display: inline-flex; /*ibeht */
                 position: relative;
                 background-color: black;
                 border-radius: 10px;
                 text-align: center;
+                justify-content: space-around;/*ibeht */
+                height: 30px;/*ibeht */
             }
             #counter{
                 color: white;
+                margin: 3px; /*ibeht */
+                font-size: 20px;/*ibeht */
             }
             #iconsInteractive {
-                display: inline-block;
+                display: inline-flex;/*ibeht */
                 position: relative;
-                left: 75%;
-
+                justify-content: center;/*ibeht */
+                width: 150px;/*ibeht */
+                justify-content: space-around;/*ibeht */
+                left: 65%;/*ibeht */
             }
 
 

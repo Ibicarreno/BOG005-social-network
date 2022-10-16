@@ -11,7 +11,7 @@ export const feed = () => {
     <div class='feed' id="feed">
         <section id="feedMainProfile">
             <section id="infoUser">
-                <img src='../resources/user-feed.png' alt="icon" id="icon">
+                <img src='../resources/astronaut-profile.png' alt="icon" id="icon">
                 <p id="nameUser">Nombre de usuari@</p>
             </section>
                 <section id="publishPost">
@@ -64,13 +64,13 @@ export const feed = () => {
                </div>
                <div id="iconsInteractive">
                <button id="iconLike" class="btnsLike" data-id='${doc.id}'>
-                Like
+                 
                 </button>
                 <button id="iconEdit" class="btnsEdit" data-id='${doc.id}'>
-                Editar
+                
                 </button> 
                 <button id="iconDelete"  class="btnsDelete" data-id='${doc.id}'>
-                Borrar
+                
                 </button>
                </div>
               </div>
@@ -101,14 +101,14 @@ export const feed = () => {
           const post = await getPost(event.target.dataset.id);
           const postData = post.data();
           if (postData.idUser === auth.currentUser.uid) {
-          // eslint-disable-next-line dot-notation
-          publishRecipe['recipeName'].value = postData.title;
-          publishRecipe['recipe-description'].value = postData.description;
+            // eslint-disable-next-line dot-notation
+            publishRecipe['recipeName'].value = postData.title;
+            publishRecipe['recipe-description'].value = postData.description;
 
-          editStatus = true;
-          id = post.id;
+            editStatus = true;
+            id = post.id;
 
-          btnPublish.innerText = 'Actualizar';
+            btnPublish.innerText = 'Actualizar';
           } else {
             alert('Usted no es el propietario del post');
           }
@@ -137,12 +137,6 @@ export const feed = () => {
           ));
         });
       });
-
-      const btnsLike = feedMainPost.querySelectorAll('.btnsLike');
-      btnsLike.forEach((btn) => {
-        const changeLike = () => btn.classList.toggle('background-red');
-        btn.addEventListener('click', changeLike);
-      });
     });
   });
 
@@ -159,17 +153,17 @@ export const feed = () => {
       alert('Todos los campos son obligatorios');
     } else {
       // eslint-disable-next-line no-lonely-if
-    if (!editStatus) {
+      if (!editStatus) {
         saveRecipe(date, nameRecipe.value, descriptionRecipe.value, author, idUser);
-    } else {
+      } else {
         updatePost(id, {
           title: nameRecipe.value,
           description: descriptionRecipe.value,
         });
-      editStatus = false;
-      btnPublish.innerText = 'Publicar';
-    }
-    publishRecipe.reset();
+        editStatus = false;
+        btnPublish.innerText = 'Publicar';
+      }
+      publishRecipe.reset();
     }
   });
 
