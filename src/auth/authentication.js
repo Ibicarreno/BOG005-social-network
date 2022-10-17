@@ -8,7 +8,7 @@ import {
   onAuthStateChanged,
   updateProfile,
 // eslint-disable-next-line import/no-unresolved
-} from 'https://www.gstatic.com/firebasejs/9.9.4/firebase-auth.js';
+} from './authControllers.js';
 import { app } from '../config/configFireBase.js';
 import { onNavigate } from '../main.js';
 
@@ -30,20 +30,20 @@ onAuthStateChanged(auth, (user) => {
   }
 });
 
-const logOutUser = () => {
-  // eslint-disable-next-line no-restricted-globals
-  if (confirm('¿Estás seguro de cerrar sesión?')) {
-    signOut(auth)
-      .then(() => {
-        console.log('cerro sesion');
-        window.location.pathname = '/';
-      })
-      .catch(() => {});
-  } else {
-    onNavigate('/feed');
-    console.log('cerrar sesión onNavigate ');
-  }
-};
+// const logOutUser = () => {
+//   // eslint-disable-next-line no-restricted-globals
+//   if (confirm('¿Estás seguro de cerrar sesión?')) {
+//     signOut(auth)
+//       .then(() => {
+//         console.log('cerró sesión');
+//         window.location.pathname = '/';
+//       })
+//       .catch(() => {});
+//   } else {
+//     onNavigate('/feed');
+//   }
+// };
+const logOutUser = () => signOut(auth);
 
 const createEmail = (email, password, nameUser) => {
   createUserWithEmailAndPassword(auth, email, password, nameUser)
@@ -55,7 +55,7 @@ const createEmail = (email, password, nameUser) => {
         user = nameUser;
         window.location.pathname = '/feed';
         console.log(user);
-      }).catch((error) => console.log('error updateProfile ', error.message));
+      }).catch((error) => error.message);
       // console.log('createEmail ', result);
       // updateProfile(auth.currentUser, {
       //   displayName: nameUser,
@@ -72,49 +72,51 @@ const createEmail = (email, password, nameUser) => {
     });
 };
 
-const validateUserAndPass = (email, password) => {
-  signInWithEmailAndPassword(auth, email, password)
-    .then((result) => {
-      const user = result.user;
-      console.log(user);
-      window.location.pathname = '/feed';
-    })
-    .catch((error) => {
-      const errorMessage = error.message;
-      alert(errorMessage);
-      console.log('error en el registro');
-      onNavigate('/');
-    });
-};
+// const validateUserAndPass = (email, password) => {
+//   signInWithEmailAndPassword(auth, email, password)
+//     .then((result) => {
+//       const user = result.user;
+//       window.location.pathname = '/feed';
+//       console.log('user validate ', user);
+//     })
+//     .catch((error) => {
+//       const errorMessage = error.message;
+//       alert(errorMessage);
+//       console.log('error en el registro');
+//       onNavigate('/');
+//     });
+// };
+const validateUserAndPass = (email, password) => signInWithEmailAndPassword(auth, email, password);
+const provider = new GoogleAuthProvider();
+const loginWithGoogle = () => signInWithPopup(auth, provider);
+// const loginWithGoogle = () => {
+//   const provider = new GoogleAuthProvider();
+//   provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
+//   provider.addScope('profile');
+//   provider.addScope('email');
 
-const loginWithGoogle = () => {
-  const provider = new GoogleAuthProvider();
-  provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
-  provider.addScope('profile');
-  provider.addScope('email');
-
-  signInWithPopup(auth, provider)
-    .then((result) => {
-    // This gives you a Google Access Token. You can use it to access the Google API.
-      const credential = GoogleAuthProvider.credentialFromResult(result);
-      const token = credential.accessToken;
-      console.log(token);
-      // The signed-in user info.
-      const user = result.user;
-      console.log(user.displayName);
-      window.location.pathname = '/feed';
-    }).catch((error) => {
-    // Handle Errors here.
-      const errorMessage = error.message;
-      // The email of the user's account used.
-      const email = error.customData.email;
-      // The AuthCredential type that was used.
-      const credential = GoogleAuthProvider.credentialFromError(error);
-      alert(errorMessage);
-      onNavigate('/register');
-      console.log(email, credential);
-    });
-};
+//   signInWithPopup(auth, provider)
+//     .then((result) => {
+//     // This gives you a Google Access Token. You can use it to access the Google API.
+//       const credential = GoogleAuthProvider.credentialFromResult(result);
+//       const token = credential.accessToken;
+//       console.log(token);
+//       // The signed-in user info.
+//       const user = result.user;
+//       console.log(user.displayName);
+//       window.location.pathname = '/feed';
+//     }).catch((error) => {
+//     // Handle Errors here.
+//       const errorMessage = error.message;
+//       // The email of the user's account used.
+//       const email = error.customData.email;
+//       // The AuthCredential type that was used.
+//       const credential = GoogleAuthProvider.credentialFromError(error);
+//       alert(errorMessage);
+//       onNavigate('/register');
+//       console.log(email, credential);
+//     });
+// };
 
 export {
   createEmail, validateUserAndPass, loginWithGoogle, logOutUser, auth,

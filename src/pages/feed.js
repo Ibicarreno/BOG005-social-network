@@ -2,6 +2,7 @@ import { auth, logOutUser } from '../auth/authentication.js';
 import {
   saveRecipe, onGetRecipes, deletePost, getPost, updatePost, getRecipe, likeMe, dislikeMe,
 } from '../firestore/methodsFirestore.js';
+import { onNavigate } from '../main.js';
 
 export const feed = () => {
   const feedContainer = document.createElement('div');
@@ -168,7 +169,14 @@ export const feed = () => {
   });
 
   logOutPage.addEventListener('click', () => {
-    logOutUser();
+    // eslint-disable-next-line no-restricted-globals
+    if (confirm('¿Estás seguro de cerrar sesión?')) {
+      logOutUser()
+        .then(() => { window.location.pathname = '/'; })
+        .catch(() => {});
+    } else {
+      onNavigate('/feed');
+    }
   });
   return feedContainer;
 };

@@ -237,12 +237,19 @@ text-align: end;
     margin: 10px;
     border-radius: 10px;
     padding: 5px;
+    justify-content: center;
+    display: grid;
+    grid-gap: 5px;
+    grid-template-rows: auto;
 }
 
 section#publishPost {
     align-items: center;
     justify-content: center;
     margin: 3px;
+    padding-top: 50px;
+    display: inline-block;
+    text-align: center;
 }
 
 section#infoUser {
@@ -259,10 +266,28 @@ section#infoUser img {
     width: 200px;
     height: 150px;
 }
+#feedMainProfile p {
+    color: gray;
+    text-align: center;
+    }
+    
+#myFriends, #myFriends p{
+    display: none;
+    }
 
 section#infoUser p {
     color: black;
 }
+#feedMainPost{
+    display: grid;
+    height: 62vh;
+    grid-template-columns: 95%;
+    width: 90%;
+    margin: 3em 0.8em 0 0.8em;
+    background: white;
+    border-radius: 15px;
+    justify-content: center;
+    }
 
 #feed #feedMainPost {
     background: #ffffff92;
@@ -281,11 +306,11 @@ form#publishRecipe {
     margin: 5px;
 }
 
-section#publishPost {
+/* section#publishPost {
     padding-top: 50px;
     display: inline-block;
     text-align: center;
-}
+} */
 input#recipeName {
     width: 60%;
     height: 60px;
@@ -320,12 +345,12 @@ textarea {
 }
 
 
-#feedMainProfile{
+/* #feedMainProfile{
 justify-content: center;
 display: grid;
 grid-gap: 5px;
 grid-template-rows: auto;
-}
+} */
 
 #bottonMyProfile{
 border-radius: 20px;
@@ -355,10 +380,10 @@ font-weight: bold;
 font-size: 16px;
 margin-left: -1em;
 }
-#feedMainProfile p {
+/* #feedMainProfile p {
 color: gray;
 text-align: center;
-}
+} */
 
 #icon{
     width: 80px;
@@ -368,7 +393,7 @@ text-align: center;
     justify-self: center;
 }
 
-#feedMainPost{
+/* #feedMainPost{
 display: grid;
 height: 62vh;
 grid-template-columns: 95%;
@@ -377,7 +402,7 @@ margin: 3em 0.8em 0 0.8em;
 background: white;
 border-radius: 15px;
 justify-content: center;
-}
+} */
 
 #titlePostMain{
 color: #7989EC;
@@ -399,9 +424,9 @@ border-radius: 15px;
     bottom: 17em;
     left: 5em;
 }
-#myFriends, #myFriends p{
+/* #myFriends, #myFriends p{
 display: none;
-}
+} */
 footer {
     display: none;
 }

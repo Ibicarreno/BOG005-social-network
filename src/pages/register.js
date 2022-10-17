@@ -43,7 +43,9 @@ const register = () => {
   registerContainer
     .querySelector('#bottonGoogle')
     .addEventListener('click', () => {
-      loginWithGoogle();
+      loginWithGoogle()
+        .then(() => { window.location.pathname = '/feed'; })
+        .catch((error) => alert(error.message));
     });
   return registerContainer;
 };
