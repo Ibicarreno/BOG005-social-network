@@ -291,7 +291,7 @@ section#infoUser {
     align-items: center;
     justify-content: center;
     position: relative;
-    height: 30%;
+    height: 40%;
 }
 
 section#infoUser img {
@@ -318,9 +318,10 @@ section#infoUser p {
     color: black;
 }
 
-/*form#publishRecipe {
+form#publishRecipe {
     margin: 5px;
-}*/ /*ibeht*/
+    position: relative;
+} /*ibeht*/
 
 section#publishPost {
     padding-top: 50px;
@@ -632,7 +633,7 @@ footer {
         min-height: 700px;
     }
     #feedMainProfile{
-        width: 200px;
+        width: 240px;
         height: 60vh;
         background-color: white;
         border-radius: 15px;
@@ -647,7 +648,7 @@ footer {
         }
 
         section#infoUser {
-            height: 80px;
+            height: 150px;
         }
 
     #bottonMyProfile{
