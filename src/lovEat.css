@@ -54,6 +54,8 @@ main video {
     height: 206px;
     position: relative;
     display: flex;
+    position: relative;
+    display: flex;
 }
 #separator{
     display: none;
@@ -216,12 +218,46 @@ text-align: end;
     background: #FFFFFF;
     padding: 7px;
     top:1.5px;
-    left:2.5px;
+    left:2.5px;  
 }
 
 
-/* FEED - MOBILE */
+#dataForRecipe {
+    display: block;
+    padding: 5px;
+}
 
+#iconsPosts{
+    display: inline-block;
+    margin-bottom: 2px;
+}
+
+.btnsEdit {
+    background-image: url(./resources/pen-to-square-solid.svg);
+    background-repeat: no-repeat;
+    background-color: transparent;
+    width: 30px;
+    height: 30px;
+    border: none;
+}
+
+.btnsLike {
+    background-image: url(./resources/thumbs-up-solid.svg);
+    background-repeat: no-repeat;
+    background-color: transparent;
+    width: 30px;
+    height: 30px;
+    border: none;
+}
+
+.btnsDelete {
+    background-image: url(./resources/trash-solid.svg);
+    background-repeat: no-repeat;
+    background-color: transparent;
+    width: 30px;
+    height: 30px;
+    border: none;
+}
 
 #feed{
     margin: 0;
@@ -237,11 +273,18 @@ text-align: end;
     margin: 10px;
     border-radius: 10px;
     padding: 5px;
+    justify-content: center;
+    display: grid;
+    grid-gap: 5px;
+    grid-template-rows: auto;
 }
 section#publishPost {
     align-items: center;
     justify-content: center;
     margin: 3px;
+    padding-top: 10px;
+    display: inline-block;
+    text-align: center;
 }
 section#infoUser {
     display:inline-block;
@@ -249,16 +292,36 @@ section#infoUser {
     align-items: center;
     justify-content: center;
     position: relative;
-    height: 30%;
+    height: 10%;
 }
 section#infoUser img {
     justify-content: center;
-    width: 200px;
+    width: 150px;
     height: 150px;
 }
+#feedMainProfile p {
+    color: gray;
+    text-align: center;
+    }
+    
+#myFriends, #myFriends p{
+    display: none;
+    }
+
 section#infoUser p {
     color: black;
 }
+#feedMainPost{
+    display: grid;
+    height: 62vh;
+    grid-template-columns: 95%;
+    width: 90%;
+    margin: 3em 0.8em 0 0.8em;
+    background: white;
+    border-radius: 15px;
+    justify-content: center;
+    }
+
 #feed #feedMainPost {
     background: #ffffff92;
     border-radius: 10px;
@@ -273,14 +336,15 @@ section#infoUser p {
 form#publishRecipe {
     margin: 5px;
 }
-section#publishPost {
+
+/* section#publishPost {
     padding-top: 50px;
     display: inline-block;
     text-align: center;
-}
+} */
 input#recipeName {
     width: 60%;
-    height: 60px;
+    height: 30px;
     margin: 10px 0 10px 0;
     border-radius: 10px;
     border: 0;
@@ -289,7 +353,7 @@ input#recipeName {
 }
 textarea {
     width: 80%;
-    height: 100px;
+    height: 70px;
     margin: 10px 0 20px 0;
     border: 0;
     border-radius: 10px;
@@ -308,7 +372,9 @@ textarea {
 #publishTitle{
     font-size: 21px;
 }
-#feedMainProfile{
+
+
+/* #feedMainProfile{
 justify-content: center;
 display: grid;
 grid-gap: 5px;
@@ -342,10 +408,11 @@ font-weight: bold;
 font-size: 16px;
 margin-left: -1em;
 }
-#feedMainProfile p {
+/* #feedMainProfile p {
 color: gray;
 text-align: center;
-}
+} */
+
 #icon{
     width: 80px;
     height: 80px;
@@ -353,7 +420,8 @@ text-align: center;
     margin-top: 15px;
     justify-self: center;
 }
-#feedMainPost{
+
+/* #feedMainPost{
 display: grid;
 height: 62vh;
 grid-template-columns: 95%;
@@ -362,7 +430,8 @@ margin: 3em 0.8em 0 0.8em;
 background: white;
 border-radius: 15px;
 justify-content: center;
-}
+} */
+
 #titlePostMain{
 color: #7989EC;
 font-weight: bold;
@@ -383,15 +452,12 @@ border-radius: 15px;
     bottom: 17em;
     left: 5em;
 }
-#myFriends, #myFriends p{
+/* #myFriends, #myFriends p{
 display: none;
-}
+} */
 footer {
     display: none;
 }
-
-
-
 
 @media screen and (min-width: 767px) and (max-width:1023px){
     header {
@@ -466,6 +532,7 @@ footer {
         display:flex;
         position: relative;
         top:0;
+        top:0;
     }
     #linkRegister{
         color: #F37724;
@@ -530,24 +597,48 @@ footer {
     
 
     #feed{
+        margin: 0;
+        padding: 0;
+        background: url('./resources/saladWallpaper.jpg') 50% 50% no-repeat;
+        background-size: cover;
+        background-attachment:fixed;
         display: grid;
-        height: 100vh;
         width: 100%;
-        grid-template-columns: 30% 70%;
+        grid-template-columns: 35% 65%;
+        justify-items: center;
+        min-height: 700px;
     }
+
     #feedMainProfile{
-    justify-content: center;
-    grid-template-columns: 0;
-    grid-gap: 0;    
-    grid-template-rows: 0;
-    display: flex;
-    position: relative;
-    width: 100%;
-    height: 35%;
-    margin: 3em 0.8em 1em 0.8em;
-    background-color: white;
-    border-radius: 1em;
+        /*justify-content: center;
+        grid-template-columns: 0;
+        grid-gap: 0;    
+        grid-template-rows: 0;
+        display: flex;
+        position: relative;
+        width: 100%;
+        height: 35%;
+        margin: 3em 0.8em 1em 0.8em;
+        background-color: white;
+        border-radius: 1em;*/
+        width: 200px;
+        height: 60vh;
+        background-color: white;
+        border-radius: 15px;
+        position: sticky;
+        top: 11em;
     }
+
+    section#publishPost {
+        align-items: center;
+        justify-content: center;
+        margin: 3px;
+    }
+
+    section#infoUser {
+        height: 80px;
+    }    
+
     #bottonMyProfile{
         position: absolute;
         top: 8em;
@@ -559,6 +650,7 @@ footer {
        font-size: 20px;
        margin-left: 0;
         }
+
         #bottonPostRecipe{
         position: absolute;
         top: 13em;
@@ -572,9 +664,15 @@ footer {
         margin-left: 0;
         }
         #feedMainProfile p {
-            position: absolute;
+            /*position: absolute;*/
             top: 8em;
             font-size: 20px;
+            font-weight: bold;
+        }
+
+        #postUsers{
+            display: grid;
+            grid-gap: 25px;
         }
         
         #icon{
@@ -583,14 +681,18 @@ footer {
         }
         #feedMainPost{
             display: grid;
-            height: 100vh;
-            grid-template-columns: 90%;
-            text-align: center;
+            height: 70%;
+            grid-template-columns: 85%;
+            text-align:left;
             width: 90%;
-            margin: 3em 0.5em 0 1.5em;
+            margin: 3em 0.5em 1em 1.5em;
             background: white;
             border-radius: 15px;
             justify-content: center;
+            }
+
+            #imageRecipe{
+                text-align: center;
             }
 
             #feedMainPost textarea{
@@ -598,46 +700,80 @@ footer {
                 height: 10em;
             }
             #titlePostMain{
-                font-size: 30px;
+                font-size: 25px;
+                text-align: center;
+                margin: 3px;
             }
-    #myFriends{
-        display: grid;
-        position: absolute;
-        height: 30%;
-        bottom: 7em;
-        width: 28%;
-        margin-left: 1em;
-        background: white;
-        border-radius: 20px;
-    }
-    #myFriends #titleMyFriends, #myFriends #nameFriend {
-        display: block;
-        color: #7989EC;
-        font-size: 30px;
-        text-align: center;
-        margin-top: 10px;
-        font-weight: bold;
-        padding-top: 5px;
-    }
-    #iconMyFriend{
-        border: 1px solid black;
-        border-radius: 50%;
-        width: 80px;
-        height: 80px;
-        position: absolute;
-        top: 5em;
-        justify-self: center;
-    }
-    #myFriends #nameFriend{
-        font-size: 15px;
-        color: black;
-    }
-    #postPublic{
-    width: 80px;
-    height: 80px;
-    bottom: 36em;
-    left: 19em;
-    }
+
+            .postView{
+                background-color: white;
+                margin-bottom: 6px;
+                height: 150px;
+                border-radius: 10px;
+                display: grid;
+                grid-template-columns: 30% 70%;
+            }
+
+            #postTitle{
+                font-style: italic;
+                font-size: 15px;
+                margin-top: 15px;
+            }
+
+            #iconsPosts{
+                display: grid;
+                grid-template-columns: 50% 50%;
+                width: 200px;
+                top: 10px;/*ibeht */
+                bottom: 5px;/*ibeht */
+                position: relative;
+                align-items: center;/*ibeht */
+                justify-content: space-between;
+            }
+
+            .postIcon{
+                width: 20px;/*ibeht */
+                height: 20px;/*ibeht */
+                margin: 3px;/*ibeht */
+            }
+
+            #likeCounter {
+                display: inline-flex; /*ibeht */
+                width: 60px;
+                position: relative;
+                background-color: black;
+                border-radius: 10px;
+                text-align: center;
+                justify-content: space-around;/*ibeht */
+                height: 30px;/*ibeht */
+            }
+
+            #counter{
+                color: white;
+                margin: 3px; /*ibeht */
+                font-size: 18px;/*ibeht */
+            }
+            
+            #iconsInteractive {
+                display: inline-flex;/*ibeht */
+                position: relative;
+                justify-content: center;/*ibeht */
+                width: 150px;/*ibeht */
+                justify-content: space-around;/*ibeht */
+                left: 20%;/*ibeht */
+            }
+            
+            #btnLogOut {
+                z-index: +2;
+                width: 150px;
+                height: 40px;
+                margin-left: 600px;
+                margin-top: -80px;
+                position: absolute;
+                background-color: transparent;
+                border: none;
+                font-size: 20px;
+            }
     
     footer {
         display: flex;
@@ -789,6 +925,13 @@ footer {
         position: static;
         height: 5px;
         display: block;
+        margin: 12px;
+    }
+
+    #separator{
+        position: static;
+        height: 5px;
+        display: block;
     }
 
     .lineRight {
@@ -873,21 +1016,27 @@ footer {
         top: 15px;
         margin-top: 10px;
     }
+
+    /* ESTILOS FEED */
+
+    
     #feed{
         display: grid;
         height: 100%;
         width: 100%;
         grid-template-columns: 30% 70%;
     }
-    #feedMainProfile{
-    position: relative;
-    width: 80%;
-    height: 70vh;
-    margin: 3em 3em 3em 3em;
-    background-color: white;
-    border-radius: 1em;
 
+    #feedMainProfile{
+        width: 80%;
+        height: 65vh;
+        margin: 2.5em 3em 3em 3em;
+        background-color: white;
+        border-radius: 1em;
+        position: sticky;
+        top: 11em;
     }
+
     #bottonMyProfile{
         position: absolute;
         top: 8em;
@@ -898,7 +1047,8 @@ footer {
         grid-row: 0;
        font-size: 20px;
        margin-left: 0;
-        }
+    }
+
         #bottonPostRecipe{
         position: absolute;
         top: 13em;
@@ -911,19 +1061,23 @@ footer {
         grid-row: 0;
         margin-left: 0;
         }
+
         #feedMainProfile p {
             top: 8em;
             font-size: 28px;
             font-weight: bold;
         }
+
         #postUsers{
             display: grid;
             grid-gap: 25px;
         }
+
         #icon{
             width: 120px;
             height: 120px;
         }
+
         #feedMainPost{
             display: grid;
             height: 70%;
@@ -934,6 +1088,7 @@ footer {
             border-radius: 15px;
             justify-content: center;
             }
+
             #imageRecipe{
                 text-align: center;
             }
@@ -964,89 +1119,54 @@ footer {
                 display: grid;
                 grid-template-columns: 20% 80%;
                 width: 100%;
-                top: 30px;
-                bottom: 0;
+                top: 10px;
+                bottom: 5px;
                 position: relative;
+                align-items: center;
             }
-            .postIcon{
-                width: 20px;
-                margin-left: 15px;
 
+            .postIcon{
+                width: 25px;
+                height: 25px;
+                margin: 3px;
             }
+
             #likeCounter {
-                display: inline-block;
+                display: inline-flex; 
                 position: relative;
                 background-color: black;
                 border-radius: 10px;
                 text-align: center;
+                justify-content: space-around;
+                height: 30px;
             }
+
             #counter{
                 color: white;
+                margin: 3px; 
+                font-size: 20px;
             }
+            
             #iconsInteractive {
-                display: inline-block;
+                display: inline-flex;
                 position: relative;
-
+                width: 150px;
+                justify-content: space-around;
+                left: 65%;
             }
+            
             #btnLogOut{
-                position: relative;
-                z-index: 1 ;
-                display: flex;
-                color: red;
-                background: aqua;
+                z-index: +2;
+                width: 330px;
+                height: 40px;
+                margin-left: 980px;
+                margin-top: 40px;
+                position: absolute;
+                background-color: transparent;
                 border: none;
-                font-weight: bold;
-                width: 200px;
-                top: 0;
-                margin: 0;
-
-
+                font-size: 28px;
             }
 
-
-    #myFriends{
-        display: grid;
-        grid-column: 3/3;
-        height: 70%;
-        bottom: 7em;
-        width: 100%;
-        background: white;
-        margin: 3em 0.8em 1em 0;
-        margin-left: 1em;
-        border-radius: 1em;
-    }
-    #myFriends #titleMyFriends, #myFriends #nameFriend {
-        display: block;
-        color: #7989EC;
-        font-size: 30px;
-        text-align: center;
-        margin-top: 10px;
-        font-weight: bold;
-        padding-top: 5px;
-    }
-    #iconMyFriend{
-        border: 1px solid black;
-        border-radius: 50%;
-        width: 80px;
-        height: 80px;
-        position: absolute;
-        top: 35%;
-        justify-self: center;
-    }
-    #myFriends #nameFriend{
-        display: flex;
-        position: absolute;
-        font-size: 20px;
-        color: black;
-        top: 45%;
-        left: 79%;
-    }
-    #postPublic{
-    width: 80px;
-    height: 80px;
-    bottom: 24em;
-    left: 31em;
-    }
     footer {
         background-color:#D9D9D9;
         display: flex;

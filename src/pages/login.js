@@ -32,14 +32,22 @@ export const login = () => {
   loginContainer.innerHTML = loginTemplate;
 
   loginContainer.querySelector('#logginButton').addEventListener('click', () => {
-    validateUserAndPass(document.querySelector('#emailUser').value, document.querySelector('#passWordUser').value);
-    // window.location.pathname = '/feed';
+    validateUserAndPass(loginContainer.querySelector('#emailUser').value, loginContainer.querySelector('#passWordUser').value)
+      .then(() => {
+        // const user = result.user;
+        window.location.pathname = '/feed';
+        // console.log('user validate ', user);
+      })
+      .catch((error) => {
+        // const errorMessage = error.message;
+        alert(error.message);
+        // console.log('error en el registro');
+        // onNavigate('/');
+      });
   });
   loginContainer.querySelector('#linkRegister').addEventListener('click', () => {
-    // window.location.pathname = '/register';
     onNavigate('/register');
     window.location.hash = '';
-    console.log('hash ', window.location.hash);
     if (window.location.hash === '') {
       // eslint-disable-next-line no-restricted-globals
       history.replaceState({}, '', '/register');
