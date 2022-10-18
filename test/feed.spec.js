@@ -1,6 +1,4 @@
 /* eslint-disable quotes */
-// import { deletePost } from '../src/firestore/methodsFirestore.js';
-// import { deletePost } from '../src/firestore/methodsFirestore.js';
 import { logOutUser } from "../src/auth/authentication.js";
 import { onGetRecipes } from "../src/firestore/methodsFirestore.js";
 import { feed } from "../src/pages/feed.js";
@@ -49,21 +47,13 @@ describe("Function feed", () => {
   test('send form with input empty', () => {
     window.alert = jest.fn();
     const containerFeed = feed();
+    // const publishRecipe = containerFeed.querySelector('#btnPublishRecipe');
     const publishRecipe = containerFeed.querySelector('#publishRecipe');
-    const inputTitle = containerFeed.querySelector('#recipeName');
+    const inputTitle = publishRecipe.querySelector('#recipeName');
+    const inputDescrption = publishRecipe.querySelector('#recipe-description');
     inputTitle.value = '';
-    publishRecipe.submit();
+    inputDescrption.value = '';
+    publishRecipe.dispatchEvent(new Event('submit'));
     expect(window.alert).toBeCalled();
   });
-
-  //   test('deletePOst function ', () => {
-  //     document.body.innerHTML = `<main id="root"></main>`;
-  //     const containerFeed = feed();
-  //     setTimeout(() => {
-  //       const post = containerFeed.querySelector('#postUsers');
-  //       const btnDelete = post.querySelector('#iconDelete');
-  //       btnDelete.click();
-  //       expect(post.children).toHaveLength(0);
-  //     }, 1000);
-  //   });
 });

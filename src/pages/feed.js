@@ -148,14 +148,16 @@ export const feed = () => {
     const nameRecipe = publishRecipe['recipeName'];
     const descriptionRecipe = publishRecipe['recipe-description'];
     const date = new Date();
-    const author = auth.currentUser.displayName;
-    const idUser = auth.currentUser.uid;
-    console.log(author, idUser);
+    // const author = auth.currentUser.displayName;
+    // const idUser = auth.currentUser.uid;
+    // console.log(author, idUser);
     if (nameRecipe.value === '' || descriptionRecipe.value === '') {
       alert('Todos los campos son obligatorios');
     } else {
       // eslint-disable-next-line no-lonely-if
       if (!editStatus) {
+        const author = auth.currentUser.displayName;
+        const idUser = auth.currentUser.uid;
         saveRecipe(date, nameRecipe.value, descriptionRecipe.value, author, idUser);
       } else {
         updatePost(id, {

@@ -261,8 +261,8 @@ text-align: end;
     margin: 0;
     padding: 0;
     /*background: url('./resources/brunchWallpaper.jpg') 50% 50% no-repeat;*/
-    background: url('./resources/saladWallpaper.jpg') 50% 50% no-repeat;
-    /*background: url('./resources/background-feed.jpg') 50% 50% no-repeat;*/
+    /*background: url('./resources/saladWallpaper.jpg') 50% 50% no-repeat;*/
+    background: url('./resources/background-feed.jpg') 50% 50% no-repeat;
     background-size: 100%;
     background-attachment:fixed;
 }
@@ -780,7 +780,6 @@ footer {
             #iconsInteractive {
                 display: inline-flex;/*ibeht */
                 position: relative;
-                justify-content: center;/*ibeht */
                 width: 150px;/*ibeht */
                 justify-content: space-around;/*ibeht */
                 left: 20%;/*ibeht */

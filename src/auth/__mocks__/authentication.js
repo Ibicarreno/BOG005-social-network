@@ -1,4 +1,5 @@
 /* eslint-disable no-unused-vars */
+// const createEmail = jest.fn(() => Promise.resolve());
 const createEmail = (email, password, nameUser) => Promise.resolve();
 
 const validateUserAndPass = jest.fn(() => Promise.resolve());

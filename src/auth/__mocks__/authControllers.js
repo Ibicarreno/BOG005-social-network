@@ -1,5 +1,5 @@
 export const getAuth = () => {};
-export const createUserWithEmailAndPassword = () => {};
+export const createUserWithEmailAndPassword = () => jest.fn(() => Promise.resolve());
 export const signInWithEmailAndPassword = () => jest.fn(() => Promise.resolve());
 export const GoogleAuthProvider = jest.fn(() => Promise.resolve());
 export const signInWithPopup = () => {};
