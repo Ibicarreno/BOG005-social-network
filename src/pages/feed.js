@@ -8,18 +8,21 @@ export const feed = () => {
   const feedContainer = document.createElement('div');
   const feedTemplate = `
   <div id="mainFeed">
+  <header>
+    <img src="./resources/logoLoveat.png" alt="Logo LovEat">
+  </header>
   <button id="btnLogOut">Cerrar sesión</button>
     <div class='feed' id="feed">
         <section id="feedMainProfile">
             <section id="infoUser">
-                <img src='../resources/user-feed.png' alt="icon" id="icon">
+                <img src='../resources/astronaut-profile.png' alt="icon" id="icon">
                 <p id="nameUser">Nombre de usuari@</p>
             </section>
                 <section id="publishPost">
                     <h1 for="publish" id="publishTitle">Publica tu receta</h1>
                         <form id="publishRecipe">
                         <input type="text" placeholder="Nombre de la receta" id="recipeName">
-                        <textarea name="recipe-description" rows="3" placeholder="Descripcion de la receta"></textarea>
+                        <textarea id="recipe-description" name="recipe-description" rows="3" placeholder="Descripcion de la receta"></textarea>
                         <button id="btnPublishRecipe">Publicar</button>
                         </form>
                 </section>
@@ -65,13 +68,10 @@ export const feed = () => {
                </div>
                <div id="iconsInteractive">
                <button id="iconLike" class="btnsLike" data-id='${doc.id}'>
-                Like
                 </button>
                 <button id="iconEdit" class="btnsEdit" data-id='${doc.id}'>
-                Editar
                 </button> 
                 <button id="iconDelete"  class="btnsDelete" data-id='${doc.id}'>
-                Borrar
                 </button>
                </div>
               </div>
@@ -84,9 +84,11 @@ export const feed = () => {
       btnsDelete.forEach((btn) => {
         btn.addEventListener('click', async (event) => {
           const post = await getPost(event.target.dataset.id);
+          console.log(post);
           const postData = post.data();
+          console.log('postdata ', postData);
           if (postData.idUser === auth.currentUser.uid) {
-            // eslint-disable-next-line no-restricted-globals
+          // eslint-disable-next-line no-restricted-globals
             if (confirm('¿Estás seguro de eliminar la publicación?')) {
               deletePost(event.target.dataset.id);
             }
@@ -102,7 +104,7 @@ export const feed = () => {
           const post = await getPost(event.target.dataset.id);
           const postData = post.data();
           if (postData.idUser === auth.currentUser.uid) {
-            // eslint-disable-next-line dot-notation
+          // eslint-disable-next-line dot-notation
             publishRecipe['recipeName'].value = postData.title;
             publishRecipe['recipe-description'].value = postData.description;
 
@@ -127,8 +129,6 @@ export const feed = () => {
                 if (!idPost.data().like.includes(auth.currentUser.uid)) {
                   console.log('idPost.id ', idPost.id);
                   likeMe(idPost.id, auth.currentUser.uid);
-                  // console.log(likeMe());
-                  // console.log('se dio like ', idPost.data().like);
                 } else {
                   dislikeMe(idPost.id, auth.currentUser.uid);
                   console.log('se quitó el like ', idPost.data().like);
@@ -139,6 +139,7 @@ export const feed = () => {
         });
       });
     });
+    return feedMainPost;
   });
 
   publishRecipe.addEventListener('submit', (e) => {

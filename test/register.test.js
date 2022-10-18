@@ -19,7 +19,7 @@ describe('Function register', () => {
     expect(buttonGoogle).toBeTruthy();
   });
 
-  test('The bottonGoogle button should call ', () => {
+  test('The bottonGoogle button should call loginWithGoogle  ', () => {
     const buttonGoogle = containerRegister.querySelector('#bottonGoogle');
     buttonGoogle.click();
     expect(loginWithGoogle).toBeCalled();
