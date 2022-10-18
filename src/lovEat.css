@@ -2,25 +2,24 @@
     margin: 0px;
     font-family: 'Montserrat', sans-serif;
 }
-
 header {
     background-color: #F37724;
     height: 58px;
     margin: auto;
     text-align: center;
+    width: 100%;
 }
-
 header img {
     height: 70px;
     text-align: center;
 }
-
 main{
     flex-direction: column;
     justify-content: center;
-
 }
-
+#LogInP {
+    display: none;
+}
 main video {
     position: absolute;
     top: 0;
@@ -31,6 +30,11 @@ main video {
     object-fit: cover;
     z-index: -1;
 }
+
+
+/* LOGIN - MOBILE */
+
+
 #mainLogin{
     display: flex;
     flex-direction: column;
@@ -38,31 +42,35 @@ main video {
     align-items:center;
     height: auto;
 }
-
 .sectionLogIn {
     background-color: #FFFFFF;
     border-radius: 20px;
     margin-top: 40vh;
     padding: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    flex-direction: column ;
+    justify-content: space-around;
     align-items: center;
     width: 246px;
     height: 206px;
+    position: relative;
+    display: flex;
 }
-
-.sectionLogIn p{
+#separator{
     display: none;
 }
-
 .sectionLogIn input {
     background-color:#F0F0F0 ;
     color: black;
     border: none;
     border-radius: 10px;
-    height: 50px;
+    height: 300px;
     width: 200px;
+    top:10px;
+    margin-top: 15px;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
 .sectionLogIn input::placeholder{
     color: rgba(38, 38, 38, 0.295);
@@ -71,14 +79,16 @@ main video {
     text-align: center;
     font-size: 15px;
 }
-
 .sectionLogIn a{
     color: rgb(20, 20, 20);
     font-size: 14px;
     font-weight: bold;
     text-decoration: none;
 }
-
+#logginButton{
+    position: relative;
+    height: 50px;
+}
 .sectionLogIn button{
     background-color:#A6D48A ;
     font-weight: bold;
@@ -87,22 +97,21 @@ main video {
     margin: 10px;
     border-radius: 30px;
     width: 166px;
-    height: 35px;
+    top:15%;
 }
 .sectionLogIn button:hover {
     background-color:black ;
     cursor: pointer;
     transition: 0.5ms;
 }
-
 #sigInMobile {
     position: relative;
     display:flex;
     align-items: center;
     text-align: center;
     justify-content: center;
+    top:3em;
 }
-
 #sigInMobile p{
     color: white;
     font-weight: bold;
@@ -115,17 +124,27 @@ main video {
     font-weight: bold;
     font-size: 15px;
 }
-
 #sigInMobile a{
     display: flex;
     color: black;
     font-weight: bold;
 }
 
+
+/* REGISTER - MOBILE*/ 
+
+
+#mainRegister{
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items:center;
+    height: auto;
+}
 .registerView {
     background-color: #FFFFFF;
     border-radius: 20px;
-    margin-top: 4vh;
+    margin-top: 16vh;
     padding: 10px;
     display: flex;
     flex-direction: column;
@@ -137,11 +156,8 @@ main video {
 .registerView h2{
     color: #7989EC;
     display: flex;
-    position: absolute;
-    top: 8em;
-    /* margin-block-end: 1.5em; */
+    position: relative;
 }
-
 .registerView input {
     background-color:#F0F0F0 ;
     color: black;
@@ -153,7 +169,6 @@ main video {
     text-align: center;
     padding: 0.5em;
 }
-
 .registerView #bottonRegister{
     background-color:#A6D48A ;
     color: white;
@@ -164,7 +179,6 @@ main video {
     height: 35px;
     font-weight: bold;
 }
-
 .registerView #bottonRegister:hover{
     background-color:black ;
     cursor: pointer;
@@ -173,12 +187,10 @@ main video {
 #letter{
     display: none;
 }
-
 #sectionGoogle{
     display: block;
     position: relative;
 }
-
 #sectionGoogle p{
 font-family: 'Roboto', sans-serif;
 color: #FFFFFF ;
@@ -187,7 +199,6 @@ padding: 0 8px;
 position: relative;
 text-align: end;
 }
-
 #bottonGoogle{
     background: #4285F4;
     width: 15em;
@@ -197,7 +208,6 @@ text-align: end;
     border-color:#4285F4;
     border-width: 2px;
 }
-
 #imgGoogle{
     display: flex;
     position: absolute;
@@ -207,9 +217,12 @@ text-align: end;
     padding: 7px;
     top:1.5px;
     left:2.5px;
-
-    
 }
+
+
+/* FEED - MOBILE */
+
+
 #feed{
     margin: 0;
     padding: 0;
@@ -219,21 +232,17 @@ text-align: end;
     background-size: 100%;
     background-attachment:fixed;
 }
-
-
 #feedMainProfile {
     background: #ffffff83;
     margin: 10px;
     border-radius: 10px;
     padding: 5px;
 }
-
 section#publishPost {
     align-items: center;
     justify-content: center;
     margin: 3px;
 }
-
 section#infoUser {
     display:inline-block;
     text-align: center;
@@ -242,17 +251,14 @@ section#infoUser {
     position: relative;
     height: 30%;
 }
-
 section#infoUser img {
     justify-content: center;
     width: 200px;
     height: 150px;
 }
-
 section#infoUser p {
     color: black;
 }
-
 #feed #feedMainPost {
     background: #ffffff92;
     border-radius: 10px;
@@ -261,15 +267,12 @@ section#infoUser p {
     margin-right: 2em;
     height: 100%;
 }
-
 #feed #feedMainPost h1{
     color: black;
 }
-
 form#publishRecipe {
     margin: 5px;
 }
-
 section#publishPost {
     padding-top: 50px;
     display: inline-block;
@@ -284,7 +287,6 @@ input#recipeName {
     box-shadow: 0 13px 27px -5px rgba(50,50,93,0.25), 0 8px 16px -8px rgba(74, 167, 182, 0.3);
     font-size: 20px;
 }
-
 textarea {
     width: 80%;
     height: 100px;
@@ -294,7 +296,6 @@ textarea {
     box-shadow: 0 13px 27px -5px rgba(50,50,93,0.25), 0 8px 16px -8px rgba(74, 167, 182, 0.3);
     font-size: 20px;
 }
-
 #btnPublishRecipe {
     width: 70%;
     height: 50px;
@@ -307,15 +308,12 @@ textarea {
 #publishTitle{
     font-size: 21px;
 }
-
-
 #feedMainProfile{
 justify-content: center;
 display: grid;
 grid-gap: 5px;
 grid-template-rows: auto;
 }
-
 #bottonMyProfile{
 border-radius: 20px;
 background-color: #7989EC; 
@@ -348,7 +346,6 @@ margin-left: -1em;
 color: gray;
 text-align: center;
 }
-
 #icon{
     width: 80px;
     height: 80px;
@@ -356,7 +353,6 @@ text-align: center;
     margin-top: 15px;
     justify-self: center;
 }
-
 #feedMainPost{
 display: grid;
 height: 62vh;
@@ -367,7 +363,6 @@ background: white;
 border-radius: 15px;
 justify-content: center;
 }
-
 #titlePostMain{
 color: #7989EC;
 font-weight: bold;
@@ -395,9 +390,6 @@ footer {
     display: none;
 }
 
-.background-red {
-    background: red;
-}
 
 
 
@@ -408,12 +400,16 @@ footer {
     header img {
         height: 140px;
     }
+
+
+    /* LOGIN - TABLET */
+
+
     #mainLogin{
         display: flex;
         flex-direction: column;
         justify-content:center;
         align-items:center;
-        margin-right: 50px;
         height: auto;
     }
     .sectionLogIn {
@@ -423,15 +419,14 @@ footer {
         justify-content: center;
         align-items: center;
         width: 350px;
-        height: 380px;
-        
+        height: 380px;        
     }
     #sigInMobile a{
         font-size: 18px;
         margin-left: 15px ;
         color: #F37724;
     }
-    .sectionLogIn p {
+    #LogInP {
         display: flex;
         color: #7989EC;
         font-size: 28px;
@@ -441,13 +436,11 @@ footer {
         top: 15px;
         margin-top: 10px;
     }
-
     .sectionLogIn input {
         margin: 12px;
         width: 300px;
         position: relative;
     }
-
     .sectionLogIn input::placeholder{
         color: rgba(38, 38, 38, 0.295);
         padding: 15px;
@@ -466,10 +459,13 @@ footer {
         height: 55px;
         font-size: 21px;
     }
-
+    #logginButton{
+        top:0;
+    }
     #sigInMobile{
         display:flex;
         position: relative;
+        top:0;
     }
     #linkRegister{
         color: #F37724;
@@ -481,76 +477,58 @@ footer {
     #sigInMobile p{
         display: none;
     }
-
     .lineRight {
         background-color: black;
         width: 7em;
-        left: 5.5em;
-        position: relative;
-        top: 1em;
+        margin-right: 15px;
+        display: inline-block;
     }
-    
    #letter{
-    display: block;
-    font-size: 20px;
+    display: inline-block;
 }
     #sectionLogIn #letter{
-        position: absolute;
+        position:relative;
         color: black;
-        top: 33.5em;
-        margin-top: 20px;
+        display: inline-block;
     }
     .lineLeft {
         background-color: black;
         width: 7em;
         position: relative;
-        right: 5.5em;
-        display: block;
-        top: 1em;
+        margin-left: 15px;
+        display: inline-block;
     }
+    #separator{
+        position: static;
+        height: 5px;
+        display: block;
+    }
+    #sectionGoogle{
+        top:15px;
+        margin-top: 10px;
+    }
+
+
+     /* REGISTER - TABLET */
+
+
     #registerView input {
         display: block;
         width: 260px;
+        font-size: 21px;
     }
     #registerView h2{
-        display: block;
-        position: absolute;
-        top: 12.5em;
+        bottom: 15px;
     }
     .registerView {
         width: 300px;
-        height: 340px;
+        height: 390px;
     }
 
-    .lineRightRegister {
-        background-color: black;
-        width: 8em;
-        position: absolute;
-        bottom: 23.5em;
-        margin: 0 10em 0 0;
-    }
-    /* #letter{
-        display: block;
-        font-size: 20px;
-    } */
 
-    .lineLeftRegister {
-        background-color: black;
-        width: 8em;
-        position: absolute;
-        bottom: 23.5em;
-        right: 1em;
-        margin: 0 13.5em 0 0;
-    }
-    /* #sectionGoogle{
-        display: block;
-    } */
-    #sectionGoogle{
-        display: block;
-        position: absolute;
-        /* bottom: 40em; */
-        bottom: 20em;
-    }
+     /* REGISTER - TABLET */
+    
+
     #feed{
         display: grid;
         height: 100vh;
@@ -569,7 +547,6 @@ footer {
     margin: 3em 0.8em 1em 0.8em;
     background-color: white;
     border-radius: 1em;
-
     }
     #bottonMyProfile{
         position: absolute;
@@ -703,7 +680,6 @@ footer {
         flex-direction: column;
         justify-content:right;
         align-items:flex-end;
-        margin-right: 50px;
         height: auto;
     }
     #mainRegister{
@@ -711,7 +687,6 @@ footer {
         flex-direction: column;
         justify-content:right;
         align-items:flex-end;
-        margin-right: 50px;
         height: auto;
     }
     #mainFeed{
@@ -728,6 +703,7 @@ footer {
         height: 120px;
         margin: auto;
         text-align: center;
+        position: static; 
     }
     
     header img {
@@ -747,8 +723,9 @@ footer {
         align-items: center;
         width: 400px;
         height: 440px;
+        margin-right: 8em;
     }
-    .sectionLogIn p{
+    #LogInP {
         display: flex;
         color: #7989EC;
         font-size: 28px;
@@ -771,12 +748,16 @@ footer {
         width: 306px;
         height: 64px;
         font-weight: bold;
+        top:0;
+    }
+    #logginButton{
+        top:0;
     }
 
     #sigInMobile{
         justify-content: center;
         position: relative;
-        top: 3em;
+        top: 2em;
     }
     #linkRegister{
         color:#F37724;
@@ -801,32 +782,33 @@ footer {
         height: 50px;
         text-align: center;
         position: relative;
+        margin: 12px;
+    }
+
+    #separator{
+        position: static;
+        height: 5px;
+        display: block;
     }
 
     .lineRight {
         background-color: black;
         width: 8em;
-        left: 6em;
-        position: relative;
-        top: 2em;
+        margin-right: 10px;
+        display: inline-block;
     }
     #letter{
-        display: block;
+        display: inline-block;
         font-size: 18px;
     }
    #sectionLogIn #letter{
-        display: block;
-        position: absolute;
         color: black;
-        top: 30em;
-        margin: 0;
     }
     .lineLeft {
         background-color: black;
         width: 8em;
-        position: relative;
-        right: 6em;
-        top: 2em;
+        margin-left: 10px;
+        display: inline-block;
     }
     #sigInMobile p{
         display: none;
@@ -834,13 +816,12 @@ footer {
     .registerView {
         width: 400px;
         height: 460px;
+        margin-right: 8em;
+        margin-top: 6vh;
     }
     #registerView h2{
-        display: flex;
-        color: #7989EC;
         font-size: 28px;
         margin-bottom: 5px;
-        position: static;
     }
 
     .registerView input{
@@ -889,10 +870,8 @@ footer {
     #sectionGoogle{
         display: block;
         position: relative;
-        bottom: 66px;
-        left: 115px;
+        top: 15px;
         margin-top: 10px;
-        margin-bottom: 20px;
     }
     #feed{
         display: grid;
@@ -901,14 +880,13 @@ footer {
         grid-template-columns: 30% 70%;
     }
     #feedMainProfile{
-    /* position: relative; */
+    position: relative;
     width: 80%;
     height: 70vh;
     margin: 3em 3em 3em 3em;
     background-color: white;
     border-radius: 1em;
-    position: sticky;
-    top: 11em;
+
     }
     #bottonMyProfile{
         position: absolute;
@@ -967,6 +945,7 @@ footer {
             #titlePostMain{
                 font-size: 30px;
                 margin: 25px;
+                text-align: center;
             }
             .postView{
                 background-color: white;
@@ -1007,7 +986,20 @@ footer {
             #iconsInteractive {
                 display: inline-block;
                 position: relative;
-                left: 75%;
+
+            }
+            #btnLogOut{
+                position: relative;
+                z-index: 1 ;
+                display: flex;
+                color: red;
+                background: aqua;
+                border: none;
+                font-weight: bold;
+                width: 200px;
+                top: 0;
+                margin: 0;
+
 
             }
 
