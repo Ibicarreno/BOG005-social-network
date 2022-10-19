@@ -31,6 +31,8 @@ Para la persona que publica la receta, la red social le permite editar y/o elimi
 
 A continuación damos un vistazo de LovEat:
 
+<img src="./src/resources/Version-Final.JPG" width="500">
+
 
 ## 3. Prototipado
 
