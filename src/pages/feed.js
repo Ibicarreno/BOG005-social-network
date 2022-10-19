@@ -10,18 +10,19 @@ export const feed = () => {
   <div id="mainFeed">
   <header>
     <img src="./resources/logoLoveat.png" alt="Logo LovEat">
+    <button id="btnLogOut">Cerrar sesión</button>
   </header>
-  <button id="btnLogOut">Cerrar sesión</button>
+  
     <div class='feed' id="feed">
         <section id="feedMainProfile">
             <section id="infoUser">
-                <img src='../resources/astronaut-profile.png' alt="icon" id="icon">
+                <img src='../resources/astronaut-profile.png' alt="icon" id="iconUserProfile">
                 <p id="nameUser">Nombre de usuari@</p>
             </section>
                 <section id="publishPost">
                     <h1 for="publish" id="publishTitle">Publica tu receta</h1>
                         <form id="publishRecipe">
-                        <input type="text" placeholder="Nombre de la receta" id="recipeName">
+                        <input type="text" placeholder="Nombre" id="recipeName">
                         <textarea id="recipe-description" name="recipe-description" rows="3" placeholder="Descripcion de la receta"></textarea>
                         <button id="btnPublishRecipe">Publicar</button>
                         </form>
