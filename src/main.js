@@ -1,5 +1,11 @@
-// Este es el punto de entrada de tu aplicacion
+import { routes } from './routes/routes.js';
 
-import { myFunction } from './lib/index.js';
+/* GENERAR RUTAS EN URLS */
+export const onNavigate = (pathname, paramRoutes = routes) => {
+  const root = document.getElementById('root');
+  root.replaceChildren(paramRoutes[pathname]);
+};
 
-myFunction();
+window.addEventListener('hashchange', () => {
+  onNavigate(window.location.pathname);
+});

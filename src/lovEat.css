@@ -1,0 +1,1376 @@
+*{
+    margin: 0px;
+    font-family: 'Montserrat', sans-serif;
+}
+header {
+    background-color: #F37724;
+    height: 58px;
+    margin: auto;
+    align-items: center;
+    width: 100%;
+    position: sticky;
+    text-align: center;
+    top:0;
+    margin-top: 0;
+    z-index: 1;
+}
+header img {
+    height: 70px;
+    text-align: center;
+}
+main{
+    flex-direction: column;
+    justify-content: center;
+}
+#LogInP {
+    display: none;
+}
+main video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    z-index: -1;
+}
+
+
+/* LOGIN - MOBILE */
+
+
+#mainLogin{
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items:center;
+    height: auto;
+}
+.sectionLogIn {
+    background-color: #FFFFFF;
+    border-radius: 20px;
+    margin-top: 40vh;
+    padding: 10px;
+    flex-direction: column ;
+    justify-content: space-around;
+    align-items: center;
+    width: 246px;
+    height: 206px;
+    position: relative;
+    display: flex;
+}
+#separator{
+    display: none;
+}
+.sectionLogIn input {
+    background-color:#F0F0F0 ;
+    color: black;
+    border: none;
+    border-radius: 10px;
+    height: 300px;
+    width: 200px;
+    top:10px;
+    margin-top: 15px;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.sectionLogIn input::placeholder{
+    color: rgba(38, 38, 38, 0.295);
+    padding: 15px;
+    font-weight: bold;
+    text-align: center;
+    font-size: 15px;
+}
+.sectionLogIn a{
+    color: rgb(20, 20, 20);
+    font-size: 14px;
+    font-weight: bold;
+    text-decoration: none;
+}
+#logginButton{
+    position: relative;
+    height: 50px;
+}
+.sectionLogIn button{
+    background-color:#A6D48A ;
+    font-weight: bold;
+    color: white;
+    border: none;
+    margin: 10px;
+    border-radius: 30px;
+    width: 166px;
+    top:15%;
+}
+.sectionLogIn button:hover {
+    background-color:black ;
+    cursor: pointer;
+    transition: 0.5ms;
+}
+#sigInMobile {
+    position: relative;
+    display:flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    top:3em;
+}
+#sigInMobile p{
+    color: white;
+    font-weight: bold;
+    margin: 0 10px 0 0;
+}
+#linkRegister{
+    background-color: rgba(255, 255, 255, 0);
+    border-color: rgba(255, 255, 255, 0);
+    color: black;
+    font-weight: bold;
+    font-size: 15px;
+}
+#sigInMobile a{
+    display: flex;
+    color: black;
+    font-weight: bold;
+}
+
+
+/* REGISTER - MOBILE*/ 
+
+
+#mainRegister{
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items:center;
+    height: auto;
+}
+.registerView {
+    background-color: #FFFFFF;
+    border-radius: 20px;
+    margin-top: 16vh;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 220px;
+    height: 320px;
+}
+.registerView h2{
+    color: #7989EC;
+    display: flex;
+    position: relative;
+}
+.registerView input {
+    background-color:#F0F0F0 ;
+    color: black;
+    border: none;
+    margin: 6px;
+    border-radius: 10px;
+    width: 200px;
+    height: 25px;
+    text-align: center;
+    padding: 0.5em;
+}
+.registerView #bottonRegister{
+    background-color:#A6D48A ;
+    color: white;
+    border: none;
+    margin: 10px;
+    border-radius: 30px;
+    width: 166px;
+    height: 35px;
+    font-weight: bold;
+}
+.registerView #bottonRegister:hover{
+    background-color:black ;
+    cursor: pointer;
+    transition: 0.5ms;
+}
+#letter{
+    display: none;
+}
+#sectionGoogle{
+    display: block;
+    position: relative;
+}
+#sectionGoogle p{
+font-family: 'Roboto', sans-serif;
+color: #FFFFFF ;
+font-size: 14px;
+padding: 0 8px;
+position: relative;
+text-align: end;
+}
+#bottonGoogle{
+    background: #4285F4;
+    width: 15em;
+    height: 40px;
+    margin: 0;
+    border-radius: 5px;
+    border-color:#4285F4;
+    border-width: 2px;
+}
+#imgGoogle{
+    display: flex;
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    background: #FFFFFF;
+    padding: 7px;
+    top:1.5px;
+    left:2.5px;  
+}
+
+.btnsEdit {
+    background-image: url(./resources/pen-to-square-solid.svg);
+    background-repeat: no-repeat;
+    background-color: transparent;
+    width: 20px;
+    height: 20px;
+    border: none;
+}
+
+.btnsLike {
+    background-image: url(./resources/thumbs-up-solid.svg);
+    background-repeat: no-repeat;
+    background-color: transparent;
+    width: 20px;
+    height: 20px;
+    border: none;
+}
+
+.btnsDelete {
+    background-image: url(./resources/trash-solid.svg);
+    background-repeat: no-repeat;
+    background-color: transparent;
+    width: 20px;
+    height: 20px;
+    border: none;
+}
+
+#feed{
+    margin: 0;
+    padding: 0;
+    background: url('./resources/background-feed.jpg') 50% 50% no-repeat;
+    background-size: cover;
+    background-attachment:fixed;
+    justify-items: center;
+    justify-content: center;
+}
+#mainFeed{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: auto;
+    align-items: stretch;
+}
+#feedMainProfile {
+    background: #ffffff83;
+    margin: 10px;
+    border-radius: 10px;
+    padding: 5px;
+    justify-content: center;
+    display: grid;
+    grid-gap: 5px;
+    grid-template-columns: 25% 75%;
+}
+
+section#publishPost {
+    align-items: center;
+    justify-content: center;
+    margin: 3px;
+    padding-top: 10px;
+    display: inline-block;
+    text-align: center;
+}
+section#infoUser {
+    display:inline-block;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    height: 10%;
+    margin-left: 7px;
+}
+#iconUserProfile {
+    justify-content: center;
+    width: 90px;
+    height: 90px;
+    margin-top: 45px;
+}
+#feedMainProfile p {
+    color: gray;
+    text-align: center;
+    }
+    
+#myFriends, #myFriends p{
+    display: none;
+    }
+
+#infoUser p {
+    color: black;
+    font-weight: bolder;
+}
+
+
+/*#feed #feedMainPost {
+    border-radius: 10px;
+    padding: 5px;
+    width: 92%;
+    margin-right: 2em;
+    height: 100%;
+}*/
+
+#feed #feedMainPost h1{
+    color: black;
+    justify-content: center;
+}
+form#publishRecipe {
+    margin: 5px;
+}
+
+/* section#publishPost {
+    padding-top: 50px;
+    display: inline-block;
+    text-align: center;
+} */
+input#recipeName {
+    height: 20px;
+    margin: 10px 0 10px 0;
+    border-radius: 10px;
+    border: 0;
+    box-shadow: 0 13px 27px -5px rgba(50,50,93,0.25), 0 8px 16px -8px rgba(74, 167, 182, 0.3);
+    font-size: 12px;
+    width: 66%;
+}
+textarea {
+    width: 80%;
+    height: 50px;
+    margin: 0px 0 10px 0;
+    border: 0;
+    border-radius: 10px;
+    box-shadow: 0 13px 27px -5px rgba(50,50,93,0.25), 0 8px 16px -8px rgba(74, 167, 182, 0.3);
+    font-size: 12px;
+}
+#btnPublishRecipe {
+    width: 100%;
+    height: 20px;
+    border-radius: 10px;
+    background: rgb(0, 0, 0);
+    color: #F0F0F0;
+    font-weight: bold;
+    font-size: 13px;
+}
+    #publishTitle{
+        font-size: 15px;
+    }
+
+    #feedMainPost{
+        background: #ffffff92;
+        display: grid;
+        height: 62vh;
+        grid-template-columns: 95%;
+        border-radius: 15px;
+        justify-content: center;
+        align-items: center;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    #titlePostMain{
+        color: #7989EC;
+        font-weight: bold;
+        margin-top: 12px;
+        margin-bottom: 12px;
+        margin-left: 4px;
+        margin-right: 4px;
+        font-size: 15px;
+        justify-content: center;
+        text-align: center;
+    }
+
+    #dataForRecipe {
+        display: block;
+        padding: 5px;
+        font-size: 8px;
+    }
+
+    .postView{
+        background-color: white;
+        margin-bottom: 6px;
+        height: auto;
+        border-radius: 10px;
+        display: grid;
+        padding-bottom: 10px;
+        grid-template-columns: 30% 70%;
+    }
+
+    #postTitle{
+        font-style: italic;
+        font-size: 12px;
+        margin-top: 15px;
+    }
+
+    #postUsers{
+        display: grid;
+        grid-gap: 10px;
+    }
+    
+    #iconsPosts{
+        margin-bottom: 2px;
+        display: grid;
+        grid-template-columns: 50% 50%;
+        width: 150px;
+        top: 10px;
+        bottom: 5px;
+        position: relative;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .postIcon{
+        width: 20px;
+        height: 20px;
+        margin: 3px;
+
+    }
+
+    #likeCounter {
+        display: inline-flex; 
+        width: 60px;
+        position: relative;
+        background-color: black;
+        border-radius: 10px;
+        text-align: center;
+        justify-content: space-around;
+        height: 20px;
+    }
+    #counter{
+        color: white;
+        margin: 3px; 
+        font-size: 15px;
+    }
+    #iconsInteractive {
+        display: inline-flex;
+        position: relative;
+        width: 100px;
+        justify-content: space-around;
+        left: 40%;
+    }
+
+#btnLogOut {
+    z-index: +2;
+    height: 40px;
+    background-color: transparent;
+    background-image: url(./resources/cerrar-sesion.svg);
+    background-size: 20px;
+    background-repeat: no-repeat;
+    border: none;
+    position: absolute;
+    color:transparent;
+    align-items: center;
+    top: 25px;
+    float: right;
+    margin: 0;
+    right: 4%;
+    width: 22px;
+
+}
+
+#icon{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-top: 15px;
+    justify-self: center;
+}
+
+/* #feedMainPost{
+display: grid;
+height: 62vh;
+grid-template-columns: 95%;
+width: 90%;
+margin: 3em 0.8em 0 0.8em;
+background: white;
+border-radius: 15px;
+justify-content: center;
+} */
+
+
+#seePost{
+margin-top: 3em;
+text-align: center;
+background: #F0F0F0;
+border-radius: 15px;
+}
+#postPublic{
+    width: 60px;
+    height: 60px;
+    border-radius: 50px;
+    display: flex;
+    position: absolute;
+    bottom: 17em;
+    left: 5em;
+}
+/* #myFriends, #myFriends p{
+display: none;
+} */
+footer {
+    display: none;
+}
+
+@media screen and (min-width: 767px) and (max-width:1023px){
+    header {
+        height: 130px;
+        text-align: center;
+    }
+    header img {
+        height: 140px;
+    }
+
+
+    /* LOGIN - TABLET */
+
+
+    #mainLogin{
+        display: flex;
+        flex-direction: column;
+        justify-content:center;
+        align-items:center;
+        height: auto;
+    }
+    .sectionLogIn {
+        margin-top: 20vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 350px;
+        height: 380px;        
+    }
+    #sigInMobile a{
+        font-size: 18px;
+        margin-left: 15px ;
+        color: #F37724;
+    }
+    #LogInP {
+        display: flex;
+        color: #7989EC;
+        font-size: 28px;
+        margin-bottom: 10px;
+        font-weight: bold;
+        position: relative;
+        top: 15px;
+        margin-top: 10px;
+    }
+    .sectionLogIn input {
+        margin: 12px;
+        width: 300px;
+        position: relative;
+    }
+    .sectionLogIn input::placeholder{
+        color: rgba(38, 38, 38, 0.295);
+        padding: 15px;
+        font-weight: bold;
+        text-align: center;
+        font-size: 21px;
+    }
+    .sectionLogIn button{
+        background-color:#A6D48A ;
+        font-weight: bold;
+        color: white;
+        border: none;
+        margin: 10px;
+        border-radius: 30px;
+        width: 250px;
+        height: 55px;
+        font-size: 21px;
+    }
+    #logginButton{
+        top:0;
+    }
+    #sigInMobile{
+        display:flex;
+        position: relative;
+        top:0;
+    }
+    #linkRegister{
+        color: #F37724;
+        font-weight: bolder;
+        background-color: rgba(255, 255, 255, 0);
+        border-color: rgba(255, 255, 255, 0);font-size: 20px;   
+        top: 1em; 
+    }
+    #sigInMobile p{
+        display: none;
+    }
+    .lineRight {
+        background-color: black;
+        width: 7em;
+        margin-right: 15px;
+        display: inline-block;
+    }
+   #letter{
+    display: inline-block;
+}
+    #sectionLogIn #letter{
+        position:relative;
+        color: black;
+        display: inline-block;
+    }
+    .lineLeft {
+        background-color: black;
+        width: 7em;
+        position: relative;
+        margin-left: 15px;
+        display: inline-block;
+    }
+    #separator{
+        position: static;
+        height: 5px;
+        display: block;
+    }
+    #sectionGoogle{
+        top:15px;
+        margin-top: 10px;
+    }
+
+
+     /* REGISTER - TABLET */
+
+
+    #registerView input {
+        display: block;
+        width: 260px;
+        font-size: 21px;
+    }
+    #registerView h2{
+        bottom: 15px;
+    }
+    .registerView {
+        width: 300px;
+        height: 390px;
+    }
+
+
+     /* REGISTER - TABLET */
+    
+
+    #feed{
+        margin: 0;
+        padding: 0;
+        background-size: cover;
+        background-attachment:fixed;
+        display: grid;
+        width: 100%;
+        grid-template-columns: 35% 65%;
+        justify-items: center;
+        min-height: 700px;
+    }
+
+    #feedMainProfile{
+        height: 75vh;
+        border-radius: 15px;
+        position: sticky;
+        top: 9em;
+        background: #ffffff83;
+        margin: 10px;
+        margin-left: 1.5em;
+        padding: 5px;
+        justify-content: center;
+        display: grid;
+        grid-gap: 5px;
+        grid-template-columns: none;
+    }
+    #publishTitle{
+        font-size: 21px;
+    }
+    section#publishPost {
+        align-items: center;
+        justify-content: center;
+        margin: 3px;
+    }
+
+    section#infoUser {
+        height: 80px;
+    }    
+
+    #bottonMyProfile{
+        position: absolute;
+        top: 8em;
+        border-radius: 20px;
+        background-color: black;
+        color: white;
+        grid-column: 0;
+        grid-row: 0;
+       font-size: 20px;
+       margin-left: 0;
+        }
+
+        #bottonPostRecipe{
+        position: absolute;
+        top: 13em;
+        font-size: 20px;
+        border-style: none;
+        border-radius: 20px;
+        background-color: black; 
+        color: white;
+        grid-column: 0;
+        grid-row: 0;
+        margin-left: 0;
+        }
+        #feedMainProfile p {
+            /*position: absolute;*/
+            top: 8em;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        #postUsers{
+            display: grid;
+            grid-gap: 25px;
+        }
+        
+        #iconUserProfile{
+            width: 150px;
+            height: 150px;
+        }
+        #btnPublishRecipe {
+            width: 70%;
+            height: 50px;
+            border-radius: 10px;
+            background: rgb(0, 0, 0);
+            color: #F0F0F0;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        #feedMainPost{
+            display: grid;
+            height: auto;
+            grid-template-columns: 85%;
+            text-align:left;
+            width: 90%;
+            margin: 1em 0.5em 1em 1.5em;
+            background: rgba(255, 255, 255, 0.468);
+            border-radius: 15px;
+            justify-content: center;
+            margin-bottom: 50px;
+            }
+
+            #dataForRecipe {
+                display: block;
+                padding: 5px;
+                font-size: 15px;
+            }
+
+
+            #imageRecipe{
+                text-align: center;
+            }
+            input#recipeName {
+                height: 30px;
+                margin: 10px 0 10px 0;
+                border-radius: 10px;
+                border: 0;
+                box-shadow: 0 13px 27px -5px rgba(50,50,93,0.25), 0 8px 16px -8px rgba(74, 167, 182, 0.3);
+                font-size: 15px;
+                text-align: center;
+            }
+        
+            textarea {
+                width: 80%;
+                height: 70px;
+                margin: 10px 0 20px 0;
+                border: 0;
+                border-radius: 10px;
+                box-shadow: 0 13px 27px -5px rgba(50,50,93,0.25), 0 8px 16px -8px rgba(74, 167, 182, 0.3);
+                font-size: 15px;
+                text-align: center;
+            }
+            #feedMainPost textarea{
+                width: 30em;
+                height: 10em;
+            }
+            #titlePostMain{
+                font-size: 25px;
+                text-align: center;
+                margin-right: 3px;
+                margin-left: 3px;
+                margin-top: 15px;
+                margin-bottom: 15px;
+            }
+
+            .postView{
+                background-color: white;
+                margin-bottom: 6px;
+                height: auto;
+                border-radius: 10px;
+                display: grid;
+                padding-bottom: 15px;
+                grid-template-columns: 30% 70%;
+            }
+
+            #postTitle{
+                font-style: italic;
+                font-size: 15px;
+                margin-top: 15px;
+            }
+
+            #iconsPosts{
+                display: grid;
+                grid-template-columns: 50% 50%;
+                width: 200px;
+                bottom: 5px;
+                position: relative;
+                align-items: center;
+                justify-content: space-between;
+                margin-bottom: 2px;
+            }
+
+            .postIcon{
+                width: 20px;
+                height: 20px;
+                margin: 3px;
+            }
+
+            #likeCounter {
+                display: inline-flex; 
+                width: 60px;
+                position: relative;
+                background-color: black;
+                border-radius: 10px;
+                text-align: center;
+                justify-content: space-around;
+                height: 30px;
+            }
+
+            #counter{
+                color: white;
+                margin: 3px; 
+                font-size: 18px;
+            }
+            
+            #iconsInteractive {
+                display: inline-flex;
+                position: relative;
+                width: 100px;
+                justify-content: space-around;
+                left: 40%;
+            }
+            
+            #btnLogOut {
+                z-index: +2;
+                width: 150px;
+                height: 40px;
+                margin-left: 600px;
+                position: absolute;
+                background-color: transparent;
+                border: none;
+                font-size: 20px;
+                color: black;
+                background-image: none;
+                margin-top: 25px;
+            }
+    
+    footer {
+        display: flex;
+        background-color:#D9D9D9;
+        width: 100%;
+        height: 70px;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        bottom: 0;
+    }
+    footer .creators{
+    display: flex;
+    position: absolute;
+    bottom: 15px;
+    font-size: 12px ;
+    }
+    .fa-js {
+        font-size: 12px;
+    }
+
+    .copyRightsContainer{
+        display: flex;
+        justify-content: space-between;
+        padding: 5px;
+        font-family: 'Montserrat', sans-serif;
+    }
+
+    .copyRightsContainer i{
+        font-style: normal;
+        font-family: 'Montserrat', sans-serif;
+    }
+
+}
+
+@media screen and (min-width:1024px) {
+    #mainLogin {
+        display: flex;
+        flex-direction: column;
+        justify-content:right;
+        align-items:flex-end;
+        height: auto;
+    }
+    #mainRegister{
+        display: flex;
+        flex-direction: column;
+        justify-content:right;
+        align-items:flex-end;
+        height: auto;
+    }
+    #mainFeed{
+        display: flex;
+        flex-direction: column;
+        justify-content:right;
+       /* align-items:flex-end;
+        margin-right: 50px;*/
+        height: auto;
+    }
+
+    header {
+        background-color: #F37724;
+        height: 120px;
+        margin: auto;
+        position: sticky;
+        text-align: center;
+        top:0;
+        margin-top: 0;
+        z-index: 1;
+    }
+    
+    header img {
+        height: 140px;
+    margin-top: -5px;
+    
+    }
+
+    .sectionLogIn {
+        background-color: #FFFFFF;
+        border-radius: 20px;
+        margin-top: 6vh;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 400px;
+        height: 440px;
+        margin-right: 8em;
+    }
+    #LogInP {
+        display: flex;
+        color: #7989EC;
+        font-size: 28px;
+        margin: 25px 25px;
+        font-weight: bold;
+        position: relative;
+    }
+
+    .sectionLogIn input::placeholder{
+        color: rgba(38, 38, 38, 0.295);
+        padding: 15px;
+        text-align: center;
+        font-size: 25px;
+    }
+
+    .sectionLogIn button{
+        background-color:#A6D48A ;
+        color: white;
+        font-size: 22px;
+        width: 306px;
+        height: 64px;
+        font-weight: bold;
+        top:0;
+    }
+    #logginButton{
+        top:0;
+    }
+
+    #sigInMobile{
+        justify-content: center;
+        position: relative;
+        top: 1em;
+    }
+    #linkRegister{
+        color:#F37724;
+        font-weight: bolder;
+        background-color: rgba(255, 255, 255, 0);
+        border-color: rgba(255, 255, 255, 0);
+        font-size: 20px;
+    }
+
+    #sigInMobile a{
+        font-size: 20px;
+        margin-left: 15px ;
+        color: #F37724;
+    }
+    .sectionLogIn input {
+        background-color:#F0F0F0 ;
+        font-size: 25px;
+        color: black;
+        border: none;
+        border-radius: 10px;
+        width: 350px;
+        height: 50px;
+        text-align: center;
+        position: relative;
+        margin: 12px;
+    }
+
+    #separator{
+        position: static;
+        height: 5px;
+        display: block;
+        margin: 12px;
+    }
+
+    .lineRight {
+        background-color: black;
+        width: 8em;
+        margin-right: 10px;
+        display: inline-block;
+    }
+    #letter{
+        display: inline-block;
+        font-size: 18px;
+    }
+   #sectionLogIn #letter{
+        color: black;
+    }
+    .lineLeft {
+        background-color: black;
+        width: 8em;
+        margin-left: 10px;
+        display: inline-block;
+    }
+    #sigInMobile p{
+        display: none;
+    }
+    .registerView {
+        width: 400px;
+        height: 460px;
+        margin-right: 8em;
+        margin-top: 6vh;
+    }
+    #registerView h2{
+        font-size: 28px;
+        margin-bottom: 5px;
+    }
+
+    .registerView input{
+        background-color: #F0F0F0;
+        font-size: 25px;
+        color: black;
+        border: none;
+        border-radius: 10px;
+        width: 350px;
+        height: 35px;
+        text-align: center;
+        position: relative;
+    }
+    .registerView #bottonRegister{
+        font-size: 21px;
+        width: 250px;
+        height: 59px;
+        margin-top: 10px;
+        margin-bottom: 20px;
+    }
+
+
+    .lineRightRegister {
+        background-color: black;
+        width: 8em;
+        left: 6em;
+        position: relative;
+    }
+    .lineLeftRegister {
+        background-color: black;
+        width: 8em;
+        position: relative;
+        right: 6em;
+        display: block;
+        bottom: 1.5em;
+    }
+    #letterRegister{
+        position: relative;
+        color: black;
+        bottom:13px;
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+
+    #sectionGoogle{
+        display: block;
+        position: relative;
+        top: 15px;
+        margin-top: 10px;
+    }
+
+    /* ESTILOS FEED */
+
+    
+    #feed{
+        display: grid;
+        height: 100%;
+        width: 100%;
+        grid-template-columns: 30% 70%;
+    }
+    section#infoUser img {
+        justify-content: center;
+        width: 150px;
+        height: 150px;
+    }
+
+    #feedMainProfile{
+        width: 80%;
+        height: 65vh;
+        margin: 1em 3em 3em 3em;
+        border-radius: 1em;
+        position: sticky;
+        top:9em;
+        background: #ffffff83;
+        padding: 5px;
+        justify-content: center;
+        display: grid;
+        grid-gap: 5px;
+        grid-template-columns: none;
+    }
+    input#recipeName {
+        height: 30px;
+        margin: 10px 0 10px 0;
+        border-radius: 10px;
+        border: 0;
+        box-shadow: 0 13px 27px -5px rgba(50,50,93,0.25), 0 8px 16px -8px rgba(74, 167, 182, 0.3);
+        font-size: 20px;
+    }
+    #bottonMyProfile{
+        position: absolute;
+        top: 8em;
+        border-radius: 20px;
+        background-color: black;
+        color: white;
+        grid-column: 0;
+        grid-row: 0;
+       font-size: 20px;
+       margin-left: 0;
+    }
+
+        #bottonPostRecipe{
+        position: absolute;
+        top: 13em;
+        font-size: 20px;
+        border-style: none;
+        border-radius: 20px;
+        background-color: black; 
+        color: white;
+        grid-column: 0;
+        grid-row: 0;
+        margin-left: 0;
+        }
+
+        #feedMainProfile p {
+            top: 8em;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        #postUsers{
+            display: grid;
+            grid-gap: 25px;
+        }
+
+        #icon{
+            width: 120px;
+            height: 120px;
+        }
+
+        #feedMainPost{
+            display: grid;
+            height: auto;
+            grid-template-columns: 90%;
+            width: 90%;
+            margin: 1em 0.5em 0 1.5em;
+            background: rgba(255, 255, 255, 0.388);
+            border-radius: 15px;
+            justify-content: center;
+            margin-bottom: 130px;
+            }
+
+            #dataForRecipe {
+                display: block;
+                padding: 5px;
+                font-size: 15px;
+            }
+
+            #imageRecipe{
+                text-align: center;
+            }
+            #publishTitle{
+                font-size: 21px;
+            }
+            textarea {
+                width: 80%;
+                height: 70px;
+                margin: 10px 0 20px 0;
+                border: 0;
+                border-radius: 10px;
+                box-shadow: 0 13px 27px -5px rgba(50,50,93,0.25), 0 8px 16px -8px rgba(74, 167, 182, 0.3);
+                font-size: 20px;
+            }
+            #feedMainPost textarea{
+                width: 30em;
+                height: 10em;
+            }
+            
+            #btnPublishRecipe {
+                width: 70%;
+                height: 50px;
+                border-radius: 10px;
+                background: rgb(0, 0, 0);
+                color: #F0F0F0;
+                font-weight: bold;
+                font-size: 18px;
+            }
+            #titlePostMain{
+                font-size: 30px;
+                margin: 25px;
+                text-align: center;
+            }
+            .postView{
+                background-color: white;
+                height: auto;
+                padding-bottom: 15px;
+                border-radius: 10px;
+                display: grid;
+                grid-template-columns: 20% 80%;
+
+            }
+            #postTitle{
+                font-style: italic;
+                font-size: 20px;
+                margin-top: 15px;
+            }
+            #iconsPosts{
+                display: grid;
+                grid-template-columns: 20% 80%;
+                width: 100%;
+                top: 10px;
+                bottom: 5px;
+                position: relative;
+                align-items: center;
+                margin-bottom: 2px;
+            }
+
+            .btnsEdit {
+                background-image: url(./resources/pen-to-square-solid.svg);
+                background-repeat: no-repeat;
+                background-color: transparent;
+                width: 30px;
+                height: 30px;
+                border: none;
+            }
+            
+            .btnsLike {
+                background-image: url(./resources/thumbs-up-solid.svg);
+                background-repeat: no-repeat;
+                background-color: transparent;
+                width: 30px;
+                height: 30px;
+                border: none;
+            }
+            
+            .btnsDelete {
+                background-image: url(./resources/trash-solid.svg);
+                background-repeat: no-repeat;
+                background-color: transparent;
+                width: 30px;
+                height: 30px;
+                border: none;
+            }
+
+            .postIcon{
+                width: 25px;
+                height: 25px;
+                margin: 3px;
+            }
+
+            #likeCounter {
+                display: inline-flex; 
+                width: 80px;
+                position: relative;
+                background-color: black;
+                border-radius: 10px;
+                text-align: center;
+                justify-content: space-around;
+                height: 30px;
+            }
+
+            #counter{
+                color: white;
+                margin: 3px; 
+                font-size: 20px;
+            }
+            
+            #iconsInteractive {
+                display: inline-flex;
+                position: relative;
+                width: 150px;
+                justify-content: space-around;
+                left: 65%;
+            }
+            
+            #btnLogOut{
+                z-index: +2;
+                width: 330px;
+                height: 40px;
+                margin-left: 980px;
+                margin-top: 20px;
+                position: absolute;
+                background-color: transparent;
+                background-image: none;
+                border: none;
+                font-size: 28px;
+                color: black;
+            }
+
+    footer {
+        background-color:#D9D9D9;
+        display: flex;
+        width: 100%;
+        height: 80px;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        bottom: 0;
+    }
+    footer .creators{
+        display: flex;
+        position: absolute;
+        bottom: 20px;
+        font-size: 12px;
+        margin-top: 8px;
+        }
+    .fa-js {
+        font-size: 12px;
+    }
+
+    .copyRightsContainer{
+        display: flex;
+        justify-content: space-between;
+        padding: 5px;
+        font-family: 'Montserrat', sans-serif;
+    }
+
+    .copyRightsContainer i{
+        font-style: normal;
+        font-family: 'Montserrat', sans-serif;
+    }
+}
