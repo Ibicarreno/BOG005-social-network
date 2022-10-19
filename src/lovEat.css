@@ -2,31 +2,29 @@
     margin: 0px;
     font-family: 'Montserrat', sans-serif;
 }
-
 header {
     background-color: #F37724;
     height: 58px;
     margin: auto;
-    text-align: center;
+    align-items: center;
     width: 100%;
+    position: sticky;
+    text-align: center;
+    top:0;
+    margin-top: 0;
+    z-index: 1;
 }
-
 header img {
     height: 70px;
     text-align: center;
 }
-
 main{
     flex-direction: column;
     justify-content: center;
-
 }
-
 #LogInP {
     display: none;
-
 }
-
 main video {
     position: absolute;
     top: 0;
@@ -37,6 +35,11 @@ main video {
     object-fit: cover;
     z-index: -1;
 }
+
+
+/* LOGIN - MOBILE */
+
+
 #mainLogin{
     display: flex;
     flex-direction: column;
@@ -44,7 +47,6 @@ main video {
     align-items:center;
     height: auto;
 }
-
 .sectionLogIn {
     background-color: #FFFFFF;
     border-radius: 20px;
@@ -58,8 +60,9 @@ main video {
     position: relative;
     display: flex;
 }
-
-
+#separator{
+    display: none;
+}
 .sectionLogIn input {
     background-color:#F0F0F0 ;
     color: black;
@@ -81,14 +84,16 @@ main video {
     text-align: center;
     font-size: 15px;
 }
-
 .sectionLogIn a{
     color: rgb(20, 20, 20);
     font-size: 14px;
     font-weight: bold;
     text-decoration: none;
 }
-
+#logginButton{
+    position: relative;
+    height: 50px;
+}
 .sectionLogIn button{
     background-color:#A6D48A ;
     font-weight: bold;
@@ -97,23 +102,21 @@ main video {
     margin: 10px;
     border-radius: 30px;
     width: 166px;
-    height: 35px;
+    top:15%;
 }
 .sectionLogIn button:hover {
     background-color:black ;
     cursor: pointer;
     transition: 0.5ms;
 }
-
 #sigInMobile {
     position: relative;
     display:flex;
     align-items: center;
     text-align: center;
     justify-content: center;
-    top:4em;
+    top:3em;
 }
-
 #sigInMobile p{
     color: white;
     font-weight: bold;
@@ -126,17 +129,27 @@ main video {
     font-weight: bold;
     font-size: 15px;
 }
-
 #sigInMobile a{
     display: flex;
     color: black;
     font-weight: bold;
 }
 
+
+/* REGISTER - MOBILE*/ 
+
+
+#mainRegister{
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items:center;
+    height: auto;
+}
 .registerView {
     background-color: #FFFFFF;
     border-radius: 20px;
-    margin-top: 4vh;
+    margin-top: 16vh;
     padding: 10px;
     display: flex;
     flex-direction: column;
@@ -148,11 +161,8 @@ main video {
 .registerView h2{
     color: #7989EC;
     display: flex;
-    position: absolute;
-    top: 8em;
-    /* margin-block-end: 1.5em; */
+    position: relative;
 }
-
 .registerView input {
     background-color:#F0F0F0 ;
     color: black;
@@ -164,7 +174,6 @@ main video {
     text-align: center;
     padding: 0.5em;
 }
-
 .registerView #bottonRegister{
     background-color:#A6D48A ;
     color: white;
@@ -175,7 +184,6 @@ main video {
     height: 35px;
     font-weight: bold;
 }
-
 .registerView #bottonRegister:hover{
     background-color:black ;
     cursor: pointer;
@@ -184,12 +192,10 @@ main video {
 #letter{
     display: none;
 }
-
 #sectionGoogle{
     display: block;
     position: relative;
 }
-
 #sectionGoogle p{
 font-family: 'Roboto', sans-serif;
 color: #FFFFFF ;
@@ -198,7 +204,6 @@ padding: 0 8px;
 position: relative;
 text-align: end;
 }
-
 #bottonGoogle{
     background: #4285F4;
     width: 15em;
@@ -208,7 +213,6 @@ text-align: end;
     border-color:#4285F4;
     border-width: 2px;
 }
-
 #imgGoogle{
     display: flex;
     position: absolute;
@@ -220,22 +224,12 @@ text-align: end;
     left:2.5px;  
 }
 
-#dataForRecipe {
-    display: block;
-    padding: 5px;
-}
-
-#iconsPosts{
-    display: inline-block;
-    margin-bottom: 2px;
-}
-
 .btnsEdit {
     background-image: url(./resources/pen-to-square-solid.svg);
     background-repeat: no-repeat;
     background-color: transparent;
-    width: 30px;
-    height: 30px;
+    width: 20px;
+    height: 20px;
     border: none;
 }
 
@@ -243,8 +237,8 @@ text-align: end;
     background-image: url(./resources/thumbs-up-solid.svg);
     background-repeat: no-repeat;
     background-color: transparent;
-    width: 30px;
-    height: 30px;
+    width: 20px;
+    height: 20px;
     border: none;
 }
 
@@ -252,22 +246,27 @@ text-align: end;
     background-image: url(./resources/trash-solid.svg);
     background-repeat: no-repeat;
     background-color: transparent;
-    width: 30px;
-    height: 30px;
+    width: 20px;
+    height: 20px;
     border: none;
 }
 
 #feed{
     margin: 0;
     padding: 0;
-    /*background: url('./resources/brunchWallpaper.jpg') 50% 50% no-repeat;*/
-    background: url('./resources/saladWallpaper.jpg') 50% 50% no-repeat;
-    /*background: url('./resources/background-feed.jpg') 50% 50% no-repeat;*/
-    background-size: 100%;
+    background: url('./resources/background-feed.jpg') 50% 50% no-repeat;
+    background-size: cover;
     background-attachment:fixed;
+    justify-items: center;
+    justify-content: center;
 }
-
-
+#mainFeed{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: auto;
+    align-items: stretch;
+}
 #feedMainProfile {
     background: #ffffff83;
     margin: 10px;
@@ -276,7 +275,7 @@ text-align: end;
     justify-content: center;
     display: grid;
     grid-gap: 5px;
-    grid-template-rows: auto;
+    grid-template-columns: 25% 75%;
 }
 
 section#publishPost {
@@ -287,7 +286,6 @@ section#publishPost {
     display: inline-block;
     text-align: center;
 }
-
 section#infoUser {
     display:inline-block;
     text-align: center;
@@ -295,12 +293,13 @@ section#infoUser {
     justify-content: center;
     position: relative;
     height: 10%;
+    margin-left: 7px;
 }
-
-section#infoUser img {
+#iconUserProfile {
     justify-content: center;
-    width: 150px;
-    height: 150px;
+    width: 90px;
+    height: 90px;
+    margin-top: 45px;
 }
 #feedMainProfile p {
     color: gray;
@@ -311,33 +310,24 @@ section#infoUser img {
     display: none;
     }
 
-section#infoUser p {
+#infoUser p {
     color: black;
+    font-weight: bolder;
 }
-#feedMainPost{
-    display: grid;
-    height: 62vh;
-    grid-template-columns: 95%;
-    width: 90%;
-    margin: 3em 0.8em 0 0.8em;
-    background: white;
-    border-radius: 15px;
-    justify-content: center;
-    }
 
-#feed #feedMainPost {
-    background: #ffffff92;
+
+/*#feed #feedMainPost {
     border-radius: 10px;
     padding: 5px;
     width: 92%;
     margin-right: 2em;
     height: 100%;
-}
+}*/
 
 #feed #feedMainPost h1{
     color: black;
+    justify-content: center;
 }
-
 form#publishRecipe {
     margin: 5px;
 }
@@ -348,78 +338,146 @@ form#publishRecipe {
     text-align: center;
 } */
 input#recipeName {
-    width: 60%;
-    height: 30px;
+    height: 20px;
     margin: 10px 0 10px 0;
     border-radius: 10px;
     border: 0;
     box-shadow: 0 13px 27px -5px rgba(50,50,93,0.25), 0 8px 16px -8px rgba(74, 167, 182, 0.3);
-    font-size: 20px;
+    font-size: 12px;
+    width: 66%;
 }
-
 textarea {
     width: 80%;
-    height: 70px;
-    margin: 10px 0 20px 0;
+    height: 50px;
+    margin: 0px 0 10px 0;
     border: 0;
     border-radius: 10px;
     box-shadow: 0 13px 27px -5px rgba(50,50,93,0.25), 0 8px 16px -8px rgba(74, 167, 182, 0.3);
-    font-size: 20px;
+    font-size: 12px;
 }
-
 #btnPublishRecipe {
-    width: 70%;
-    height: 50px;
+    width: 100%;
+    height: 20px;
     border-radius: 10px;
     background: rgb(0, 0, 0);
     color: #F0F0F0;
     font-weight: bold;
-    font-size: 18px;
+    font-size: 13px;
 }
-#publishTitle{
-    font-size: 21px;
-}
+    #publishTitle{
+        font-size: 15px;
+    }
 
+    #feedMainPost{
+        background: #ffffff92;
+        display: grid;
+        height: 62vh;
+        grid-template-columns: 95%;
+        border-radius: 15px;
+        justify-content: center;
+        align-items: center;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
 
-/* #feedMainProfile{
-justify-content: center;
-display: grid;
-grid-gap: 5px;
-grid-template-rows: auto;
-} */
+    #titlePostMain{
+        color: #7989EC;
+        font-weight: bold;
+        margin-top: 12px;
+        margin-bottom: 12px;
+        margin-left: 4px;
+        margin-right: 4px;
+        font-size: 15px;
+        justify-content: center;
+        text-align: center;
+    }
 
-#bottonMyProfile{
-border-radius: 20px;
-background-color: #7989EC; 
-color: black;
-grid-column: 2;
-grid-row: 1;
-margin-top: 45px;
-height: 2.5em;
-width: 10em;
-font-weight: bold;
-font-size: 16px;
-border-style: none;
-margin-left: -1em;
+    #dataForRecipe {
+        display: block;
+        padding: 5px;
+        font-size: 8px;
+    }
+
+    .postView{
+        background-color: white;
+        margin-bottom: 6px;
+        height: auto;
+        border-radius: 10px;
+        display: grid;
+        padding-bottom: 10px;
+        grid-template-columns: 30% 70%;
+    }
+
+    #postTitle{
+        font-style: italic;
+        font-size: 12px;
+        margin-top: 15px;
+    }
+
+    #postUsers{
+        display: grid;
+        grid-gap: 10px;
+    }
+    
+    #iconsPosts{
+        margin-bottom: 2px;
+        display: grid;
+        grid-template-columns: 50% 50%;
+        width: 150px;
+        top: 10px;
+        bottom: 5px;
+        position: relative;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .postIcon{
+        width: 20px;
+        height: 20px;
+        margin: 3px;
+
+    }
+
+    #likeCounter {
+        display: inline-flex; 
+        width: 60px;
+        position: relative;
+        background-color: black;
+        border-radius: 10px;
+        text-align: center;
+        justify-content: space-around;
+        height: 20px;
+    }
+    #counter{
+        color: white;
+        margin: 3px; 
+        font-size: 15px;
+    }
+    #iconsInteractive {
+        display: inline-flex;
+        position: relative;
+        width: 100px;
+        justify-content: space-around;
+        left: 40%;
+    }
+
+#btnLogOut {
+    z-index: +2;
+    height: 40px;
+    background-color: transparent;
+    background-image: url(./resources/cerrar-sesion.svg);
+    background-size: 20px;
+    background-repeat: no-repeat;
+    border: none;
+    position: absolute;
+    color:transparent;
+    align-items: center;
+    top: 25px;
+    float: right;
+    margin: 0;
+    right: 4%;
+    width: 22px;
+
 }
-#bottonPostRecipe{
-border-style: none;
-border-radius: 20px;
-background-color: #7989EC; 
-opacity: 0.8;
-color: black;
-grid-column: 2;
-grid-row: 2;
-height: 2.5em;
-width: 10em;
-font-weight: bold;
-font-size: 16px;
-margin-left: -1em;
-}
-/* #feedMainProfile p {
-color: gray;
-text-align: center;
-} */
 
 #icon{
     width: 80px;
@@ -440,11 +498,7 @@ border-radius: 15px;
 justify-content: center;
 } */
 
-#titlePostMain{
-color: #7989EC;
-font-weight: bold;
-margin-top: 10px;
-}
+
 #seePost{
 margin-top: 3em;
 text-align: center;
@@ -470,10 +524,16 @@ footer {
 @media screen and (min-width: 767px) and (max-width:1023px){
     header {
         height: 130px;
+        text-align: center;
     }
     header img {
         height: 140px;
     }
+
+
+    /* LOGIN - TABLET */
+
+
     #mainLogin{
         display: flex;
         flex-direction: column;
@@ -488,8 +548,7 @@ footer {
         justify-content: center;
         align-items: center;
         width: 350px;
-        height: 380px;
-        
+        height: 380px;        
     }
     #sigInMobile a{
         font-size: 18px;
@@ -506,13 +565,11 @@ footer {
         top: 15px;
         margin-top: 10px;
     }
-
     .sectionLogIn input {
         margin: 12px;
         width: 300px;
         position: relative;
     }
-
     .sectionLogIn input::placeholder{
         color: rgba(38, 38, 38, 0.295);
         padding: 15px;
@@ -531,7 +588,9 @@ footer {
         height: 55px;
         font-size: 21px;
     }
-
+    #logginButton{
+        top:0;
+    }
     #sigInMobile{
         display:flex;
         position: relative;
@@ -547,14 +606,12 @@ footer {
     #sigInMobile p{
         display: none;
     }
-
     .lineRight {
         background-color: black;
         width: 7em;
         margin-right: 15px;
         display: inline-block;
     }
-    
    #letter{
     display: inline-block;
 }
@@ -575,54 +632,35 @@ footer {
         height: 5px;
         display: block;
     }
+    #sectionGoogle{
+        top:15px;
+        margin-top: 10px;
+    }
+
+
+     /* REGISTER - TABLET */
+
+
     #registerView input {
         display: block;
         width: 260px;
+        font-size: 21px;
     }
     #registerView h2{
-        display: block;
-        position: absolute;
-        top: 12.5em;
+        bottom: 15px;
     }
     .registerView {
         width: 300px;
-        height: 340px;
+        height: 390px;
     }
 
-    .lineRightRegister {
-        background-color: black;
-        width: 8em;
-        position: absolute;
-        bottom: 23.5em;
-        margin: 0 10em 0 0;
-    }
-    /* #letter{
-        display: block;
-        font-size: 20px;
-    } */
 
-    .lineLeftRegister {
-        background-color: black;
-        width: 8em;
-        position: absolute;
-        bottom: 23.5em;
-        right: 1em;
-        margin: 0 13.5em 0 0;
-    }
-    /* #sectionGoogle{
-        display: block;
-    } */
-    #sectionGoogle{
-        display: block;
-        position: absolute;
-        /* bottom: 40em; */
-        bottom: 20em;
-    }
+     /* REGISTER - TABLET */
+    
 
     #feed{
         margin: 0;
         padding: 0;
-        background: url('./resources/saladWallpaper.jpg') 50% 50% no-repeat;
         background-size: cover;
         background-attachment:fixed;
         display: grid;
@@ -633,25 +671,22 @@ footer {
     }
 
     #feedMainProfile{
-        /*justify-content: center;
-        grid-template-columns: 0;
-        grid-gap: 0;    
-        grid-template-rows: 0;
-        display: flex;
-        position: relative;
-        width: 100%;
-        height: 35%;
-        margin: 3em 0.8em 1em 0.8em;
-        background-color: white;
-        border-radius: 1em;*/
-        width: 200px;
-        height: 60vh;
-        background-color: white;
+        height: 75vh;
         border-radius: 15px;
         position: sticky;
-        top: 11em;
+        top: 9em;
+        background: #ffffff83;
+        margin: 10px;
+        margin-left: 1.5em;
+        padding: 5px;
+        justify-content: center;
+        display: grid;
+        grid-gap: 5px;
+        grid-template-columns: none;
     }
-
+    #publishTitle{
+        font-size: 21px;
+    }
     section#publishPost {
         align-items: center;
         justify-content: center;
@@ -698,26 +733,62 @@ footer {
             grid-gap: 25px;
         }
         
-        #icon{
-            width: 120px;
-            height: 120px;
+        #iconUserProfile{
+            width: 150px;
+            height: 150px;
+        }
+        #btnPublishRecipe {
+            width: 70%;
+            height: 50px;
+            border-radius: 10px;
+            background: rgb(0, 0, 0);
+            color: #F0F0F0;
+            font-weight: bold;
+            font-size: 18px;
         }
         #feedMainPost{
             display: grid;
-            height: 70%;
+            height: auto;
             grid-template-columns: 85%;
             text-align:left;
             width: 90%;
-            margin: 3em 0.5em 1em 1.5em;
-            background: white;
+            margin: 1em 0.5em 1em 1.5em;
+            background: rgba(255, 255, 255, 0.468);
             border-radius: 15px;
             justify-content: center;
+            margin-bottom: 50px;
             }
+
+            #dataForRecipe {
+                display: block;
+                padding: 5px;
+                font-size: 15px;
+            }
+
 
             #imageRecipe{
                 text-align: center;
             }
-
+            input#recipeName {
+                height: 30px;
+                margin: 10px 0 10px 0;
+                border-radius: 10px;
+                border: 0;
+                box-shadow: 0 13px 27px -5px rgba(50,50,93,0.25), 0 8px 16px -8px rgba(74, 167, 182, 0.3);
+                font-size: 15px;
+                text-align: center;
+            }
+        
+            textarea {
+                width: 80%;
+                height: 70px;
+                margin: 10px 0 20px 0;
+                border: 0;
+                border-radius: 10px;
+                box-shadow: 0 13px 27px -5px rgba(50,50,93,0.25), 0 8px 16px -8px rgba(74, 167, 182, 0.3);
+                font-size: 15px;
+                text-align: center;
+            }
             #feedMainPost textarea{
                 width: 30em;
                 height: 10em;
@@ -725,15 +796,19 @@ footer {
             #titlePostMain{
                 font-size: 25px;
                 text-align: center;
-                margin: 3px;
+                margin-right: 3px;
+                margin-left: 3px;
+                margin-top: 15px;
+                margin-bottom: 15px;
             }
 
             .postView{
                 background-color: white;
                 margin-bottom: 6px;
-                height: 150px;
+                height: auto;
                 border-radius: 10px;
                 display: grid;
+                padding-bottom: 15px;
                 grid-template-columns: 30% 70%;
             }
 
@@ -747,43 +822,42 @@ footer {
                 display: grid;
                 grid-template-columns: 50% 50%;
                 width: 200px;
-                top: 10px;/*ibeht */
-                bottom: 5px;/*ibeht */
+                bottom: 5px;
                 position: relative;
-                align-items: center;/*ibeht */
+                align-items: center;
                 justify-content: space-between;
+                margin-bottom: 2px;
             }
 
             .postIcon{
-                width: 20px;/*ibeht */
-                height: 20px;/*ibeht */
-                margin: 3px;/*ibeht */
+                width: 20px;
+                height: 20px;
+                margin: 3px;
             }
 
             #likeCounter {
-                display: inline-flex; /*ibeht */
+                display: inline-flex; 
                 width: 60px;
                 position: relative;
                 background-color: black;
                 border-radius: 10px;
                 text-align: center;
-                justify-content: space-around;/*ibeht */
-                height: 30px;/*ibeht */
+                justify-content: space-around;
+                height: 30px;
             }
 
             #counter{
                 color: white;
-                margin: 3px; /*ibeht */
-                font-size: 18px;/*ibeht */
+                margin: 3px; 
+                font-size: 18px;
             }
             
             #iconsInteractive {
-                display: inline-flex;/*ibeht */
+                display: inline-flex;
                 position: relative;
-                justify-content: center;/*ibeht */
-                width: 150px;/*ibeht */
-                justify-content: space-around;/*ibeht */
-                left: 20%;/*ibeht */
+                width: 100px;
+                justify-content: space-around;
+                left: 40%;
             }
             
             #btnLogOut {
@@ -791,11 +865,13 @@ footer {
                 width: 150px;
                 height: 40px;
                 margin-left: 600px;
-                margin-top: -80px;
                 position: absolute;
                 background-color: transparent;
                 border: none;
                 font-size: 20px;
+                color: black;
+                background-image: none;
+                margin-top: 25px;
             }
     
     footer {
@@ -846,7 +922,6 @@ footer {
         flex-direction: column;
         justify-content:right;
         align-items:flex-end;
-        margin-right: 50px;
         height: auto;
     }
     #mainFeed{
@@ -862,8 +937,11 @@ footer {
         background-color: #F37724;
         height: 120px;
         margin: auto;
+        position: sticky;
         text-align: center;
-        position: static; /*ibeht*/
+        top:0;
+        margin-top: 0;
+        z-index: 1;
     }
     
     header img {
@@ -910,11 +988,14 @@ footer {
         font-weight: bold;
         top:0;
     }
+    #logginButton{
+        top:0;
+    }
 
     #sigInMobile{
         justify-content: center;
         position: relative;
-        top: 2em;
+        top: 1em;
     }
     #linkRegister{
         color:#F37724;
@@ -946,6 +1027,7 @@ footer {
         position: static;
         height: 5px;
         display: block;
+        margin: 12px;
     }
 
     .lineRight {
@@ -973,13 +1055,12 @@ footer {
     .registerView {
         width: 400px;
         height: 460px;
+        margin-right: 8em;
+        margin-top: 6vh;
     }
     #registerView h2{
-        display: flex;
-        color: #7989EC;
         font-size: 28px;
         margin-bottom: 5px;
-        position: static;
     }
 
     .registerView input{
@@ -1028,10 +1109,8 @@ footer {
     #sectionGoogle{
         display: block;
         position: relative;
-        bottom: 66px;
-        left: 115px;
+        top: 15px;
         margin-top: 10px;
-        margin-bottom: 20px;
     }
 
     /* ESTILOS FEED */
@@ -1043,17 +1122,34 @@ footer {
         width: 100%;
         grid-template-columns: 30% 70%;
     }
+    section#infoUser img {
+        justify-content: center;
+        width: 150px;
+        height: 150px;
+    }
 
     #feedMainProfile{
         width: 80%;
         height: 65vh;
-        margin: 2.5em 3em 3em 3em;
-        background-color: white;
+        margin: 1em 3em 3em 3em;
         border-radius: 1em;
         position: sticky;
-        top: 11em;
+        top:9em;
+        background: #ffffff83;
+        padding: 5px;
+        justify-content: center;
+        display: grid;
+        grid-gap: 5px;
+        grid-template-columns: none;
     }
-
+    input#recipeName {
+        height: 30px;
+        margin: 10px 0 10px 0;
+        border-radius: 10px;
+        border: 0;
+        box-shadow: 0 13px 27px -5px rgba(50,50,93,0.25), 0 8px 16px -8px rgba(74, 167, 182, 0.3);
+        font-size: 20px;
+    }
     #bottonMyProfile{
         position: absolute;
         top: 8em;
@@ -1097,22 +1193,50 @@ footer {
 
         #feedMainPost{
             display: grid;
-            height: 70%;
+            height: auto;
             grid-template-columns: 90%;
             width: 90%;
-            margin: 3em 0.5em 0 1.5em;
-            background: white;
+            margin: 1em 0.5em 0 1.5em;
+            background: rgba(255, 255, 255, 0.388);
             border-radius: 15px;
             justify-content: center;
+            margin-bottom: 130px;
+            }
+
+            #dataForRecipe {
+                display: block;
+                padding: 5px;
+                font-size: 15px;
             }
 
             #imageRecipe{
                 text-align: center;
             }
-
+            #publishTitle{
+                font-size: 21px;
+            }
+            textarea {
+                width: 80%;
+                height: 70px;
+                margin: 10px 0 20px 0;
+                border: 0;
+                border-radius: 10px;
+                box-shadow: 0 13px 27px -5px rgba(50,50,93,0.25), 0 8px 16px -8px rgba(74, 167, 182, 0.3);
+                font-size: 20px;
+            }
             #feedMainPost textarea{
                 width: 30em;
                 height: 10em;
+            }
+            
+            #btnPublishRecipe {
+                width: 70%;
+                height: 50px;
+                border-radius: 10px;
+                background: rgb(0, 0, 0);
+                color: #F0F0F0;
+                font-weight: bold;
+                font-size: 18px;
             }
             #titlePostMain{
                 font-size: 30px;
@@ -1121,7 +1245,8 @@ footer {
             }
             .postView{
                 background-color: white;
-                height: 150px;
+                height: auto;
+                padding-bottom: 15px;
                 border-radius: 10px;
                 display: grid;
                 grid-template-columns: 20% 80%;
@@ -1140,6 +1265,34 @@ footer {
                 bottom: 5px;
                 position: relative;
                 align-items: center;
+                margin-bottom: 2px;
+            }
+
+            .btnsEdit {
+                background-image: url(./resources/pen-to-square-solid.svg);
+                background-repeat: no-repeat;
+                background-color: transparent;
+                width: 30px;
+                height: 30px;
+                border: none;
+            }
+            
+            .btnsLike {
+                background-image: url(./resources/thumbs-up-solid.svg);
+                background-repeat: no-repeat;
+                background-color: transparent;
+                width: 30px;
+                height: 30px;
+                border: none;
+            }
+            
+            .btnsDelete {
+                background-image: url(./resources/trash-solid.svg);
+                background-repeat: no-repeat;
+                background-color: transparent;
+                width: 30px;
+                height: 30px;
+                border: none;
             }
 
             .postIcon{
@@ -1150,6 +1303,7 @@ footer {
 
             #likeCounter {
                 display: inline-flex; 
+                width: 80px;
                 position: relative;
                 background-color: black;
                 border-radius: 10px;
@@ -1177,11 +1331,13 @@ footer {
                 width: 330px;
                 height: 40px;
                 margin-left: 980px;
-                margin-top: 40px;
+                margin-top: 20px;
                 position: absolute;
                 background-color: transparent;
+                background-image: none;
                 border: none;
                 font-size: 28px;
+                color: black;
             }
 
     footer {
@@ -1218,48 +1374,3 @@ footer {
         font-family: 'Montserrat', sans-serif;
     }
 }
-
-
-
-
-
-
-
-
-
-            
-
-    footer {
-        background-color:#D9D9D9;
-        display: flex;
-        width: 100%;
-        height: 80px;
-        text-align: center;
-        align-items: center;
-        justify-content: center;
-        position: fixed;
-        bottom: 0;
-    }
-    footer .creators{
-        display: flex;
-        position: absolute;
-        bottom: 20px;
-        font-size: 12px;
-        margin-top: 8px;
-        }
-    .fa-js {
-        font-size: 12px;
-    }
-
-    .copyRightsContainer{
-        display: flex;
-        justify-content: space-between;
-        padding: 5px;
-        font-family: 'Montserrat', sans-serif;
-    }
-
-    .copyRightsContainer i{
-        font-style: normal;
-        font-family: 'Montserrat', sans-serif;
-    }
-

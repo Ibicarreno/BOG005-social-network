@@ -5,8 +5,11 @@ export const login = () => {
   const loginContainer = document.createElement('div');
   const loginTemplate = `
   <div id="mainLogin">
+  <header>
+  <img src="./resources/logoLoveat.png" alt="Logo LovEat">
+  </header>
   <div id="backgroundVideo">    
-    <video src="../resources/pexels-vanessa-loring-5858145.mp4" autoplay muted loop></video>
+    <video src="./resources/pexels-vanessa-loring-5858145.mp4" autoplay loop muted></video>
   </div>
     <section id="sectionLogIn" class="sectionLogIn">
       <p id="LogInP">INICIAR SESIÓN</p>

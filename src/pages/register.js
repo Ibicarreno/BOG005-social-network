@@ -4,6 +4,9 @@ const register = () => {
   const registerContainer = document.createElement('div');
   const registerTemplate = `
   <div id="mainRegister">
+    <header>
+     <img src="./resources/logoLoveat.png" alt="Logo LovEat">
+    </header>
     <div id="backgroundVideo">    
     <video src="./resources/pexels-vanessa-loring-5858145.mp4" autoplay loop muted></video>
     </div>
