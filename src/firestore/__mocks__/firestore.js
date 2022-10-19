@@ -1,0 +1,13 @@
+export const getFirestore = () => {};
+export const collection = () => {};
+export const addDoc = () => {};
+export const getDocs = () => {};
+export const onSnapshot = () => {};
+export const deleteDoc = () => {};
+export const doc = () => {};
+export const getDoc = () => {};
+export const updateDoc = () => {};
+export const arrayUnion = () => {};
+export const arrayRemove = () => {};
+export const orderBy = () => {};
+export const query = () => {};
