@@ -13,15 +13,19 @@ const register = () => {
     <input type="text" class="input registerEmailUser" id="registerEmailUser" placeholder="Correo electrónico">
     <input type="password" class="input registerrPassWordUser" id="registerPassWordUser" placeholder="Contraseña">
     <button id="bottonRegister">REGÍSTRARSE</button>
-    <hr class="lineRightRegister">
-    <p id="letterRegister">o</p>
-    <hr class="lineLeftRegister">
-    </div>
+
+    <section id="separator">
+       <hr class="lineRight">
+       <p id="letter">o</p>
+       <hr class="lineLeft">
+    </section>
+
     <div id="sectionGoogle">
     <button id="bottonGoogle">
     <img id="imgGoogle" src="./resources/google.png" alt="Google">
     <p>Entrar con Google</p>
     </button>
+    </div>
     </div>
   </div> 
   `;

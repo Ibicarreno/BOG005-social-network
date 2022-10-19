@@ -8,9 +8,6 @@ export const feed = () => {
   const feedContainer = document.createElement('div');
   const feedTemplate = `
   <div id="mainFeed">
-  <header>
-    <img src="./resources/logoLoveat.png" alt="Logo LovEat">
-  </header>
   <button id="btnLogOut">Cerrar sesión</button>
     <div class='feed' id="feed">
         <section id="feedMainProfile">
