@@ -9,5 +9,7 @@ export let onNavigate = (pathname, paramRoutes = routes) => {
 
 window.addEventListener('load', () => {
   onNavigate(window.location.pathname);
+  console.log(window.location.pathname);
 });
+
 

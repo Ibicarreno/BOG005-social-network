@@ -3,7 +3,7 @@ import { validateUserAndPass } from '../auth/authentication.js';
 export const login = () => {
   const loginContainer = document.createElement('div');
   const loginTemplate = `
-  <div id="backgroundVideo">    
+  <div id="backgroundVideo">   
     <video src="./resources/pexels-vanessa-loring-5858145.mp4" autoplay loop muted></video>
   </div>
     <section id="sectionLogIn" class="sectionLogIn">

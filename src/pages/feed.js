@@ -1,3 +1,7 @@
+import {
+  onSnapshot
+} from 'https://www.gstatic.com/firebasejs/9.9.4/firebase-auth.js';
+
 export const feed = () => {
     const containerFeed = document.createElement('div');
     const templateFeed = `
@@ -16,6 +20,11 @@ export const feed = () => {
   
           `;
     containerFeed.innerHTML = templateFeed;
+
+    window.addEventListener("DOMContentLoaded", () => {
+      
+
+    })
     containerFeed.querySelector('#feedForm').addEventListener('submit', (e) => {
       e.preventDefault();
   
@@ -23,18 +32,7 @@ export const feed = () => {
       const postDescription = containerFeed.querySelector('#postDescription').value;
       console.log(title, postDescription);
     });
-    // });
-    // const feedForm = document.getElementById('feedForm');
-    // if (feedForm) {
-    //   feedForm.addEventListener('submit', (e) => {
-    //     e.preventDefault();
-  
-    //     const title = feedForm.postTitle.value;
-  
-    //     const postDescription = feedForm.postDescription.value;
-    //     console.log(title, postDescription);
-    //   });
-    // }
+
   
     return containerFeed;
   };

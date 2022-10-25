@@ -4,6 +4,7 @@ import {
   signInWithEmailAndPassword, 
   GoogleAuthProvider,
   signInWithPopup, 
+  updateProfile
 // eslint-disable-next-line import/no-unresolved
 } from 'https://www.gstatic.com/firebasejs/9.9.4/firebase-auth.js';
 //import { collection } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-firestore.js"
@@ -17,6 +18,8 @@ const auth = getAuth(app);
 
 auth.onAuthStateChanged((user) => {
   if (user){
+    console.log(auth.currentUser);
+
 
 
   } else {
@@ -27,21 +30,20 @@ auth.onAuthStateChanged((user) => {
 
 const root = document.getElementById('root');
 
-const createEmail = (email, password, name) => {
-  createUserWithEmailAndPassword(auth, email, password, name)
-    .then((result) => {
-      let user = result.user.displayName;
-      user = name;
-      console.log(`Tienes un usuario registrado, su nombre es ${user}`);
-      onNavigate('/feed');
-      window.location.pathname = '/feed';
+const createEmail = (email, password, nameUser) => {
+  createUserWithEmailAndPassword(auth, email, password, nameUser)
+    .then(() => {
+      updateProfile(auth.currentUser, {
+        displayName: nameUser,
+      }). then(() => {
+        let user = auth.currentUser.displayName;
+        user = nameUser;
+        window.location.pathname = '/feed';
+      })      
     })
     .catch((error) => {
-      let errorMessage = error.message;
-      alert(errorMessage);
-      console.log(errorMessage);
+      alert(error.message);
       onNavigate('/register');
-      //window.location.pathname = '/register';
     });
 };
 
@@ -90,7 +92,7 @@ const loginWithGoogle = () => {
       console.log(email, credential);
 
     });
-    
+   
     let user = auth.currentUser;
     if (user !== null) {
       // The user object has basic properties such as display name, email, etc.
